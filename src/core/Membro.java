@@ -1,7 +1,12 @@
 package core;
 
-import atributo.*;
-import exception.*;
+import atributo.Agilidade;
+import atributo.Astucia;
+import atributo.Espirito;
+import atributo.Forca;
+import atributo.Vigor;
+import exception.NotAvailablePointsLeftException;
+import exception.RequirementNotMetException;
 
 public class Membro{
 
@@ -86,7 +91,7 @@ public class Membro{
 	public void subtractPontosDispAtrib(int pontos) throws NotAvailablePointsLeftException {
 		if(pontos <= pontosDispAtrib)
 			pontosDispAtrib -= pontos;
-		else throw new exception.NotAvailablePointsLeftException("O valor de 'pontos' é maior que a quantidade de pontos disponíveis");
+		else throw new NotAvailablePointsLeftException("O valor de 'pontos' é maior que a quantidade de pontos disponíveis");
 	}
 	
 	public byte getNivelAtributo(String nomeAtributo) throws IllegalArgumentException {
@@ -130,7 +135,7 @@ public class Membro{
 	public void subtractPontosDispPer(int pontos) throws NotAvailablePointsLeftException {
 		if(pontos <= pontosDispPeri)
 			pontosDispPeri -= pontos;
-		else throw new exception.NotAvailablePointsLeftException("O valor de 'pontos' é maior que a quantidade de pontos disponíveis");
+		else throw new NotAvailablePointsLeftException("O valor de 'pontos' é maior que a quantidade de pontos disponíveis");
 	}
 	
 	public Pericia[] getPericias() {
@@ -203,7 +208,7 @@ req:		for(int j = 0; j < complicacoes.length; j++)
 	
 	public void subtractCreditoDasRuas(int credito) throws NotAvailablePointsLeftException {
 		if(credito <= creditoDasRuas) creditoDasRuas -= credito;
-		else throw new exception.NotAvailablePointsLeftException("Não há Crédito das Ruas suficiente disponível");
+		else throw new NotAvailablePointsLeftException("Não há Crédito das Ruas suficiente disponível");
 	}
 	
 	public byte getCreditoDasRuas() {
