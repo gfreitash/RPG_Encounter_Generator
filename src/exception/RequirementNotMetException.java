@@ -1,5 +1,7 @@
 package exception;
 
+import core.Requisito;
+
 public class RequirementNotMetException extends IllegalArgumentException {
 	/**
 	 * 
@@ -12,5 +14,9 @@ public class RequirementNotMetException extends IllegalArgumentException {
 	
 	public RequirementNotMetException(String s) {
 		super(s);
+	}
+	
+	public RequirementNotMetException(Requisito req) {
+		super(req.toString());
 	}
 }

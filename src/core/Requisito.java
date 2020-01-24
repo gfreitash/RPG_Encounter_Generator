@@ -9,6 +9,9 @@ public final class Requisito {
 	private Raca[] raca;
 	private Veiculo[] veiculo;
 	private Progresso progresso;
+	private String requisitos = "";
+	
+	public static final int OBRIGATORIO = 0, OPCIONAL = 1, OPCIONAL_EXCLUDENTE = -1;
 	
 	public Requisito() {
 		
@@ -44,6 +47,39 @@ public final class Requisito {
 	
 	public Requisito(Progresso progresso) {
 		this.progresso = progresso;
+	}
+	
+	public String toString() {
+		int i = 0;
+		if(atributo != null) {
+			requisitos = requisitos.concat("Atributo.\n\n");
+			for(i = 0; i < atributo.length; i++)
+				requisitos = requisitos.concat(atributo[i].getNome())
+				.concat("(D").concat(Integer.toString(atributo[i].getNivelAtributo()))
+				.concat(")\n");
+		}
+		
+		if(pericia != null) {
+			requisitos = requisitos.concat("Perícia.\n\n");
+			for(i = 0; i < pericia.length; i++)
+				requisitos = requisitos.concat(pericia[i].getNome())
+				.concat("(D").concat(Integer.toString(pericia[i].getNivelPericia()))
+				.concat(")\n");
+		}
+		
+		if(complicacao != null) {
+			requisitos = requisitos.concat("Complicação.\n\n");
+			for(i = 0; i < complicacao.length; i++)
+				requisitos = requisitos.concat(complicacao[i].getNome()).concat("\n");
+		}
+		
+		if(vantagem != null) {
+			requisitos = requisitos.concat("Vantagem.\n\n");
+			for(i = 0; i < vantagem.length; i++)
+				requisitos = requisitos.concat(vantagem[i].getNome()).concat("\n");
+		}
+		
+		return requisitos;	
 	}
 	
 	public Vantagem[] getVantagem() {	

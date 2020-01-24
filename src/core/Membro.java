@@ -11,8 +11,8 @@ public class Membro{
 	private Forca forca;
 	private Vigor vigor;
 	private byte pontosDispAtrib = 5, pontosDispPeri = 15;
-	private Pericia pericias[] = new Pericia[25];
-	private Vantagem vantagens[] = new Vantagem[25];
+	private Pericia pericias[];
+	private Vantagem vantagens[];
 	private Complicacao complicacoes[] = new Complicacao[15];
 	private byte creditoDasRuas;
 	private byte carisma, movimentacao, resistencia, aparar, tensao, tier, raca, faccao;
@@ -20,17 +20,20 @@ public class Membro{
 	private Progresso progresso;
 	private int credito, custoDeVida;
 	
-	public Membro(Agilidade agilidade, Astucia astucia, Espirito espirito, Forca forca, Vigor vigor) {
-		this.agilidade = agilidade;
-		this.astucia = astucia;
-		this.espirito = espirito;
-		this.forca = forca;
-		this.vigor = vigor;
+	public Membro(Atributo[] atribs, Pericia[] pericias, Complicacao[] complicacoes, 
+			Vantagem[] vantagens) {
+		if(atribs.length > 5) throw new IllegalArgumentException("O vetor atribs não deve ter mais de 5 elementos");
+		defineAtributos(atribs);
 		
-		carisma = 0;
+		this.pericias = pericias;
+		this.complicacoes = complicacoes;
 		
-		
-
+		this.vantagens = new Vantagem[vantagens.length];
+		for(int i = 0; i < vantagens.length; i++) {
+			if(vantagens[i].checkRequisitos(this))
+				this.vantagens[i] = vantagens[i];
+			else throw new RequirementNotMetException();
+		}
 	}
 	
 	
@@ -39,6 +42,42 @@ public class Membro{
 	//ciberImplantes[];
 	//veiculos[];
 	//idiomas[];
+
+	private void defineAtributos(Atributo[] atribs) {
+		for(Atributo x: atribs) {
+			if(x.getNome().equals(agilidade.getNome()))
+				if(agilidade == null)
+					agilidade = (Agilidade) x;
+				else throw new IllegalArgumentException("O vetor atribs possui atributos repetidos");
+			
+			else if(x.getNome().equals(astucia.getNome()))
+				if(astucia == null)
+					astucia = (Astucia) x;
+				else throw new IllegalArgumentException("O vetor atribs possui atributos repetidos");
+			
+			else if(x.getNome().equals(espirito.getNome()))
+				if(espirito == null)
+					espirito = (Espirito) x;
+				else throw new IllegalArgumentException("O vetor atribs possui atributos repetidos");
+			
+			else if(x.getNome().equals(forca.getNome()))
+				if(forca == null)
+					forca = (Forca) x;
+				else throw new IllegalArgumentException("O vetor atribs possui atributos repetidos");
+			
+			else if(x.getNome().equals(vigor.getNome()))
+				if(vigor == null)
+					vigor = (Vigor) x;
+				else throw new IllegalArgumentException("O vetor atribs possui atributos repetidos");
+		}
+	}
+	
+	private void definePericias(Pericia[] pericias) {
+		if(pericias.length > this.pericias.length) throw new IllegalArgumentException("Pericias demais!");
+		for(Pericia x: pericias) {
+			
+		}
+	}
 	
 	public byte getPontosDispAtrib() {
 		return pontosDispAtrib;
