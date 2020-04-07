@@ -1,56 +1,56 @@
 package core;
 
+import exception.NotAvailablePointsLeftException;
+
 public class Progresso {
-	private byte experiencia;
-	private byte ultimaExp;
+	private int experienciaAtual;
+	private int ultimaExp;
+	private double porcentProgresso; //Percentage for the next progress
 	private String estagio;
-	private byte progresso;
+	private byte progressoTotal;
+	private byte progressoDisp;
+	
 	
 	public Progresso() {
-		experiencia = 0;
-		ultimaExp = 0;
 		setEstagio();
-		setProgresso();
 	}
 	
 	public Progresso(int experiencia) throws IllegalArgumentException {
-		if(experiencia > 0 && experiencia < 250)
-			ultimaExp = (byte) experiencia;
-		else throw new IllegalArgumentException("Valor  de 'experiencia' é inválido");
-		this.experiencia = ultimaExp;
-		
+		if(experiencia >= 0)
+			experienciaAtual +=  experiencia;
+		else throw new IllegalArgumentException("Valor de \"experiencia\" não pode ser negativo!");
 		setEstagio();
-		setProgresso(experiencia);
+		setProgresso();
 	}
 	
-	public void addExperiencia(int experiencia) throws IllegalArgumentException {
-		if(experiencia > 0 && experiencia < 250) {
-			ultimaExp = this.experiencia;
-			this.experiencia = ultimaExp;
-		} else throw new IllegalArgumentException("Valor  de 'experiencia' é inválido");
+	public void addExperiencia(int experiencia) {
+		if(experiencia >= 0) {
+			ultimaExp = experienciaAtual;
+			experienciaAtual +=  experiencia;
+		} else throw new IllegalArgumentException("Valor de \"experiencia\" não pode ser negativo!");
 		
 		setEstagio();
 		setProgresso();
 	}
 	
-	public byte getExperiencia() {
-		return experiencia;
+	public int getExperiencia() {
+		return experienciaAtual;
 	}
 	
 	private final void setEstagio() {
-		if(experiencia >= 0 && experiencia < 20)
+		if(experienciaAtual >= 0 && experienciaAtual < 20)
 			estagio = "Novato";
 		
-		else if (experiencia >= 20 && experiencia < 40)
+		else if (experienciaAtual >= 20 && experienciaAtual < 40)
 			estagio = "Experiente";
 		
-		else if (experiencia >= 20 && experiencia < 60)
+		else if (experienciaAtual >= 20 && experienciaAtual < 60)
 			estagio = "Veterano";
 		
-		else if (experiencia >= 60 && experiencia < 80)
+		else if (experienciaAtual >= 60 && experienciaAtual < 80)
 			estagio = "Heróico";
 		
-		else if (experiencia >= 80)
+		else if (experienciaAtual >= 80)
 			estagio = "Lendário";
 	}
 	
@@ -58,23 +58,30 @@ public class Progresso {
 		return estagio;
 	}
 	
-	private final void setProgresso() {
-		byte exp = (byte) (experiencia - ultimaExp);
-		progresso += exp / 5;
+	private void setProgresso()	 {
+		double progNovaExp = (experienciaAtual - ultimaExp) / 5;
+		porcentProgresso += progNovaExp;
+		progressoDisp += (byte) porcentProgresso;
+		progressoTotal = (byte) (experienciaAtual / 5);
 	}
 	
-	private final void setProgresso(int exp) {
-		progresso += exp / 5;
+	public int useProgress(int pontos) {
+		if(pontos >= 0)
+			if(pontos <= progressoDisp)
+				progressoDisp -= pontos;
+			else throw new NotAvailablePointsLeftException("Não há progresso suficiente para usar");
+		else throw new IllegalArgumentException("O valor de \"pontos\" não pode ser negativo!");
+		
+		return progressoDisp;
 	}
 	
-	public void subtractProgresso(int val) {
-		if(val < 0) throw new IllegalArgumentException("'val' deve ser positivo");
-		else if (progresso - val < 0) throw new exception.NotAvailablePointsLeftException("Não há pontos de progresso suficientes disponíveis");
-		else progresso -= (byte) val;
+	
+	public int getProgressoTotal() {
+		return progressoTotal;
 	}
 	
-	public byte getPontosProgresso() {
-		return progresso;
+	public int getProgressoDisp() {
+		return progressoDisp;
 	}
 	
 	
