@@ -9,8 +9,13 @@ public class Curioso extends Complicacao {
 			"facilmente arrastados para qualquer aventura. Eles " + 
 			"têm de verificar tudo e sempre querem saber o que " + 
 			"há por trás de um mistério em potencial.";
+	public static final String tipoPossivel[] = {"Maior"};
+	
+	public Curioso() {
+		super();
+	}
 	
 	public Curioso(String tipo) {
-		super(tipo, "Maior");
+		super(tipo);
 	}
 }

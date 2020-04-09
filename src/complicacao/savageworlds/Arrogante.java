@@ -20,8 +20,12 @@ public class Arrogante extends Complicacao {
 			"Heróis arrogantes sempre procuram pelo " + 
 			"“chefe” em batalha, atacando lacaios menores " + 
 			"apenas se ficarem em seu caminho.";
+	public static final String tipoPossivel[] = {"Maior"};
 	
+	public Arrogante() {
+		super();
+	}
 	public Arrogante(String tipo) {
-		super(tipo, "Maior");
+		super(tipo);
 	}
 }

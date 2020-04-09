@@ -15,12 +15,12 @@ public class Voto extends Complicacao {
 			"que seja o Voto, ele só será uma Complicação se " + 
 			"realmente aparecer em jogo de tempos em tempos " + 
 			"e causar ao personagem algum desconforto.";
+	public static final String tipoPossivel[] = {"Menor", "Maior"};
 	
 	public Voto() {
-		super(new StringBuffer("Menor"), new StringBuffer("Maior"));
 	}
 	
 	public Voto(String tipo) {
-		super(tipo, "Menor", "Maior");
+		super(tipo);
 	}
 }

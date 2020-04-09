@@ -11,7 +11,13 @@ public class CodigoHonra extends Complicacao {
 			"modificar essa Complicação para melhor se encaixar nos " + 
 			"diferentes códigos de honra que alguém pode encontrar " + 
 			"dentro do mundo de Interface Zero 2.0.";
+	public static final String tipoPossivel[] = {"Maior"};
+	
+	public CodigoHonra() {
+		
+	}
+	
 	public CodigoHonra(String tipo) {
-		super(tipo, "Maior");
+		super(tipo);
 	}
 }

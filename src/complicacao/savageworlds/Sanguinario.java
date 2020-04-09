@@ -10,8 +10,13 @@ public class Sanguinario extends Complicacao {
 			"militar, a menos que seus superiores tolerem esse " + 
 			"tipo de coisa. Seu herói sofre -4 no seu Carisma " + 
 			"somente se seus hábitos cruéis forem conhecidos";
+	public static final String tipoPossivel[] = {"Maior"};
+	
+	public Sanguinario() {
+		
+	}
 	
 	public Sanguinario(String tipo) {
-		super(tipo, "Maior");
+		super(tipo);
 	}
 }

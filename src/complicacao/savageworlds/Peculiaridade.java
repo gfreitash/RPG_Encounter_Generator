@@ -12,8 +12,13 @@ public class Peculiaridade extends Complicacao {
 			"se vangloriar constantemente a respeito da sua " + 
 			"cultura ou uma debutante esnobe pode não comer, " + 
 			"beber ou socializar com as classes mais baixas.";
+	public static final String tipoPossivel[] = {"Menor"};
+	
+	public Peculiaridade() {
+		
+	}
 	
 	public Peculiaridade(String tipo) {
-		super(tipo, "Menor");
+		super(tipo);
 	}
 }

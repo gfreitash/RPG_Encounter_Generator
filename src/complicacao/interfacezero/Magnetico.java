@@ -15,8 +15,14 @@ public class Magnetico extends Complicacao {
 			"dúzia de repórteres! Exemplos de fãs incluem pretensos " + 
 			"criminosos esperando ficarem bem quistos, jornalistas ou " + 
 			"produtores de reality shows.";
+	public static final String tipoPossivel[] = {"Menor", "Maior"};
 	
+	public Magnetico() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public Magnetico(String tipo) {
-		super(tipo, "Menor", "Maior"); 
+		super(tipo); 
 	}
 }

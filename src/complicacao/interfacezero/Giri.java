@@ -27,8 +27,14 @@ public class Giri extends Complicacao {
 			+ "deve ser paga com Crédito nas Ruas adicionais. Se por alguma razão, "
 			+ "o personagem não puder pagar as penalidades, ele pode acabar com as "
 			+ "complicações Inimigo ou mesmo Procurado.";
+	public static final String tipoPossivel[] = {"Menor", "Maior"};
 	
+	public Giri() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public Giri(String tipo) {
-		super(tipo, "Menor", "Maior");
+		super(tipo);
 	}
 }

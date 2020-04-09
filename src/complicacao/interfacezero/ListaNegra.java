@@ -13,8 +13,14 @@ public class ListaNegra extends Complicacao {
 			+ "uma indústria inteira. Apenas imagine o quão difícil seria "
 			+ "trabalhar em bancos se o seu nome é associado com um dos piores "
 			+ "escândalos bancários na história.";
+	public static final String tipoPossivel[] = {"Menor", "Maior"};
 	
+	public ListaNegra() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public ListaNegra(String tipo) {
-		super(tipo, "Menor", "Maior");
+		super(tipo);
 	}
 }

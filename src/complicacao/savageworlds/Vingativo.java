@@ -14,8 +14,13 @@ public class Vingativo extends Complicacao {
 			"enxergam como justiça. " + 
 			"Se essa for uma Complicação Maior, seu " + 
 			"personagem matará para retificar a sua injustiça.";
+	public static final String tipoPossivel[] = {"Menor", "Maior"};
+	
+	public Vingativo() {
+		
+	}
 	
 	public Vingativo(String tipo) {
-		super(tipo, "Menor", "Maior");
+		super(tipo);
 	}
 }

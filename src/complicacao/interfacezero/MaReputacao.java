@@ -17,8 +17,14 @@ public class MaReputacao extends Complicacao {
 			+ "A polícia provavelmente irá aparecer na sua porta se algo "
 			+ "acontece na sua área, mesmo que você não tenha nada a ver com isso, "
 			+ "e você já viu o interior de várias salas de interrogatório";
+	public static final String tipoPossivel[] = {"Menor", "Maior"};
 	
+	public MaReputacao() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public MaReputacao(String tipo) {
-		super(tipo, "Menor", "Maior");
+		super(tipo);
 	}
 }

@@ -11,8 +11,14 @@ public class Pobreza extends Complicacao {
 			"adquiridos do início do jogo. No geral, o jogador " + 
 			"reduz a metade os seus recursos totais a cada " + 
 			"semana de jogo.";
+	public static final String tipoPossivel[] = {"Menor", "Maior"};
 	
+	public Pobreza() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public Pobreza(String tipo) {
-		super(tipo, "Maior");
+		super(tipo);
 	}
 }

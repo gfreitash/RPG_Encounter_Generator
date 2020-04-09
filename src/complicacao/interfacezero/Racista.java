@@ -10,8 +10,14 @@ public class Racista extends Complicacao {
 			"Um personagem assumindo a versão Menor tem" + 
 			"Carisma -2 entre outras raças. A penalidade aumenta para " + 
 			"-4 na Complicação Maior.";
+	public static final String tipoPossivel[] = {"Menor", "Maior"};
 	
+	public Racista() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public Racista(String tipo) {
-		super(tipo, "Menor", "Maior");
+		super(tipo);
 	}
 }

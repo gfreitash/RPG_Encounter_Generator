@@ -15,8 +15,14 @@ public class NanoInfeccao extends Complicacao {
 			"personagem ficar totalmente ferrado por algum nano-vírus), " + 
 			"embora os benefícios ganhos por assumir a Complicação " + 
 			"ainda sejam limitados a um Maior e dois Menores";
+	public static final String tipoPossivel[] = {"Menor", "Maior"};
 	
+	public NanoInfeccao() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public NanoInfeccao(String tipo) {
-		super(tipo, "Menor", "Maior");
+		super(tipo);
 	}
 }

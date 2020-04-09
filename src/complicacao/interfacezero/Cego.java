@@ -22,7 +22,13 @@ public class Cego extends Complicacao {
 			"Complicações na criação de personagem não podem anular " + 
 			"os seus efeitos com Aprimoramentos durante a criação de " + 
 			"personagem.";
+	public static final String tipoPossivel[] = {"Maior"};
+	
+	public Cego() {
+		
+	}
+	
 	public Cego(String tipo) {
-		super(tipo, "Maior");
+		super(tipo);
 	}
 }

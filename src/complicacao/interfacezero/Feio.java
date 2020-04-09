@@ -18,8 +18,14 @@ public class Feio extends Complicacao {
 			"Complicações na criação de personagem não podem anular " + 
 			"os seus efeitos com Aprimoramentos durante a criação de " + 
 			"personagem.";
+	public static final String tipoPossivel[] = {"Menor"};
 	
+	public Feio() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public Feio(String tipo) {
-		super(tipo, "Menor");
+		super(tipo);
 	}
 }

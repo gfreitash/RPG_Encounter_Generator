@@ -8,8 +8,13 @@ public class MaSorte extends Complicacao {
 			"a maioria. Ele recebe um Bene a menos que o " + 
 			"normal por sessão de jogo. Um personagem não " + 
 			"pode ter Má Sorte e Sorte simultaneamente.";
+	public static final String tipoPossivel[] = {"Maior"};
+	
+	public MaSorte() {
+		
+	}
 	
 	public MaSorte(String tipo) {
-		super(tipo, "Maior");
+		super(tipo);
 	}
 }

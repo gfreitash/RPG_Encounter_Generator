@@ -13,8 +13,13 @@ public class Analfabeto extends Complicacao {
 			"A propósito, analfabetos não podem ler ou" + 
 			"escrever em nenhum idioma, não importa quantos " + 
 			"eles realmente falem.";
+	public static final String tipoPossivel[] = {"Maior"};
+	
+	public Analfabeto() {
+		
+	}
 	
 	public Analfabeto(String tipo) {
-		super(tipo, "Maior");
+		super(tipo);
 	}
 }

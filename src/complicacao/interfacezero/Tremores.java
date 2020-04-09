@@ -28,8 +28,14 @@ public class Tremores extends Complicacao {
 			+ "fontes naturais alternativas, mais baratas, porém invariavelmente "
 			+ "menos eficientes. O personagem ainda deve fazer seu teste de Vigor "
 			+ "em falhas em teste de Espírito, mas ele ganha um bônus de +1.";
+	public static final String tipoPossivel[] = {"Menor", "Maior"};
 	
+	public Tremores() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public Tremores(String tipo) {
-		super(tipo, "Menor");
+		super(tipo);
 	}
 }

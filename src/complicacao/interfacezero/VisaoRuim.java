@@ -28,8 +28,14 @@ public class VisaoRuim extends Complicacao {
 			"Complicações na criação de personagem não podem anular " + 
 			"os seus efeitos com Aprimoramentos durante a criação de " + 
 			"personagem.";
+	public static final String tipoPossivel[] = {"Menor", "Maior"};
 	
+	public VisaoRuim() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public VisaoRuim(String tipo) {
-		super(tipo, "Menor", "Maior");
+		super(tipo);
 	}
 }

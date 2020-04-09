@@ -22,8 +22,13 @@ public class DeficienteAuditivo extends Complicacao {
 			"Complicações na criação de personagem não podem anular " + 
 			"os seus efeitos com Aprimoramentos durante a criação de " + 
 			"personagem.";
+	public static final String tipoPossivel[] = {"Menor", "Maior"};
+	
+	public DeficienteAuditivo() {
+		super();
+	}
 	
 	public DeficienteAuditivo(String tipo) {		
-		super(tipo, "Menor", "Maior");
+		super(tipo);
 	}
 }

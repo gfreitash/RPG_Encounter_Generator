@@ -30,9 +30,15 @@ public class TalentoLatente extends Complicacao {
 			"qualquer poder manifestado por causa do Talento latente. " + 
 			"Se todos os três ainda não tiverem sido designados, você " + 
 			"pode escolher qualquer poder remanescente.";
+	public static final String tipoPossivel[] = {"Maior"};
 	
+	public TalentoLatente() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public TalentoLatente(String tipo) {
-		super(tipo, "Maior");
+		super(tipo);
 	}
 
 }

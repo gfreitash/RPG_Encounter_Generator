@@ -10,8 +10,13 @@ public class Ganancioso extends Complicacao {
 			"durante o jogo. Se for uma Complicação Maior, " + 
 			"luta por qualquer coisa que considerar desleal e " + 
 			"pode até mesmo matar pela sua “parte justa”.";
+	public static final String tipoPossivel[] = {"Menor", "Maior"};
+	
+	public Ganancioso() {
+		
+	}
 	
 	public Ganancioso(String tipo) {
-		super(tipo, "Menor", "Maior");
+		super(tipo);
 	}
 }

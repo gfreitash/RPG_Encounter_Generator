@@ -9,8 +9,13 @@ public class Covarde extends Complicacao {
 			"vísceras e tem medo de se machucar. Ele subtrai " + 
 			"2 de todos os seus testes de Espírito baseados em " + 
 			"medo.";
+	public static final String tipoPossivel[] = {"Maior"};
+	
+	public Covarde() {
+		super();
+	}
 	
 	public Covarde(String tipo) {
-		super(tipo, "Maior");
+		super(tipo);
 	}
 }

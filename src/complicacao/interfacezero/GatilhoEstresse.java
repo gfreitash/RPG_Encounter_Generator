@@ -21,8 +21,14 @@ public class GatilhoEstresse extends Complicacao {
 			+ "pode gastar um Bene para evitar o uso forçado do poder. Esta "
 			+ "Complicação pode ser assumida por um personagem com as Vantagens "
 			+ "Antecedente Arcano (Psiônicos) ou Talento Selvagem.";
+	public static final String tipoPossivel[] = {"Menor", "Maior"};
 	
-	public GatilhoEstresse(String tipo, core.Membro m) {
-		super(tipo, "Menor", "Maior");
+	public GatilhoEstresse() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public GatilhoEstresse(String tipo) {
+		super(tipo);
 	}
 }

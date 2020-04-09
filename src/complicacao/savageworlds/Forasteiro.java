@@ -18,8 +18,13 @@ public class Forasteiro extends Complicacao {
 			"Além dos efeitos de interpretação acima, o " + 
 			"Carisma do seu herói sofre um modificador de " + 
 			"-2 em relação a todos menos o seu próprio povo.";
+	public static final String tipoPossivel[] = {"Menor"};
+	
+	public Forasteiro() {
+		
+	}
 	
 	public Forasteiro(String tipo) {
-		super(tipo, "Menor");
+		super(tipo);
 	}
 }

@@ -17,8 +17,14 @@ public class Propriedade extends Complicacao {
 			"perigosa missão para os donos do seu contrato, você pode " + 
 			"pagar por esta Complicação gastando um Progresso uma " + 
 			"vez que atinja o Estágio Experiente.";
+	public static final String tipoPossivel[] = {"Maior"};
 	
+	public Propriedade() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public Propriedade(String tipo) {
-		super(tipo, "Maior");
+		super(tipo);
 	}
 }

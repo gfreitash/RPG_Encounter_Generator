@@ -13,8 +13,13 @@ public class Heroico extends Complicacao {
 			"monstros por pouco ou nenhum pagamento e " + 
 			"normalmente é um alvo fácil para uma história " + 
 			"triste.";
+	public static final String tipoPossivel[] = {"Maior"};
+	
+	public Heroico() {
+		
+	}
 	
 	public Heroico(String tipo) {
-		super(tipo, "Maior");
+		super(tipo);
 	}
 }

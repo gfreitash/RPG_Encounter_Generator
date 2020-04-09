@@ -16,8 +16,13 @@ public class Delirante extends Complicacao {
 			"é comandado por alienígenas, os hospitais são " + 
 			"mortais, eu sou alérgico a armaduras, zumbis são " + 
 			"meus amigos).";
+	public static final String tipoPossivel[] = {"Menor", "Maior"};
+	
+	public Delirante() {
+		super();
+	}
 	
 	public Delirante(String tipo) {
-		super(tipo, "Menor", "Maior");
+		super(tipo);
 	}
 }

@@ -29,8 +29,14 @@ public class Habito extends Complicacao {
 			"Complicação sacrificando uma oportunidade de " + 
 			"Progresso ou eventualmente cairá de volta em " + 
 			"seu vício.";
+	public static final String tipoPossivel[] = {"Menor", "Maior"};
 	
+	public Habito() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public Habito(String tipo) {
-		super(tipo, "Menor", "Maior");
+		super(tipo);
 	}
 }

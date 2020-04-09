@@ -26,8 +26,14 @@ public class Segredo extends Complicacao {
 			"Mestre pode substituir esta Complicação por uma outra de " + 
 			"igual medida: ex. Forasteiro para a versão Menor ou Inimigo " + 
 			"(Maior) para a versão Maior.";
+	public static final String tipoPossivel[] = {"Menor", "Maior"};
 	
+	public Segredo() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public Segredo(String tipo) {
-		super(tipo, "Menor", "Maior");
+		super(tipo);
 	}
 }

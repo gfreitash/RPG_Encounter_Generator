@@ -15,9 +15,14 @@ public class Desastrado extends Complicacao {
 			"foi quebrado. Reparar esse item normalmente " + 
 			"requer uma rolagem de Consertar com -2 e 1d6 " + 
 			"horas para o reparo.";
+	public static final String tipoPossivel[] = {"Menor"};
+	
+	public Desastrado() {
+		super();
+	}
 	
 	public Desastrado(String tipo, Membro m) {
-		super(tipo, "Menor");
+		super(tipo);
 	}
 
 }

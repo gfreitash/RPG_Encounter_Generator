@@ -17,8 +17,9 @@ public class Procurado extends Complicacao {
 			"área principal da campanha. Ser acusado de " + 
 			"assassinato é uma Complicação Maior em quase " + 
 			"qualquer cenário.";
+	public static final String tipoPossivel[] = {"Menor", "Maior"};
 	
 	public Procurado(String tipo) {
-		super(tipo, "Menor", "Maior");
+		super(tipo);
 	}
 }

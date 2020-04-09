@@ -11,8 +11,13 @@ public class Desagradavel extends Complicacao {
 			"deve ser pago pelos seus aborrecimentos e nem " + 
 			"mesmo aceita premiações graciosamente. Seu " + 
 			"herói sofre -2 no seu Carisma.";
+	public static final String tipoPossivel[] = {"Menor"};
+	
+	public Desagradavel() {
+		super();
+	}
 	
 	public Desagradavel(String tipo, Membro m) {
-		super(tipo, "Menor");
+		super(tipo);
 	}
 }

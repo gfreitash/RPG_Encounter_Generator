@@ -15,8 +15,13 @@ public class Inimigo extends Complicacao {
 			"deve trabalhar gradualmente em um substituto " + 
 			"ou o herói pode pagar pela Complicação " + 
 			"sacrificando um Progresso.";
+	public static final String tipoPossivel[] = {"Menor", "Maior"};
+	
+	public Inimigo() {
+		
+	}
 	
 	public Inimigo(String tipo) {
-		super(tipo, "Menor", "Maior");
+		super(tipo);
 	}
 }

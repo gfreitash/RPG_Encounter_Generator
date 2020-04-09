@@ -18,8 +18,14 @@ public class UmBracoSo extends Complicacao {
 			"Complicações na criação de personagem não podem anular " + 
 			"os seus efeitos com Aprimoramentos durante a criação de " + 
 			"personagem.";
+	public static final String tipoPossivel[] = {"Maior"};
 	
+	public UmBracoSo() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public UmBracoSo(String tipo) {
-		super(tipo, "Maior");
+		super(tipo);
 	}
 }

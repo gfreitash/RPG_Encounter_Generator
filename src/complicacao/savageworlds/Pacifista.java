@@ -19,8 +19,13 @@ public class Pacifista extends Complicacao {
 			"também pode lutar com métodos não letais, como " + 
 			"os seus próprios punhos. Tais personagens, no " + 
 			"entanto, só o farão se obviamente ameaçados.";
+	public static final String tipoPossivel[] = {"Menor", "Maior"};
+	
+	public Pacifista() {
+		
+	}
 	
 	public Pacifista(String tipo) {
-		super(tipo, "Menor", "Maior");
+		super(tipo);
 	}
 }

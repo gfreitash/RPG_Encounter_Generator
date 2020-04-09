@@ -28,7 +28,12 @@ public class Divida extends Complicacao {
 			+ "1,000 créditos ao seu custo de vida. Também é provável que o "
 			+ "credor fique mais... infeliz com a falta de pagamentos.";
 	
+	public Divida() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
 	public Divida(String tipo) {
-		super(tipo, "Menor", "Maior");
+		super(tipo);
 	}
 }

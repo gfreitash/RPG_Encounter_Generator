@@ -9,8 +9,13 @@ public class ExcessoConfianca extends Complicacao {
 			"poder fazer quase tudo e nunca quer fugir de um " + 
 			"desafio. O herói não é um suicida, mas certamente " + 
 			"faz mais do que dita o bom senso.";
+	public static final String tipoPossivel[] = {"Maior"};
+	
+	public ExcessoConfianca() {
+		super();
+	}
 	
 	public ExcessoConfianca(String tipo) {
-		super(tipo, "Maior");
+		super(tipo);
 	}
 }

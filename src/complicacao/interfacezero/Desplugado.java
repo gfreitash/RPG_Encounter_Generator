@@ -13,7 +13,13 @@ public class Desplugado extends Complicacao {
 			+ "remover esta Compli-cação gastando um Progresso e "
 			+ "comprando um TAP por 5,000 créditos. Uma vez que tenha "
 			+ "instalado um TAP, você poderá ter a perícia Hacking.";
+	public static final String tipoPossivel[] = {"Maior"};
+	
+	public Desplugado() {
+		super();
+	}
+
 	public Desplugado(String tipo) {
-		super(tipo, "Maior");
+		super(tipo);
 	}
 }

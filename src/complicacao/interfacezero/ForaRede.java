@@ -26,8 +26,14 @@ public class ForaRede extends Complicacao {
 			"pode ser demitido do seu trabalho e até preso, dependendo " + 
 			"das circunstâncias. Em outras palavras, ele volta a estaca " + 
 			"zero, se não pior.";
+	public static final String tipoPossivel[] = {"Maior"};
 	
+	public ForaRede() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public ForaRede(String tipo) {
-		super(tipo, "Maior");
+		super(tipo);
 	}
 }

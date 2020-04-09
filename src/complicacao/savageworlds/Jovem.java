@@ -26,8 +26,13 @@ public class Jovem extends Complicacao {
 			"Entretanto, ele deixa de receber o Bene adicional " + 
 			"ao completar 18 anos de idade (ou a idade da " + 
 			"maioridade do cenário em questão).";
+	public static final String tipoPossivel[] = {"Maior"};
+	
+	public Jovem() {
+		
+	}
 	
 	public Jovem(String tipo) {
-		super(tipo, "Maior");
+		super(tipo);
 	}
 }

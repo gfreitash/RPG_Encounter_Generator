@@ -19,8 +19,14 @@ public class MonitorIndicado extends Complicacao {
 			+ "Procurado). Um monitor pode ser uma pessoa, mas também "
 			+ "pode ser um Aspecto carregado dentro do TAP do personagem, "
 			+ "dependendo da natureza dos seus superiores.";
+	public static final String tipoPossivel[] = {"Menor"};
 	
+	public MonitorIndicado() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public MonitorIndicado(String tipo) {
-		super(tipo, "Menor", "Maior");
+		super(tipo);
 	}
 }

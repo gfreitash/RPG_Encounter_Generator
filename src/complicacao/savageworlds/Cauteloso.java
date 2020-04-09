@@ -9,8 +9,13 @@ public class Cauteloso extends Complicacao {
 			"excessiva. Ele nunca toma decisões apressadas e " + 
 			"gosta de planejar coisas até os mínimos detalhes " + 
 			"antes de qualquer ação ser tomada.";
+	public static final String tipoPossivel[] = {"Menor"};
+	
+	Cauteloso() {
+		super();
+	}
 	
 	Cauteloso(String tipo) {
-		super(tipo, "Menor");
+		super(tipo);
 	}
 }

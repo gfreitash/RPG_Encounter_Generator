@@ -8,8 +8,13 @@ public class Pequeno extends Complicacao {
 			"ou os dois em relação a sua raça em particular. " + 
 			"Subtraia 1 da sua Resistência pela sua estatura " + 
 			"reduzida.";
+	public static final String tipoPossivel[] = {"Maior"};
+	
+	public Pequeno() {
+		
+	}
 	
 	public Pequeno(String tipo) {
-		super(tipo, "Maior");
+		super(tipo);
 	}
 }

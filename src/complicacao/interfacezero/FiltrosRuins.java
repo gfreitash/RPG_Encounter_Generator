@@ -11,8 +11,14 @@ public class FiltrosRuins extends Complicacao {
 			+ "no seu firewall. Con-sequentemente, seu firewall é "
 			+ "reduzido em 1 com a versão Menor desta complicação, ou "
 			+ "em 2 para a versão Maior.";
+	public static final String tipoPossivel[] = {"Menor", "Maior"};
 	
+	public FiltrosRuins() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public FiltrosRuins(String tipo) {
-		super(tipo, "Menor", "Maior");
+		super(tipo);
 	}
 }

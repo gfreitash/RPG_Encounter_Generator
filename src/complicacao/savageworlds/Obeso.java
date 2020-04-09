@@ -19,8 +19,13 @@ public class Obeso extends Complicacao {
 			"caber em espaços apertados ou mesmo viajar em " + 
 			"espaços confinados, como poltronas de aviões ou " + 
 			"carros compactos.";
+	public static final String tipoPossivel[] = {"Menor"};
+	
+	public Obeso() {
+		
+	}
 	
 	public Obeso(String tipo) {
-		super(tipo, "Menor");
+		super(tipo);
 	}
 }

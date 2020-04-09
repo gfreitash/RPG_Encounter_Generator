@@ -9,8 +9,13 @@ public class Teimoso extends Complicacao {
 			"quando é dolorosamente óbvio que cometeu " + 
 			"um erro, tenta justificá-lo com meias-verdades e " + 
 			"racionalizações.";
+	public static final String tipoPossivel[] = {"Maior"};
+	
+	public Teimoso() {
+		
+	}
 	
 	public Teimoso(String tipo) {
-		super(tipo, "Maior");
+		super(tipo);
 	}
 }

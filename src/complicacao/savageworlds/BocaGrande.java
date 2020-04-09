@@ -12,8 +12,13 @@ public class BocaGrande extends Complicacao {
 			"e deixa escapar as coisas mais bem guardadas " + 
 			"entre amigos, geralmente nos piores momentos " + 
 			"possíveis.";
+	public static final String tipoPossivel[] = {"Menor"};
+	
+	public BocaGrande() {
+		super();
+	}
 	
 	public BocaGrande(String tipo) {
-		super(tipo, "Menor");
+		super(tipo);
 	}
 }
