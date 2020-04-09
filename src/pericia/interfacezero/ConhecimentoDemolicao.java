@@ -3,9 +3,9 @@ package pericia.interfacezero;
 import pericia.savageworlds.Conhecimento;
 
 public class ConhecimentoDemolicao extends Conhecimento {
-	private static final String especializacao = "Demolição";
-	private static final String nome = "Conhecimento(Demolição)";
-	private static final String desc = "Uso bem sucedido de " + 
+	public static final String especializacao = "Demolição";
+	public static final String nome = "Conhecimento (Demolição)";
+	public static final String desc = "Uso bem sucedido de " + 
 			"demolições pode significar a diferença entre destruição " + 
 			"do alvo como planejado e perda indesejada de vidas e " + 
 			"propriedade. A perícia também permite que o personagem " + 

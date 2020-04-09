@@ -1,11 +1,11 @@
 package vantagem.savageworlds;
 
 import core.Progresso;
-import core.Requisito;
+import requisito.RequisitoProgresso;
 
 public class Furioso extends VantagemAntecedente {
-	private static final String nome = "Furioso";
-	private static final String desc = "Logo após sofrer um ferimento (incluindo um " + 
+	public static final String nome = "Furioso";
+	public static final String desc = "Logo após sofrer um ferimento (incluindo um " + 
 			"resultado de Abalado por dano físico), seu herói " + 
 			"precisa fazer uma rolagem de Astúcia ou entrará " + 
 			"em fúria. " + 
@@ -30,6 +30,6 @@ public class Furioso extends VantagemAntecedente {
 			"Astúcia com -2.";
 	
 	public Furioso() {
-		super(nome, desc, new Requisito(new Progresso(0)));
+		super(new RequisitoProgresso(new Progresso(0)));
 	}
 }

@@ -3,11 +3,12 @@ package vantagem.savageworlds;
 import atributo.Forca;
 import atributo.Vigor;
 import core.Progresso;
-import core.Requisito;
+import requisito.RequisitoAtributo;
+import requisito.RequisitoProgresso;
 
 public class Musculoso extends VantagemAntecedente {
-	private static final String nome = "Musculoso";
-	private static final String desc = "O seu lutador é muito grande ou talvez apenas " + 
+	public static final String nome = "Musculoso";
+	public static final String desc = "O seu lutador é muito grande ou talvez apenas " + 
 			"esteja em boa forma. Sua massa resiste a dano " + 
 			"melhor que a da maioria e adiciona +1 a sua " + 
 			"Resistência. Além disso, o personagem pode " + 
@@ -16,7 +17,7 @@ public class Musculoso extends VantagemAntecedente {
 			"ao invés do normal de 2,5 vezes a sua Força.";
 	
 	public Musculoso() {
-		super(nome, desc, new Requisito(new Progresso(0)), new Requisito(new Forca(6)), 
-				new Requisito(new Vigor(6)));
+		super(new RequisitoProgresso(new Progresso(0)), new RequisitoAtributo(new Forca(6)), 
+				new RequisitoAtributo(new Vigor(6)));
 	}
 }

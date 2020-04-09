@@ -2,7 +2,7 @@ package core;
 
 import exception.NotAvailablePointsLeftException;
 
-public class Progresso {
+public class Progresso extends Core {
 	private int experienciaAtual;
 	private int ultimaExp;
 	private double porcentProgresso; //Percentage for the next progress
@@ -83,6 +83,47 @@ public class Progresso {
 	public int getProgressoDisp() {
 		return progressoDisp;
 	}
-	
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((estagio == null) ? 0 : estagio.hashCode());
+		result = prime * result + experienciaAtual;
+		long temp;
+		temp = Double.doubleToLongBits(porcentProgresso);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + progressoDisp;
+		result = prime * result + progressoTotal;
+		result = prime * result + ultimaExp;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (!(obj instanceof Progresso))
+			return false;
+		Progresso other = (Progresso) obj;
+		if (estagio == null) {
+			if (other.estagio != null)
+				return false;
+		} else if (!estagio.equals(other.estagio))
+			return false;
+		if (experienciaAtual != other.experienciaAtual)
+			return false;
+		if (Double.doubleToLongBits(porcentProgresso) != Double.doubleToLongBits(other.porcentProgresso))
+			return false;
+		if (progressoDisp != other.progressoDisp)
+			return false;
+		if (progressoTotal != other.progressoTotal)
+			return false;
+		if (ultimaExp != other.ultimaExp)
+			return false;
+		return true;
+	}
 	
 }

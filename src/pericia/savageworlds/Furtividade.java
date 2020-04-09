@@ -1,9 +1,11 @@
 package pericia.savageworlds;
 
+import atributo.Agilidade;
 import core.Pericia;
 
 public class Furtividade extends Pericia {
-	private static String desc = "Furtividade é tanto a habilidade de permanecer " + 
+	public static final String nome = "Furtividade";
+	public static final String desc = "Furtividade é tanto a habilidade de permanecer " + 
 			"escondido e mover-se em silêncio como também " + 
 			"de furtar objetos e bater carteiras. Em muitos " + 
 			"jogos de Savage Worlds, saber exatamente quando " + 
@@ -26,10 +28,10 @@ public class Furtividade extends Pericia {
 			"personagens sejam vistos.";
 	
 	public Furtividade() {
-		super("Furtividade", desc, new atributo.Agilidade());
+		super(new Agilidade());
 	}
 	
 	public Furtividade(int nivelDado) {
-		super("Furtividade", desc, new atributo.Agilidade(), nivelDado);
+		super(new Agilidade(), nivelDado);
 	}
 }

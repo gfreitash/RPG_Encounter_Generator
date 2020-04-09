@@ -1,9 +1,11 @@
 package pericia.savageworlds;
 
+import atributo.Agilidade;
 import core.Pericia;
 
 public class Arremessar extends Pericia {
-	private static String desc = "Arremessar governa todos os tipos de armas de " + 
+	public static final String nome = "Arremessar";
+	public static final String desc = "Arremessar governa todos os tipos de armas de " + 
 			"arremesso, de granadas de mão a facas, machados e " + 
 			"lanças. Arremessar funciona de maneira similar à " + 
 			"perícia Atirar e utiliza os mesmos modificadores, " + 
@@ -14,10 +16,10 @@ public class Arremessar extends Pericia {
 			"e mão inábil.";
 	
 	public Arremessar() {
-		super("Arremessar", desc , new atributo.Agilidade());
+		super(new Agilidade());
 	}
 	
 	public Arremessar(int nivelDado) {
-		super("Arremessar", desc, new atributo.Agilidade(), nivelDado);
+		super(new Agilidade(), nivelDado);
 	}
 }

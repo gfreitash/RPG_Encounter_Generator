@@ -1,34 +1,57 @@
 package core;
 
 public abstract class Atributo extends Core {
-	private byte nivelDado;
+
+	private int modDado;
+	private int nivelDado;
 	
-	public Atributo(String nome, String desc, int nivelDado) {
-		super(nome, desc);
-		if(nivelDado >= 4 && nivelDado <= 12) this.nivelDado = (byte) nivelDado;
-		else throw new IllegalArgumentException("Valor de nivelDado inapropriado");
+	public Atributo() {
+		setNivelDado(4);
 	}
 
-	public Atributo(String nome, String desc) {
-		super(nome, desc);
-		nivelDado = 4;
-	}
-	
-	public Atributo(Atributo atrib) {
-		super(atrib.getNome(), atrib.getDesc());
-		nivelDado = atrib.getNivelAtributo();
-	}
-	
-	public byte getNivelAtributo() {
+	public int getNivelDado() {
 		return nivelDado;
 	}
-	
-	public void addNivelAtributo(int nivel, Membro m) {
-		if(nivel > 0 && nivel <= 4) 
-			if(m.getPontosDispAtrib() > 0) {
-				nivelDado += nivel * 2;
-				m.subtractPontosDispAtrib((byte) nivel);
-			} else throw new exception.NotAvailablePointsLeftException("Não há pontos suficientes disponíveis");
-		else throw new IllegalArgumentException("Valor de 'nivel' inválido");
+
+	public int getModDado() {
+		return modDado;
 	}
+
+	public void setNivelDado(int nivel) throws IllegalArgumentException {
+		if ((nivel % 2) == 0 && nivel >= 4)
+			if (nivel <= 12)
+				nivelDado = nivel;
+			else {
+				nivelDado = 12;
+				modDado = (nivel - nivelDado) / 2;
+			}
+		else
+			throw new IllegalArgumentException("\"nivel\" deve ser par e maior ou igual a 4");
+	}
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + modDado;
+		result = prime * result + nivelDado;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (!(obj instanceof Atributo))
+			return false;
+		Atributo other = (Atributo) obj;
+		if (modDado != other.modDado)
+			return false;
+		if (nivelDado != other.nivelDado)
+			return false;
+		return true;
+	}
+
 }

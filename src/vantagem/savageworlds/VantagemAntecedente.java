@@ -1,11 +1,11 @@
 package vantagem.savageworlds;
 
 import core.Vantagem;
-import core.Requisito;
+import requisito.Requisito;
 
 public abstract class VantagemAntecedente extends Vantagem{
-	private static final String tipo = "Vantagem de Antecedente";
-	private static final String tipoDesc = "Estas Vantagens são benefícios hereditários e " + 
+	public static final String tipo = "Vantagem de Antecedente";
+	public static final String desc_tipo = "Estas Vantagens são benefícios hereditários e " + 
 			"históricos ou reações treinadas que se desenvolvem " + 
 			"em um personagem depois de treinamento " + 
 			"prolongado ou exposição a certos eventos. " + 
@@ -21,7 +21,11 @@ public abstract class VantagemAntecedente extends Vantagem{
 			"proibido ou treinando sob a tutela de outro " + 
 			"indivíduo arcano no seu grupo.";
 	
-	protected VantagemAntecedente(String nome, String desc, Requisito ... requisitos) {
-		super(nome, desc, tipo, tipoDesc, requisitos);
+	protected VantagemAntecedente() {
 	}
+	
+	protected VantagemAntecedente(Requisito ... requisitos) {
+		super(requisitos);
+	}
+
 }

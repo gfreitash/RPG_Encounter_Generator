@@ -2,11 +2,12 @@ package vantagem.savageworlds;
 
 import atributo.Espirito;
 import core.Progresso;
-import core.Requisito;
+import requisito.RequisitoAtributo;
+import requisito.RequisitoProgresso;
 
 public class Corajoso extends VantagemAntecedente {
-	private static final String nome = "Corajoso";
-	private static final String desc = "Aqueles com esta Vantagem aprenderam " + 
+	public static final String nome = "Corajoso";
+	public static final String desc = "Aqueles com esta Vantagem aprenderam " + 
 			"a dominar o seu medo. Ou talvez estejam tão " + 
 			"calejados ou emocionalmente distantes que " + 
 			"perderam sua reação normal de “lutar ou correr”. " + 
@@ -17,6 +18,6 @@ public class Corajoso extends VantagemAntecedente {
 			"também.";
 	
 	public Corajoso() {
-		super(nome, desc, new Requisito(new Progresso(0)), new Requisito(new Espirito(6)));
+		super(new RequisitoProgresso(new Progresso(0)), new RequisitoAtributo(new Espirito(6)));
 	}
 }

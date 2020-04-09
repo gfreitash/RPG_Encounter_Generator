@@ -1,6 +1,6 @@
 package exception;
 
-import core.Requisito;
+import requisito.Requisito;
 
 public class RequirementNotMetException extends IllegalArgumentException {
 	/**

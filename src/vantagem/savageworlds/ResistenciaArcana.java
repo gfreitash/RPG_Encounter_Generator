@@ -2,11 +2,12 @@ package vantagem.savageworlds;
 
 import atributo.Espirito;
 import core.Progresso;
-import core.Requisito;
+import requisito.RequisitoAtributo;
+import requisito.RequisitoProgresso;
 
 public class ResistenciaArcana extends VantagemAntecedente {
-	private static final String nome = "Resistência Arcana";
-	private static final String desc = "Este indivíduo é particularmente resistente " + 
+	public static final String nome = "Resistência Arcana";
+	public static final String desc = "Este indivíduo é particularmente resistente " + 
 			"a magia (inclusive psiquismo, ciência estranha, " + 
 			"etc.), seja por natureza ou herdado. Ele age como  " + 
 			"se tivesse 2 pontos de Armadura quando for " + 
@@ -17,6 +18,6 @@ public class ResistenciaArcana extends VantagemAntecedente {
 			"afetar o herói resistente.";
 	
 	public ResistenciaArcana() {
-		super(nome, desc, new Requisito(new Progresso(0)), new Requisito(new Espirito(8)));
+		super(new RequisitoProgresso(new Progresso(0)), new RequisitoAtributo(new Espirito(8)));
 	}
 }

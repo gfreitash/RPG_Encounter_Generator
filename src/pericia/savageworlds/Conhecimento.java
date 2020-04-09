@@ -1,9 +1,13 @@
 package pericia.savageworlds;
 
+import atributo.Astucia;
 import core.Pericia;
 
 public class Conhecimento extends Pericia {
-	private static String desc = "Conhecimento é uma perícia abrangente " + 
+	@SuppressWarnings("unused")
+	//Due to name here only being known on instantiation it needs to be non-static and non-final
+	private String nome;
+	public static final String desc = "Conhecimento é uma perícia abrangente " + 
 			"que deve possuir algum tipo de foco, como " + 
 			"Conhecimento (Ocultismo) ou Conhecimento " + 
 			"(Ciência). O jogador pode escolher o foco do " + 
@@ -23,19 +27,13 @@ public class Conhecimento extends Pericia {
 			"cuidar de alguém exija a perícia Curar) ou Ciência.";
 	
 	public Conhecimento(String especializacao) {
-		super("Conhecimento (" + especializacao + ")", desc, new atributo.Astucia(), especializacao);
-	}
-	
-	public Conhecimento(String nome, String desc, String especializacao) {
-		super(nome, desc, new atributo.Astucia(), especializacao);
-	}
-	
-	public Conhecimento(String nome, String desc, String especializacao, int nivelDado) {
-		super(nome, desc, new atributo.Astucia(), nivelDado, especializacao);
+		super(new Astucia(), especializacao);
+		nome = "Conhecimento (" + especializacao + ")";
 	}
 	
 	public Conhecimento(String especializacao, int nivelDado) {
-		super("Conhecimento (" + especializacao + ")", desc, new atributo.Astucia(), nivelDado, especializacao);
+		super(new Astucia(), nivelDado, especializacao);
+		nome = "Conhecimento (" + especializacao + ")";
 	}
 	
 }

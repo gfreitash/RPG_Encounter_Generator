@@ -1,9 +1,11 @@
 package pericia.savageworlds;
 
+import atributo.Astucia;
 import core.Pericia;
 
 public class Consertar extends Pericia {
-	private static String desc = "Consertar é a habilidade de reparar engenhocas, " + 
+	public static final String nome = "Consertar";
+	public static final String desc = "Consertar é a habilidade de reparar engenhocas, " + 
 			"veículos, armas e outras máquinas. Personagens " + 
 			"sofrem uma penalidade de -2 nas suas rolagens " + 
 			"se não tiverem acesso a ferramentas básicas. Uma " + 
@@ -12,10 +14,10 @@ public class Consertar extends Pericia {
 			"particular.";
 	
 	public Consertar() {
-		super("Consertar", desc, new atributo.Astucia());
+		super(new Astucia());
 	}
 	
 	public Consertar(int nivelDado) {
-		super("Consertar", desc, new atributo.Astucia(), nivelDado);
+		super(new Astucia(), nivelDado);
 	}
 }

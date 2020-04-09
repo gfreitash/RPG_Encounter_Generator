@@ -1,9 +1,11 @@
 package pericia.savageworlds;
 
+import atributo.Agilidade;
 import core.Pericia;
 
 public class Navegar extends Pericia {
-	private static String desc = "Personagens com esta perícia podem conduzir " + 
+	public static final String nome = "Navegar";
+	public static final String desc = "Personagens com esta perícia podem conduzir " + 
 			"qualquer embarcação ou navio comum em seus " + 
 			"cenários e histórico de personagem. Geralmente " + 
 			"também sabem como lidar com as tarefas mais " + 
@@ -11,10 +13,10 @@ public class Navegar extends Pericia {
 			"encordar velas, etc.).";
 	
 	public Navegar() {
-		super("Navegar", desc, new atributo.Agilidade());
+		super(new Agilidade());
 	}
 	
 	public Navegar(int nivelDado) {
-		super("Navegar", desc, new atributo.Agilidade(), nivelDado);
+		super(new Agilidade(), nivelDado);
 	}
 }

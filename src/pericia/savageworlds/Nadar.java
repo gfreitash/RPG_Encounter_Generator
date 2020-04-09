@@ -1,9 +1,11 @@
 package pericia.savageworlds;
 
+import atributo.Agilidade;
 import core.Pericia;
 
 public class Nadar extends Pericia {
-	private static String desc = "Nadar determina se um personagem flutua ou " + 
+	public static final String nome = "Nadar";
+	public static final String desc = "Nadar determina se um personagem flutua ou " + 
 			"afunda na água, bem como quão rápido ele se move " + 
 			"dentro dela. A Movimentação de um personagem " + 
 			"é igual à metade da sua perícia Natação em quadros " + 
@@ -14,10 +16,10 @@ public class Nadar extends Pericia {
 			"para ter movimento extra.";
 	
 	public Nadar() {
-		super("Nadar", desc, new atributo.Agilidade());
+		super(new Agilidade());
 	}
 	
 	public Nadar(int nivelDado) {
-		super("Nadar", desc, new atributo.Agilidade(), nivelDado);
+		super(new Agilidade(), nivelDado);
 	}
 }

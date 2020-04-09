@@ -1,21 +1,31 @@
 package core;
 
-public abstract class Complicacao extends Core {
+public abstract class Complicacao extends Core{
 	private String tipoPossivel[];
 	private String tipo;
 	
-	protected Complicacao(String nome, String desc, String tipo, String ... tipoPossivel) throws IllegalArgumentException {
-		super(nome, desc);
+	//This constructor needs to be of type StringBuffer for desambiguation
+	//TODO: Improve desambiguation to be less of a chore on subclasses
+	protected Complicacao(StringBuffer ... tipoPossivel) {
+		for(int i = 0; i < tipoPossivel.length; i++)
+			this.tipoPossivel[i] = tipoPossivel[i].toString();
+	}
+	
+	protected Complicacao(String tipo, String ... tipoPossivel) throws IllegalArgumentException {
 		this.tipoPossivel = tipoPossivel;
-		
 		boolean tipoValido = false;
-		for(int i = 0; i < tipoPossivel.length; i++) {
-			if(tipo.equals(tipoPossivel[i]))
+		
+		for(String x: tipoPossivel) {
+			if(x.equals(tipo)) {
 				tipoValido = true;
+				break;
+			}
+			tipoValido = false;
 		}
 		
-		if(tipoValido) this.tipo = tipo;
-		else throw new IllegalArgumentException("Valor de 'tipo' não é válido para essa Complicação");
+		if(tipoValido)
+			this.tipo = tipo;
+		else throw new IllegalArgumentException("Tipo inválido!");
 	}
 	
 	public String getTipo() {

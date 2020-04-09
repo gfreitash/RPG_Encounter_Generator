@@ -1,9 +1,11 @@
 package pericia.savageworlds;
 
+import atributo.Astucia;
 import core.Pericia;
 
 public class Rastrear extends Pericia {
-	private static String desc = "Rastrear permite que um personagem siga os " + 
+	public static final String nome = "Rastrear";
+	public static final String desc = "Rastrear permite que um personagem siga os " + 
 			"rastros de um ou mais indivíduos em qualquer tipo " + 
 			"de terreno. Cada rolagem geralmente cobre seguir " + 
 			"os rastros por cerca de um quilômetro e meio, mas " + 
@@ -11,10 +13,10 @@ public class Rastrear extends Pericia {
 			"escalas de busca mais específicas ou menores.";
 	
 	public Rastrear() {
-		super("Rastrar", desc, new atributo.Astucia());
+		super(new Astucia());
 	}
 	
 	public Rastrear(int nivelDado) {
-		super("Rastrar", desc, new atributo.Astucia(), nivelDado);
+		super(new Astucia(), nivelDado);
 	}
 }

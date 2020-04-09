@@ -1,9 +1,11 @@
 package pericia.savageworlds;
 
+import atributo.Astucia;
 import core.Pericia;
 
 public class Perceber extends Pericia {
-	private static String desc = "Perceber é a prontidão geral e habilidade de " + 
+	public static final String nome = "Perceber";
+	public static final String desc = "Perceber é a prontidão geral e habilidade de " + 
 			"um herói para procurar por itens ou pistas. Isso " + 
 			"cobre rolagens para ouvir, detectar emboscadas, " + 
 			"enxergar armas escondidas e até mesmo examinar " + 
@@ -14,10 +16,10 @@ public class Perceber extends Pericia {
 			"deve revelar.";
 	
 	public Perceber() {
-		super("Perceber", desc, new atributo.Astucia()); 
+		super(new Astucia()); 
 	}
 	
 	public Perceber(int nivelDado) {
-		super("Perceber", desc, new atributo.Astucia(), nivelDado); 
+		super(new Astucia(), nivelDado); 
 	}
 }

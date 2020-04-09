@@ -2,11 +2,12 @@ package vantagem.savageworlds;
 
 import atributo.Astucia;
 import core.Progresso;
-import core.Requisito;
+import requisito.RequisitoAtributo;
+import requisito.RequisitoProgresso;
 
 public class Linguista extends VantagemAntecedente {
-	private static final String nome = "Linguista";
-	private static final String desc = "O personagem possui um ouvido para idiomas " + 
+	public static final String nome = "Linguista";
+	public static final String desc = "O personagem possui um ouvido para idiomas " + 
 			"e um talento raro para reconhecer similaridades " + 
 			"entre eles. Um personagem com esta Vantagem " + 
 			"começa com um número de idiomas igual a " + 
@@ -17,6 +18,6 @@ public class Linguista extends VantagemAntecedente {
 			"falado por pelo menos uma semana.";
 	
 	public Linguista() {
-		super(nome, desc, new Requisito(new Progresso(0)), new Requisito(new Astucia(6)));
+		super(new RequisitoProgresso(new Progresso(0)), new RequisitoAtributo(new Astucia(6)));
 	}
 }

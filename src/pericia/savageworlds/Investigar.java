@@ -1,9 +1,11 @@
 package pericia.savageworlds;
 
+import atributo.Astucia;
 import core.Pericia;
 
 public class Investigar extends Pericia {
-	private static String desc = "Um personagem treinado em Investigar sabe " + 
+	public static final String nome = "Investigar";
+	public static final String desc = "Um personagem treinado em Investigar sabe " + 
 			"como fazer bom uso de bibliotecas, manchetes de " + 
 			"jornais, internet ou outros recursos escritos de " + 
 			"informação. Para obter informações de pessoas " + 
@@ -11,10 +13,10 @@ public class Investigar extends Pericia {
 			"Manha.";
 	
 	public Investigar() {
-		super("Investigar", desc, new atributo.Astucia());
+		super(new Astucia());
 	}
 	
 	public Investigar(int nivelDado) {
-		super("Investigar", desc, new atributo.Astucia(), nivelDado);
+		super(new Astucia(), nivelDado);
 	}
 }

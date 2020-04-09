@@ -1,9 +1,11 @@
 package pericia.savageworlds;
 
+import atributo.Espirito;
 import core.Pericia;
 
 public class Persuadir extends Pericia {
-	private static String desc = "Persuadir é a habilidade de convencer outros a " + 
+	public static final String nome = "Persuadir";
+	public static final String desc = "Persuadir é a habilidade de convencer outros a " + 
 			"fazerem o que você deseja. " +  
 			"Extras iniciam em uma destas cinco atitudes " + 
 			"diferentes: Hostil, Não Cooperativo, Neutro, " + 
@@ -19,10 +21,10 @@ public class Persuadir extends Pericia {
 			"Mestre e da situação.";
 	
 	public Persuadir() {
-		super("Persuadir", desc, new atributo.Espirito());
+		super(new Espirito());
 	}
 	
 	public Persuadir(int nivelDado) {
-		super("Persuadir", desc, new atributo.Espirito(), nivelDado);
+		super(new Espirito(), nivelDado);
 	}
 }

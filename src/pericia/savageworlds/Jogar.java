@@ -1,9 +1,11 @@
 package pericia.savageworlds;
 
+import atributo.Astucia;
 import core.Pericia;
 
 public class Jogar extends Pericia {
-	private static String desc = "Jogar é útil dos salões do Velho Oeste aos " + 
+	public static final String nome = "Jogar";
+	public static final String desc = "Jogar é útil dos salões do Velho Oeste aos " + 
 			"alojamentos da maioria dos exércitos. Aqui está " + 
 			"uma maneira rápida de simular cerca de meia hora " + 
 			"de jogatina sem ter de rolar para cada lance dos " + 
@@ -31,10 +33,10 @@ public class Jogar extends Pericia {
 			"normalmente são bastante severas.";
 	
 	public Jogar() {
-		super("Jogar", desc, new atributo.Astucia());
+		super(new Astucia());
 	}
 	
 	public Jogar(int nivelDado) {
-		super("Jogar", desc, new atributo.Astucia(), nivelDado);
+		super(new Astucia(), nivelDado);
 	}
 }

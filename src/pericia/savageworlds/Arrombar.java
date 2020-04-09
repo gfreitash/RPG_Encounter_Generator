@@ -1,9 +1,11 @@
 package pericia.savageworlds;
 
+import atributo.Agilidade;
 import core.Pericia;
 
 public class Arrombar extends Pericia {
-	private static String desc = "Arrombar é a habilidade de passar por travas " + 
+	public static final String nome = "Arrombar";
+	public static final String desc = "Arrombar é a habilidade de passar por travas " + 
 			"mecânicas e eletrônicas. Arrombar também " + 
 			"é usado para desarmar as iscas e gatilhos de " + 
 			"armadilhas, a menos que uma perícia mais " + 
@@ -11,10 +13,10 @@ public class Arrombar extends Pericia {
 			"armadilha em particular.";
 	
 	public Arrombar() {
-		super("Arrombar", desc, new atributo.Agilidade());
+		super(new Agilidade());
 	}
 	
 	public Arrombar(int nivelDado) {
-		super("Arrombar", desc, new atributo.Agilidade(), nivelDado);
+		super(new Agilidade(), nivelDado);
 	}
 }

@@ -2,12 +2,13 @@ package vantagem.interfacezero;
 
 import complicacao.savageworlds.Voto;
 import core.Progresso;
-import core.Requisito;
+import requisito.RequisitoComplicacao;
+import requisito.RequisitoProgresso;
 import vantagem.savageworlds.VantagemAntecedente;
 
 public class Rico extends VantagemAntecedente {
-	private static final String nome = "Rico";
-	private static final String desc = "Personagens Ricos triplicam seus fundos iniciais e ganham "
+	public static final String nome = "Rico";
+	public static final String desc = "Personagens Ricos triplicam seus fundos iniciais e ganham "
 			+ "um bônus de 12,500 créditos em cada Progresso. Contudo, o dinheiro sempre vêm "
 			+ "com uma obrigação. Eles podem ganhar dinheiro de um patrocínio corporativo, "
 			+ "um fundo trust ou mesmo um negócio que o personagem tem e administra. "
@@ -22,6 +23,6 @@ public class Rico extends VantagemAntecedente {
 			+ " a Vantagem com outra coisa.";
 	
 	public Rico() {
-		super(nome, desc, new Requisito(new Progresso(0)), new Requisito(new Voto("")));
+		super(new RequisitoProgresso(new Progresso(0)), new RequisitoComplicacao(new Voto("")));
 	}
 }

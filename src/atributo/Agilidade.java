@@ -3,13 +3,15 @@ package atributo;
 import core.Atributo;
 
 public class Agilidade extends Atributo {
-	public Agilidade(int nivelDado) {
-		super("Agilidade", "AGILIDADE é a rapidez, velocidade e " + 
-				"destreza do seu herói.", nivelDado);
-	}
-	
+	public static final String nome = "Agilidade";
+	public static final String desc = "AGILIDADE é a rapidez, velocidade e " + "destreza do seu herói.";
+
 	public Agilidade() {
-		super("Agilidade", "AGILIDADE é a rapidez, velocidade e " + 
-				"destreza do seu herói.");
+
 	}
+
+	public Agilidade(int nivelDado) {
+		setNivelDado(nivelDado);
+	}
+
 }

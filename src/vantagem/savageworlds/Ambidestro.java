@@ -1,12 +1,11 @@
 package vantagem.savageworlds;
 
 import core.Progresso;
-import core.Requisito;
-import atributo.Agilidade;
+import requisito.RequisitoProgresso;
 
-public class Ambidestro extends VantagemAntecedente {
-	private static final String nome = "Ambidestro";
-	private static final String desc = "Seu herói é hábil tanto com a sua mão " + 
+public abstract class Ambidestro extends VantagemAntecedente {
+	public static final String nome = "Ambidestro";
+	public static final String desc = "Seu herói é hábil tanto com a sua mão " + 
 			"esquerda quanto com a sua direita. Personagens " + 
 			"normalmente sofrem uma penalidade de -2 ao " + 
 			"executar tarefas físicas utilizando a mão inábil " + 
@@ -15,7 +14,6 @@ public class Ambidestro extends VantagemAntecedente {
 			"por usar sua mão inábil";
 	
 	public Ambidestro() {
-		super(nome, desc, new Requisito(new Progresso(0)), new Requisito(new Agilidade(8)));
+		super(new RequisitoProgresso(new Progresso(0)));
 	}
-	
 }

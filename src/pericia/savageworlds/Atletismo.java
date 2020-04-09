@@ -1,9 +1,11 @@
 package pericia.savageworlds;
 
+import atributo.Vigor;
 import core.Pericia;
 
 public class Atletismo extends Pericia {
-	private static String desc = "Atletismo é um apanhado para uma quantidade de façanhas "
+	public static final String nome = "Atletismo";
+	public static final String desc = "Atletismo é um apanhado para uma quantidade de façanhas "
 			+ "físicas abrangendo desde escalar, nadar até se mover "
 			+ "efetivamente em um ambiente sem — ou com baixa gravidade. "
 			+ "Atletismo deve ser usado no lugar de Agilidade em "
@@ -11,10 +13,10 @@ public class Atletismo extends Pericia {
 			+ " Escalar e Nadar.";
 	
 	public Atletismo() {
-		super("Atletismo", desc, new atributo.Vigor());
+		super(new Vigor());
 	}
 	
 	public Atletismo(int nivelDado) {
-		super("Atletismo", desc, new atributo.Vigor(), nivelDado);
+		super(new Vigor(), nivelDado);
 	}
 }

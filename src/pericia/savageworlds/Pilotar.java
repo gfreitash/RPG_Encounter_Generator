@@ -1,18 +1,20 @@
 package pericia.savageworlds;
 
+import atributo.Agilidade;
 import core.Pericia;
 
 public class Pilotar extends Pericia {
-	private static String desc = "Pilotar permite a um personagem voar com " + 
+	public static final String nome = "Pilotar";
+	public static final String desc = "Pilotar permite a um personagem voar com " + 
 			"aviões, helicópteros, mochilas a jato e qualquer " + 
 			"outro dispositivo aéreo comum em seu cenário e " + 
 			"histórico";
 	
 	public Pilotar() {
-		super("Pilotar", desc, new atributo.Agilidade());
+		super(new Agilidade());
 	}
 	
 	public Pilotar(int nivelDado) {
-		super("Pilotar", desc, new atributo.Agilidade(), nivelDado);
+		super(new Agilidade(), nivelDado);
 	}
 }

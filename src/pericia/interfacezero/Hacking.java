@@ -1,9 +1,11 @@
 package pericia.interfacezero;
 
+import atributo.Astucia;
 import core.Pericia;
 
 public class Hacking extends Pericia {
-	private static String desc = "A perícia Hacking e usada sempre que " + 
+	public static final String nome = "Hacking";
+	public static final String desc = "A perícia Hacking e usada sempre que " + 
 			"um personagem quer invadir uma rede de computadores. " + 
 			"Personagens em Interface Zero 2.0 não mais começam " + 
 			"com um d4 automático em Hacking. Além disso, personagens " + 
@@ -12,10 +14,10 @@ public class Hacking extends Pericia {
 			"o fazem com suas perícias de Investigar e Manha";
 	
 	public Hacking() {
-		super("Hacking", desc, new atributo.Astucia());
+		super(new Astucia());
 	}
 	
 	public Hacking(int nivelDado) {
-		super("Hacking", desc, new atributo.Astucia(), nivelDado);
+		super(new Astucia(nivelDado));
 	}
 }

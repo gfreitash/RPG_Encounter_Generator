@@ -1,9 +1,11 @@
 package pericia.savageworlds;
 
+import atributo.Astucia;
 import core.Pericia;
 
 public class Sobrevivencia extends Pericia {
-	private static String desc = "Sobrevivência permite encontrar comida, água " + 
+	public static final String nome = "Sobrevivência";
+	public static final String desc = "Sobrevivência permite encontrar comida, água " + 
 			"ou abrigo em ambientes hostis. O personagem pode " + 
 			"fazer apenas uma rolagem por dia. Uma rolagem " + 
 			"bem sucedida encontra sustento para uma pessoa, " + 
@@ -16,10 +18,10 @@ public class Sobrevivencia extends Pericia {
 			"água ou abrigo por esse dia.";
 	
 	public Sobrevivencia() {
-		super("Sobrevivência", desc, new atributo.Astucia());
+		super(new Astucia());
 	}
 	
 	public Sobrevivencia(int nivelDado) {
-		super("Sobrevivência", desc, new atributo.Astucia(), nivelDado);
+		super(new Astucia(), nivelDado);
 	}
 }

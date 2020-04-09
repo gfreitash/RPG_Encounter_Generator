@@ -1,9 +1,11 @@
 package pericia.savageworlds;
 
+import atributo.Agilidade;
 import core.Pericia;
 
 public class Atirar extends Pericia {
-	private static String desc = "Atirar cobre todas as tentativas de atingir um " + 
+	public static final String nome = "Atirar";
+	public static final String desc = "Atirar cobre todas as tentativas de atingir um " + 
 			"alvo com armas de combate a distância como " + 
 			"arcos, pistolas ou lança-foguetes. A Dificuldade " + 
 			"básica para acertar é 4. Contudo, existe um número " + 
@@ -12,10 +14,10 @@ public class Atirar extends Pericia {
 			"no jogo.";
 	
 	 public Atirar() {
-		super("Atirar", desc, new atributo.Agilidade());
+		super(new Agilidade());
 	}
 	 
 	 public Atirar(int nivelDado) {
-			super("Atirar", desc, new atributo.Agilidade(), nivelDado);
+			super(new Agilidade(), nivelDado);
 		}
 }

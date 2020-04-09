@@ -1,11 +1,11 @@
 package vantagem.savageworlds;
 
 import core.Progresso;
-import core.Requisito;
+import requisito.RequisitoProgresso;
 
 public class Nobre extends VantagemAntecedente {
-	private static final String nome = "Nome";
-	private static final String desc = "Aqueles nascidos de sangue nobre têm " + 
+	public static final String nome = "Nome";
+	public static final String desc = "Aqueles nascidos de sangue nobre têm " + 
 			"muitos privilégios na vida, mas frequentemente " + 
 			"possuem também muitas responsabilidades. " + 
 			"Nobres possuem posição elevada em suas " + 
@@ -31,6 +31,6 @@ public class Nobre extends VantagemAntecedente {
 			"ele na corte.";
 	
 	public Nobre() {
-		super(nome, desc, new Requisito(new Progresso(0)));
+		super(new RequisitoProgresso(new Progresso(0)));
 	}
 }

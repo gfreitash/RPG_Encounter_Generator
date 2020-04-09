@@ -1,9 +1,11 @@
 package pericia.savageworlds;
 
+import atributo.Astucia;
 import core.Pericia;
 
 public class Manha extends Pericia {
-	private static String desc = "Personagens com Manha são capazes de obter " + 
+	public static final String nome = "Manha";
+	public static final String desc = "Personagens com Manha são capazes de obter " + 
 			"informações das ruas, salões ou outros contatos " + 
 			"através de subornos, ameaças ou barganhas. " + 
 			"Encontrar informação escrita em bibliotecas e " + 
@@ -11,10 +13,10 @@ public class Manha extends Pericia {
 			"é sempre modificada pelo Carisma do personagem.";
 	
 	public Manha() {
-		super("Manha", desc, new atributo.Astucia());
+		super(new Astucia());
 	}
 	
 	public Manha(int nivelDado) {
-		super("Manha", desc, new atributo.Astucia(), nivelDado);
+		super(new Astucia(), nivelDado);
 	}
 }

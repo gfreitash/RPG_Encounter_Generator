@@ -1,9 +1,11 @@
 package pericia.savageworlds;
 
+import atributo.Forca;
 import core.Pericia;
 
 public class Escalar extends Pericia {
-	private static String desc = "Personagens às vezes podem ter de escalar " + 
+	public static final String nome = "Escalar";
+	public static final String desc = "Personagens às vezes podem ter de escalar " + 
 			"objetos altos sob pressão, talvez escalar uma ravina " + 
 			"para atacar arqueiros posicionados acima ou para " + 
 			"escapar de uma criatura terrível no terreno abaixo. " + 
@@ -50,10 +52,10 @@ public class Escalar extends Pericia {
 			"caso de uma escalada livre.";
 	
 	public Escalar() {
-		super("Escalar", desc, new atributo.Forca());
+		super(new Forca());
 	}
 	
 	public Escalar(int nivelDado) {
-		super("Escalar", desc, new atributo.Forca(), nivelDado);
+		super(new Forca(), nivelDado);
 	}
 }

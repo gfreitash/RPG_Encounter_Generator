@@ -3,9 +3,9 @@ package pericia.interfacezero;
 import pericia.savageworlds.Conhecimento;
 
 public class ConhecimentoProgramacao extends Conhecimento {
-	private static final String especializacao = "Programação";
-	private static final String nome = "Conhecimento (Programação)";
-	private static final String desc = "Personagens usam esta " + 
+	public static final String especializacao = "Programação";
+	public static final String nome = "Conhecimento (Programação)";
+	public static final String desc = "Personagens usam esta " + 
 			"perícia quando tentam fazer qualquer tipo de alteração em " + 
 			"uma rede que eles invadiram. Essa perícia permite a um " + 
 			"personagem desfazer um dano resultante de um hack. Com " + 
