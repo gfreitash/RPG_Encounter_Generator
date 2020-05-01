@@ -19,7 +19,11 @@ public class Procurado extends Complicacao {
 			"qualquer cenário.";
 	public static final String tipoPossivel[] = {"Menor", "Maior"};
 	
+	public Procurado() {
+		super(nome, desc, tipoPossivel);
+	}
+	
 	public Procurado(String tipo) {
-		super(tipo);
+		super(nome, desc, tipoPossivel, tipo);
 	}
 }

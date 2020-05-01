@@ -18,10 +18,10 @@ public class Inimigo extends Complicacao {
 	public static final String tipoPossivel[] = {"Menor", "Maior"};
 	
 	public Inimigo() {
-		
+		super(nome, desc, tipoPossivel);
 	}
 	
 	public Inimigo(String tipo) {
-		super(tipo);
+		super(nome, desc, tipoPossivel, tipo);
 	}
 }

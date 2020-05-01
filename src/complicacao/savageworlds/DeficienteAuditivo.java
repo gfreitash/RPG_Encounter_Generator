@@ -25,10 +25,10 @@ public class DeficienteAuditivo extends Complicacao {
 	public static final String tipoPossivel[] = {"Menor", "Maior"};
 	
 	public DeficienteAuditivo() {
-		super();
+		super(nome, desc, tipoPossivel);
 	}
 	
 	public DeficienteAuditivo(String tipo) {		
-		super(tipo);
+		super(nome, desc, tipoPossivel, tipo);
 	}
 }

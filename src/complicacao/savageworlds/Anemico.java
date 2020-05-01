@@ -11,8 +11,9 @@ public class Anemico extends Complicacao {
 	public static final String tipoPossivel[] = {"Menor"};
 	
 	public Anemico() {
+		super(nome, desc, tipoPossivel);
 	}
 	public Anemico(String tipo) {
-		super(tipo);
+		super(nome, desc, tipoPossivel, tipo);
 	}
 }

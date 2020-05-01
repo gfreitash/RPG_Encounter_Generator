@@ -10,7 +10,7 @@ public class MuitoAtraente extends VantagemAntecedente {
 			"aumentado em +4.";
 	
 	public MuitoAtraente() {
-		super(new RequisitoProgresso(new Progresso(0)), new RequisitoVantagem(new Atraente()));
+		super(nome, desc, new RequisitoProgresso(new Progresso(0)), new RequisitoVantagem(new Atraente()));
 	}
 	
 }

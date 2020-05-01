@@ -26,14 +26,14 @@ public class Conhecimento extends Pericia {
 			"Jornalismo, vários idiomas, Lei, Medicina (embora " + 
 			"cuidar de alguém exija a perícia Curar) ou Ciência.";
 	
-	public Conhecimento(String especializacao) {
-		super(new Astucia(), especializacao);
-		nome = "Conhecimento (" + especializacao + ")";
+	public Conhecimento(String nome, String desc, String especializacao) {
+		super(nome, desc, new Astucia(), especializacao);
+		this.nome = getNome();
 	}
 	
-	public Conhecimento(String especializacao, int nivelDado) {
-		super(new Astucia(), nivelDado, especializacao);
-		nome = "Conhecimento (" + especializacao + ")";
+	public Conhecimento(String nome, String desc, String especializacao, int nivelDado) {
+		super("Conhecimento (" + especializacao + ")", desc, new Astucia(), nivelDado, especializacao);
+		this.nome = getNome();
 	}
 	
 }

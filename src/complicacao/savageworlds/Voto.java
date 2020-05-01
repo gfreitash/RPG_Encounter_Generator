@@ -18,9 +18,10 @@ public class Voto extends Complicacao {
 	public static final String tipoPossivel[] = {"Menor", "Maior"};
 	
 	public Voto() {
+		super(nome, desc, tipoPossivel);
 	}
 	
 	public Voto(String tipo) {
-		super(tipo);
+		super(nome, desc, tipoPossivel, tipo);
 	}
 }

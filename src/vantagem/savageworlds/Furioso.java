@@ -30,6 +30,6 @@ public class Furioso extends VantagemAntecedente {
 			"Astúcia com -2.";
 	
 	public Furioso() {
-		super(new RequisitoProgresso(new Progresso(0)));
+		super(nome, desc, new RequisitoProgresso(new Progresso(0)));
 	}
 }

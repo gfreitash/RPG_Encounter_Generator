@@ -14,10 +14,10 @@ public class Atirar extends Pericia {
 			"no jogo.";
 	
 	 public Atirar() {
-		super(new Agilidade());
+		super(nome, desc, new Agilidade());
 	}
 	 
 	 public Atirar(int nivelDado) {
-			super(new Agilidade(), nivelDado);
+			super(nome, desc, new Agilidade(), nivelDado);
 		}
 }

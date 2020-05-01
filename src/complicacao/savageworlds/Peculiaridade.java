@@ -15,10 +15,10 @@ public class Peculiaridade extends Complicacao {
 	public static final String tipoPossivel[] = {"Menor"};
 	
 	public Peculiaridade() {
-		
+		super(nome, desc, tipoPossivel);
 	}
 	
 	public Peculiaridade(String tipo) {
-		super(tipo);
+		super(nome, desc, tipoPossivel, tipo);
 	}
 }

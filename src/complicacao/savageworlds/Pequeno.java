@@ -11,10 +11,10 @@ public class Pequeno extends Complicacao {
 	public static final String tipoPossivel[] = {"Maior"};
 	
 	public Pequeno() {
-		
+		super(nome, desc, tipoPossivel);
 	}
 	
 	public Pequeno(String tipo) {
-		super(tipo);
+		super(nome, desc, tipoPossivel, tipo);
 	}
 }

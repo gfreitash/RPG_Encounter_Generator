@@ -16,10 +16,10 @@ public class Arremessar extends Pericia {
 			"e mão inábil.";
 	
 	public Arremessar() {
-		super(new Agilidade());
+		super(nome, desc, new Agilidade());
 	}
 	
 	public Arremessar(int nivelDado) {
-		super(new Agilidade(), nivelDado);
+		super(nome, desc, new Agilidade(), nivelDado);
 	}
 }

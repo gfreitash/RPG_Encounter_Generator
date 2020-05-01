@@ -11,10 +11,10 @@ public class MaSorte extends Complicacao {
 	public static final String tipoPossivel[] = {"Maior"};
 	
 	public MaSorte() {
-		
+		super(nome, desc, tipoPossivel);
 	}
 	
 	public MaSorte(String tipo) {
-		super(tipo);
+		super(nome, desc, tipoPossivel, tipo);
 	}
 }

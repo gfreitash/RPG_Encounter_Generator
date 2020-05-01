@@ -15,10 +15,10 @@ public class Fobia extends Complicacao {
 	public static final String tipoPossivel[] = { "Menor", "Maior" };
 
 	public Fobia() {
-
+		super(nome, desc, tipoPossivel);
 	}
 
 	public Fobia(String tipo) {
-		super(tipo);
+		super(nome, desc, tipoPossivel, tipo);
 	}
 }

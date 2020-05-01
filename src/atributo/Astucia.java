@@ -9,9 +9,11 @@ public class Astucia extends Atributo {
 			+ "mental.";
 
 	public Astucia() {
+		super(nome, desc);
 	}
 
 	public Astucia(int nivelDado) {
+		super(nome, desc);
 		setNivelDado(nivelDado);
 	}
 

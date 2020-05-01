@@ -8,23 +8,27 @@ public abstract class Pericia extends Core{
 	private int modNivelPericia;
 	private String especializacao = "";
 	
-	protected Pericia(Atributo atrib){
+	protected Pericia(String nome, String desc, Atributo atrib){
+		super(nome, desc);
 		tipoAtributo = atrib;
 		setNivelPericia(4);
 	}
 	
-	protected Pericia(Atributo atrib, int nivelPericia){
+	protected Pericia(String nome, String desc, Atributo atrib, int nivelPericia) {
+		super(nome, desc);
 		tipoAtributo = atrib;
 		setNivelPericia(nivelPericia);
 	}
 	
-	protected Pericia(Atributo atrib, String especializacao){
+	protected Pericia(String nome, String desc, Atributo atrib, String especializacao){
+		super(nome, desc);
 		tipoAtributo = atrib;
 		this.especializacao = especializacao;
 		nivelPericia = 4;
 	}
 	
-	protected Pericia(Atributo atrib, int nivelPericia, String especializacao){
+	protected Pericia(String nome, String desc, Atributo atrib, int nivelPericia, String especializacao){
+		super(nome, desc);
 		tipoAtributo = atrib;
 		this.especializacao = especializacao;
 		setNivelPericia(nivelPericia);

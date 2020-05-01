@@ -13,10 +13,10 @@ public class Intimidar extends Pericia {
 			"oponente.";
 	
 	public Intimidar() {
-		super(new Espirito());
+		super(nome, desc, new Espirito());
 	}
 	
 	public Intimidar(int nivelDado) {
-		super(new Espirito(), nivelDado);
+		super(nome, desc, new Espirito(), nivelDado);
 	}
 }

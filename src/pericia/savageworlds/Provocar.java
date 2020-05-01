@@ -11,10 +11,10 @@ public class Provocar extends Pericia {
 			"a Astúcia do inimigo.";
 	
 	public Provocar() {
-		super(new Astucia());
+		super(nome, desc, new Astucia());
 	}
 	
 	public Provocar(int nivelDado) {
-		super(new Astucia(), nivelDado);
+		super(nome, desc, new Astucia(), nivelDado);
 	}
 }

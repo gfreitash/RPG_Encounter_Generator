@@ -28,10 +28,10 @@ public class Furtividade extends Pericia {
 			"personagens sejam vistos.";
 	
 	public Furtividade() {
-		super(new Agilidade());
+		super(nome, desc, new Agilidade());
 	}
 	
 	public Furtividade(int nivelDado) {
-		super(new Agilidade(), nivelDado);
+		super(nome, desc, new Agilidade(), nivelDado);
 	}
 }

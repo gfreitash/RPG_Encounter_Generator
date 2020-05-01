@@ -21,11 +21,10 @@ public class Feio extends Complicacao {
 	public static final String tipoPossivel[] = {"Menor"};
 	
 	public Feio() {
-		super();
-		// TODO Auto-generated constructor stub
+		super(nome, desc, tipoPossivel);
 	}
 
 	public Feio(String tipo) {
-		super(tipo);
+		super(nome, desc, tipoPossivel, tipo);
 	}
 }

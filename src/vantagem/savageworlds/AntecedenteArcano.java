@@ -14,7 +14,7 @@ public class AntecedenteArcano extends VantagemAntecedente {
 			"mágica, psíquica ou sobrenatural.";
 	
 	public AntecedenteArcano(String especializacao) {
-		super(new RequisitoProgresso(new Progresso(0)));
+		super("Antecedente Arcano (" + especializacao + ")", desc,new RequisitoProgresso(new Progresso(0)));
 		nome = "Antecedente Arcano (" + especializacao + ")";
 		this.especializacao = especializacao;
 	}

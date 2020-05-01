@@ -13,10 +13,10 @@ public class Arrombar extends Pericia {
 			"armadilha em particular.";
 	
 	public Arrombar() {
-		super(new Agilidade());
+		super(nome, desc, new Agilidade());
 	}
 	
 	public Arrombar(int nivelDado) {
-		super(new Agilidade(), nivelDado);
+		super(nome, desc, new Agilidade(), nivelDado);
 	}
 }

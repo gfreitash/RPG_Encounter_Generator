@@ -16,10 +16,10 @@ public class Analfabeto extends Complicacao {
 	public static final String tipoPossivel[] = {"Maior"};
 	
 	public Analfabeto() {
-		
+		super(nome, desc, tipoPossivel);
 	}
 	
 	public Analfabeto(String tipo) {
-		super(tipo);
+		super(nome, desc, tipoPossivel, tipo);
 	}
 }

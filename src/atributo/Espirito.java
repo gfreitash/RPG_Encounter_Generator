@@ -10,10 +10,11 @@ public class Espirito extends Atributo {
 			"Abalado";
 	
 	public Espirito() {
-		
+		super(nome, desc);
 	}
 	
 	public Espirito(int nivelDado) {
+		super(nome, desc);
 		setNivelDado(nivelDado);
 	}
 }

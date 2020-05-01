@@ -15,10 +15,10 @@ public class BocaGrande extends Complicacao {
 	public static final String tipoPossivel[] = {"Menor"};
 	
 	public BocaGrande() {
-		super();
+		super(nome, desc, tipoPossivel);
 	}
 	
 	public BocaGrande(String tipo) {
-		super(tipo);
+		super(nome, desc, tipoPossivel, tipo);
 	}
 }

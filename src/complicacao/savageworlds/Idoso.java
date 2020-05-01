@@ -17,10 +17,10 @@ public class Idoso extends Complicacao {
 	public static final String tipoPossivel[] = {"Maior"};
 	
 	public Idoso() {
-		
+		super(nome, desc, tipoPossivel);
 	}
 	
 	public Idoso(String tipo) {
-		super(tipo);
+		super(nome, desc, tipoPossivel, tipo);
 	}
 }

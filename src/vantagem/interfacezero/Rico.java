@@ -23,6 +23,6 @@ public class Rico extends VantagemAntecedente {
 			+ " a Vantagem com outra coisa.";
 	
 	public Rico() {
-		super(new RequisitoProgresso(new Progresso(0)), new RequisitoComplicacao(new Voto("")));
+		super(nome, desc, new RequisitoProgresso(new Progresso(0)), new RequisitoComplicacao(new Voto()));
 	}
 }

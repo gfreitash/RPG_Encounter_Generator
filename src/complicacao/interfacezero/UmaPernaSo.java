@@ -27,11 +27,10 @@ public class UmaPernaSo extends Complicacao {
 	public static final String tipoPossivel[] = {"Maior"};
 	
 	public UmaPernaSo() {
-		super();
-		// TODO Auto-generated constructor stub
+		super(nome, desc, tipoPossivel);
 	}
 
 	public UmaPernaSo(String tipo) {
-		super(tipo);
+		super(nome, desc, tipoPossivel, tipo);
 	}
 }

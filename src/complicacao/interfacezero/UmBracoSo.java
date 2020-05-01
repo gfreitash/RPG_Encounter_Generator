@@ -21,11 +21,10 @@ public class UmBracoSo extends Complicacao {
 	public static final String tipoPossivel[] = {"Maior"};
 	
 	public UmBracoSo() {
-		super();
-		// TODO Auto-generated constructor stub
+		super(nome, desc, tipoPossivel);
 	}
 
 	public UmBracoSo(String tipo) {
-		super(tipo);
+		super(nome, desc, tipoPossivel, tipo);
 	}
 }

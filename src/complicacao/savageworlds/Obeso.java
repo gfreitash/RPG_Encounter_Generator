@@ -22,10 +22,10 @@ public class Obeso extends Complicacao {
 	public static final String tipoPossivel[] = {"Menor"};
 	
 	public Obeso() {
-		
+		super(nome, desc, tipoPossivel);
 	}
 	
 	public Obeso(String tipo) {
-		super(tipo);
+		super(nome, desc, tipoPossivel, tipo);
 	}
 }

@@ -13,10 +13,10 @@ public class Sanguinario extends Complicacao {
 	public static final String tipoPossivel[] = {"Maior"};
 	
 	public Sanguinario() {
-		
+		super(nome, desc, tipoPossivel);
 	}
 	
 	public Sanguinario(String tipo) {
-		super(tipo);
+		super(nome, desc, tipoPossivel, tipo);
 	}
 }

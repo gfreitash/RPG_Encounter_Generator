@@ -19,10 +19,5 @@ public class Humano2 extends Raca {
 	public Humano2() {
 		super(nome, desc);
 	}
-	@Override
-	protected void setModificadores() {
-		// TODO Auto-generated method stub
-
-	}
 
 }

@@ -24,11 +24,10 @@ public class GatilhoEstresse extends Complicacao {
 	public static final String tipoPossivel[] = {"Menor", "Maior"};
 	
 	public GatilhoEstresse() {
-		super();
-		// TODO Auto-generated constructor stub
+		super(nome, desc, tipoPossivel);
 	}
 
 	public GatilhoEstresse(String tipo) {
-		super(tipo);
+		super(nome, desc, tipoPossivel, tipo);
 	}
 }

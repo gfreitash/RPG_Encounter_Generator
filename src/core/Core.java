@@ -9,9 +9,6 @@ public abstract class Core implements Comparable<Core>{
 		this.nome = nome;
 		this.desc = desc;
 	}
-	
-	public Core() {
-	}
 
 	public String getNome() {
 		return nome;
@@ -19,6 +16,14 @@ public abstract class Core implements Comparable<Core>{
 	
 	public String getDesc() {
 		return desc;
+	}
+	
+	protected void setNome(String nome) {
+		this.nome = nome;
+	}
+	
+	protected void setDesc(String desc) {
+		this.desc = desc;
 	}
 	
 	public int compareTo(Core c) {

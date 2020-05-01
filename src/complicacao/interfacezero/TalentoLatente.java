@@ -33,12 +33,11 @@ public class TalentoLatente extends Complicacao {
 	public static final String tipoPossivel[] = {"Maior"};
 	
 	public TalentoLatente() {
-		super();
-		// TODO Auto-generated constructor stub
+		super(nome, desc, tipoPossivel);
 	}
 
 	public TalentoLatente(String tipo) {
-		super(tipo);
+		super(nome, desc, tipoPossivel, tipo);
 	}
 
 }

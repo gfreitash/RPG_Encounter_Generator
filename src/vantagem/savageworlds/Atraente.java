@@ -13,6 +13,6 @@ public class Atraente extends VantagemAntecedente {
 			"personagem belo ou atraente.";
 	
 	public Atraente() {
-		super(new RequisitoProgresso(new Progresso(0)), new RequisitoAtributo(new Vigor(6)));
+		super(nome, desc, new RequisitoProgresso(new Progresso(0)), new RequisitoAtributo(new Vigor(6)));
 	}
 }

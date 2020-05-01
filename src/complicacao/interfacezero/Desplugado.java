@@ -3,7 +3,7 @@ package complicacao.interfacezero;
 import core.Complicacao;
 
 public class Desplugado extends Complicacao {
-	public static final String name = "Desplugado";
+	public static final String nome = "Desplugado";
 	public static final String desc = "Você não tem um TAP e é incapaz de ver "
 			+ "ou interagir com Hiper-Realidade ou realidade virtual "
 			+ "de qualquer modo; incluindo, mas não limitado a, "
@@ -16,10 +16,10 @@ public class Desplugado extends Complicacao {
 	public static final String tipoPossivel[] = {"Maior"};
 	
 	public Desplugado() {
-		super();
+		super(nome, desc, tipoPossivel);
 	}
 
 	public Desplugado(String tipo) {
-		super(tipo);
+		super(nome, desc, tipoPossivel, tipo);
 	}
 }

@@ -11,11 +11,11 @@ public class Cauteloso extends Complicacao {
 			"antes de qualquer ação ser tomada.";
 	public static final String tipoPossivel[] = {"Menor"};
 	
-	Cauteloso() {
-		super();
+	public Cauteloso() {
+		super(nome, desc, tipoPossivel);
 	}
 	
 	Cauteloso(String tipo) {
-		super(tipo);
+		super(nome, desc, tipoPossivel, tipo);
 	}
 }

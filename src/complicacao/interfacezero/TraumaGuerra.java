@@ -10,11 +10,10 @@ public class TraumaGuerra extends Complicacao {
 	public static final String tipoPossivel[] = {"Maior"};
 	
 	public TraumaGuerra() {
-		super();
-		// TODO Auto-generated constructor stub
+		super(nome, desc, tipoPossivel);
 	}
 
 	public TraumaGuerra(String tipo) {
-		super(tipo);
+		super(nome, desc, tipoPossivel, tipo);
 	}
 }

@@ -21,10 +21,10 @@ public class Persuadir extends Pericia {
 			"Mestre e da situação.";
 	
 	public Persuadir() {
-		super(new Espirito());
+		super(nome, desc, new Espirito());
 	}
 	
 	public Persuadir(int nivelDado) {
-		super(new Espirito(), nivelDado);
+		super(nome, desc, new Espirito(), nivelDado);
 	}
 }

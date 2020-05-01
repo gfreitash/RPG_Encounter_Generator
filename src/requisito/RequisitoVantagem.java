@@ -16,15 +16,33 @@ public class RequisitoVantagem extends Requisito {
 	}
 
 	@Override
-	public boolean equals(Object o) {
-		if (o == this) {
+	public boolean equals(Object obj) {
+		if (this == obj)
 			return true;
-		}
-		if (o instanceof RequisitoVantagem) {
-			RequisitoVantagem reqVant = (RequisitoVantagem) o;
-			return vantagem.equals(reqVant.vantagem);
-		}
-		return false;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		RequisitoVantagem other = (RequisitoVantagem) obj;
+		if (vantagem == null) {
+			if (other.vantagem != null)
+				return false;
+		} else if (!vantagem.equals(other.vantagem))
+			return false;
+		return true;
+	}
+
+	@Override
+	public Object getRequisito() {
+		return vantagem;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((vantagem == null) ? 0 : vantagem.hashCode());
+		return result;
 	}
 
 }

@@ -26,11 +26,10 @@ public class UmOlhoSo extends Complicacao {
 	public static final String tipoPossivel[] = {"Maior"};
 	
 	public UmOlhoSo() {
-		super();
-		// TODO Auto-generated constructor stub
+		super(nome, desc, tipoPossivel);
 	}
 
 	public UmOlhoSo(String tipo) {
-		super(tipo);
+		super(nome, desc, tipoPossivel, tipo);
 	}
 }

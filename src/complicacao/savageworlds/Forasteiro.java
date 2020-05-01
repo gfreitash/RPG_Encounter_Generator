@@ -21,10 +21,10 @@ public class Forasteiro extends Complicacao {
 	public static final String tipoPossivel[] = {"Menor"};
 	
 	public Forasteiro() {
-		
+		super(nome, desc, tipoPossivel);
 	}
 	
 	public Forasteiro(String tipo) {
-		super(tipo);
+		super(nome, desc, tipoPossivel, tipo);
 	}
 }

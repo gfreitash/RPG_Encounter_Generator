@@ -13,10 +13,10 @@ public class Navegar extends Pericia {
 			"encordar velas, etc.).";
 	
 	public Navegar() {
-		super(new Agilidade());
+		super(nome, desc, new Agilidade());
 	}
 	
 	public Navegar(int nivelDado) {
-		super(new Agilidade(), nivelDado);
+		super(nome, desc, new Agilidade(), nivelDado);
 	}
 }

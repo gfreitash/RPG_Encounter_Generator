@@ -19,10 +19,6 @@ public class HibridoFurtivo extends Raca implements Hibrido {
 	public HibridoFurtivo() {
 		super(nome, desc);
 	}
-	@Override
-	protected void setModificadores() {
-		// TODO Auto-generated method stub
 
-	}
 
 }

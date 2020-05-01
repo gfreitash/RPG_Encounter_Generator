@@ -12,11 +12,17 @@ public abstract class Vantagem extends Core{
 	private String especializacao;
 	private List<Requisito> requisitos;
 	
-	protected Vantagem() {
-		
+	protected Vantagem(String nome, String desc, String tipo, String desc_tipo) {
+		super(nome, desc);
+		this.tipo = tipo;
+		this.desc_tipo = desc_tipo;
 	}
 	
-	protected Vantagem(Requisito ... requisitos) {
+	protected Vantagem(String nome, String desc, String tipo, String desc_tipo, Requisito ... requisitos) {
+		super(nome, desc);
+		this.tipo = tipo;
+		this.desc_tipo = desc_tipo;
+		
 		this.requisitos = new ArrayList<Requisito>();
 		for(Requisito x: requisitos) {
 			this.requisitos.add(x);

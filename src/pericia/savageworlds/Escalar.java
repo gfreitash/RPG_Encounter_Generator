@@ -52,10 +52,10 @@ public class Escalar extends Pericia {
 			"caso de uma escalada livre.";
 	
 	public Escalar() {
-		super(new Forca());
+		super(nome, desc, new Forca());
 	}
 	
 	public Escalar(int nivelDado) {
-		super(new Forca(), nivelDado);
+		super(nome, desc, new Forca(), nivelDado);
 	}
 }

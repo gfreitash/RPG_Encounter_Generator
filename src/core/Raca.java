@@ -5,5 +5,4 @@ public abstract class Raca extends Core{
 		super(nome, desc);
 	}
 	
-	protected abstract void setModificadores();
 }

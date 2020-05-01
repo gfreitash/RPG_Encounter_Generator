@@ -14,10 +14,10 @@ public class Consertar extends Pericia {
 			"particular.";
 	
 	public Consertar() {
-		super(new Astucia());
+		super(nome, desc, new Astucia());
 	}
 	
 	public Consertar(int nivelDado) {
-		super(new Astucia(), nivelDado);
+		super(nome, desc, new Astucia(), nivelDado);
 	}
 }

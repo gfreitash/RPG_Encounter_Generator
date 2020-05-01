@@ -20,11 +20,10 @@ public class Propriedade extends Complicacao {
 	public static final String tipoPossivel[] = {"Maior"};
 	
 	public Propriedade() {
-		super();
-		// TODO Auto-generated constructor stub
+		super(nome, desc, tipoPossivel);
 	}
 
 	public Propriedade(String tipo) {
-		super(tipo);
+		super(nome, desc, tipoPossivel, tipo);
 	}
 }

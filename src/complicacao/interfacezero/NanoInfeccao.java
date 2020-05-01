@@ -18,11 +18,10 @@ public class NanoInfeccao extends Complicacao {
 	public static final String tipoPossivel[] = {"Menor", "Maior"};
 	
 	public NanoInfeccao() {
-		super();
-		// TODO Auto-generated constructor stub
+		super(nome, desc, tipoPossivel);
 	}
 
 	public NanoInfeccao(String tipo) {
-		super(tipo);
+		super(nome, desc, tipoPossivel, tipo);
 	}
 }

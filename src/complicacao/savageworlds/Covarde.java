@@ -12,10 +12,10 @@ public class Covarde extends Complicacao {
 	public static final String tipoPossivel[] = {"Maior"};
 	
 	public Covarde() {
-		super();
+		super(nome, desc, tipoPossivel);
 	}
 	
 	public Covarde(String tipo) {
-		super(tipo);
+		super(nome ,desc, tipoPossivel, tipo);
 	}
 }

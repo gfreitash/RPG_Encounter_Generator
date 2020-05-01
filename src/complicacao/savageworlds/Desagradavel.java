@@ -14,10 +14,10 @@ public class Desagradavel extends Complicacao {
 	public static final String tipoPossivel[] = {"Menor"};
 	
 	public Desagradavel() {
-		super();
+		super(nome, desc, tipoPossivel);
 	}
 	
 	public Desagradavel(String tipo, Membro m) {
-		super(tipo);
+		super(nome, desc, tipoPossivel, tipo);
 	}
 }

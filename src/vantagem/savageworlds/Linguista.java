@@ -18,6 +18,6 @@ public class Linguista extends VantagemAntecedente {
 			"falado por pelo menos uma semana.";
 	
 	public Linguista() {
-		super(new RequisitoProgresso(new Progresso(0)), new RequisitoAtributo(new Astucia(6)));
+		super(nome, desc, new RequisitoProgresso(new Progresso(0)), new RequisitoAtributo(new Astucia(6)));
 	}
 }

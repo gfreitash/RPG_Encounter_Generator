@@ -16,10 +16,10 @@ public class Heroico extends Complicacao {
 	public static final String tipoPossivel[] = {"Maior"};
 	
 	public Heroico() {
-		
+		super(nome, desc, tipoPossivel);
 	}
 	
 	public Heroico(String tipo) {
-		super(tipo);
+		super(nome, desc, tipoPossivel, tipo);
 	}
 }

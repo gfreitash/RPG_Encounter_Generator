@@ -17,10 +17,6 @@ public class HibridoFeroz extends Raca implements Hibrido {
 	public HibridoFeroz() {
 		super(nome, desc);
 	}
-	@Override
-	protected void setModificadores() {
-		// TODO Auto-generated method stub
-
-	}
+	
 
 }

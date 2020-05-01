@@ -16,10 +16,10 @@ public class Perceber extends Pericia {
 			"deve revelar.";
 	
 	public Perceber() {
-		super(new Astucia()); 
+		super(nome, desc, new Astucia()); 
 	}
 	
 	public Perceber(int nivelDado) {
-		super(new Astucia(), nivelDado); 
+		super(nome, desc, new Astucia(), nivelDado); 
 	}
 }

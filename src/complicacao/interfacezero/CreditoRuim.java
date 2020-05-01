@@ -10,10 +10,10 @@ public class CreditoRuim extends Complicacao {
 	public static final String tipoPossivel[] = {"Menor"};
 	
 	public CreditoRuim() {
-		
+		super(nome, desc, tipoPossivel);
 	}
 	
 	public CreditoRuim(String tipo, Membro m) {
-		super(tipo);
+		super(nome, desc, tipoPossivel, tipo);
 	}
 }

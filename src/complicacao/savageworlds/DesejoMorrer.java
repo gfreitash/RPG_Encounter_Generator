@@ -14,9 +14,10 @@ public class DesejoMorrer extends Complicacao {
 	public static final String tipoPossivel[] = { "Menor", "Maior" };
 
 	public DesejoMorrer() {
+		super(nome, desc, tipoPossivel);
 	}
 
 	public DesejoMorrer(String tipo) {
-		super(tipo);
+		super(nome, desc, tipoPossivel, tipo);
 	}
 }

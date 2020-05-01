@@ -23,9 +23,9 @@ public class Arrogante extends Complicacao {
 	public static final String tipoPossivel[] = {"Maior"};
 	
 	public Arrogante() {
-		super();
+		super(nome, desc, tipoPossivel);
 	}
 	public Arrogante(String tipo) {
-		super(tipo);
+		super(nome, desc, tipoPossivel, tipo);
 	}
 }

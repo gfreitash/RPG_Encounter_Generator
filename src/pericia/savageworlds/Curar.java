@@ -13,10 +13,10 @@ public class Curar extends Pericia {
 			"também os do seu paciente.";
 	
 	public Curar() {
-		super(new Astucia());
+		super(nome, desc, new Astucia());
 	}
 	
 	public Curar(int nivelDado) {
-		super(new Astucia(), nivelDado);
+		super(nome, desc, new Astucia(), nivelDado);
 	}
 }

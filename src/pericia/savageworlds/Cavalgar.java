@@ -12,10 +12,10 @@ public class Cavalgar extends Pericia {
 			"Lutar quando estiverem em combate montado";
 	
 	public Cavalgar() {
-		super(new Agilidade());
+		super(nome, desc, new Agilidade());
 	}
 	
 	public Cavalgar(int nivelDado) {
-		super(new Agilidade(), nivelDado);
+		super(nome, desc, new Agilidade(), nivelDado);
 	}
 }

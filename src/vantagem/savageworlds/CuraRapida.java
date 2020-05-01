@@ -14,6 +14,6 @@ public class CuraRapida extends VantagemAntecedente {
 			"101 para regras completas de Cura.";
 	
 	public CuraRapida() {
-		super(new RequisitoProgresso(new Progresso(0)), new RequisitoAtributo(new Vigor(8)));
+		super(nome, desc, new RequisitoProgresso(new Progresso(0)), new RequisitoAtributo(new Vigor(8)));
 	}
 }

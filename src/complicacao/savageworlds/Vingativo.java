@@ -17,10 +17,10 @@ public class Vingativo extends Complicacao {
 	public static final String tipoPossivel[] = {"Menor", "Maior"};
 	
 	public Vingativo() {
-		
+		super(nome, desc, tipoPossivel);
 	}
 	
 	public Vingativo(String tipo) {
-		super(tipo);
+		super(nome, desc, tipoPossivel, tipo);
 	}
 }

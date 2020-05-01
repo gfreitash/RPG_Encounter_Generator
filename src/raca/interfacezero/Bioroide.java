@@ -41,10 +41,6 @@ public class Bioroide extends Raca {
 	public Bioroide() {
 		super(nome, desc);
 	}
-	@Override
-	protected void setModificadores() {
-		// TODO Auto-generated method stub
-
-	}
+	
 
 }

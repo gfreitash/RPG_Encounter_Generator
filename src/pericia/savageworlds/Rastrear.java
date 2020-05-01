@@ -13,10 +13,10 @@ public class Rastrear extends Pericia {
 			"escalas de busca mais específicas ou menores.";
 	
 	public Rastrear() {
-		super(new Astucia());
+		super(nome, desc, new Astucia());
 	}
 	
 	public Rastrear(int nivelDado) {
-		super(new Astucia(), nivelDado);
+		super(nome, desc, new Astucia(), nivelDado);
 	}
 }

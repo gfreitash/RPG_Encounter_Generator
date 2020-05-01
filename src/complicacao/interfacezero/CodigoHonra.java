@@ -14,10 +14,10 @@ public class CodigoHonra extends Complicacao {
 	public static final String tipoPossivel[] = {"Maior"};
 	
 	public CodigoHonra() {
-		
+		super(nome, desc, tipoPossivel);
 	}
 	
 	public CodigoHonra(String tipo) {
-		super(tipo);
+		super(nome, desc, tipoPossivel, tipo);
 	}
 }

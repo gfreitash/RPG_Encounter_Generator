@@ -16,10 +16,10 @@ public class Nadar extends Pericia {
 			"para ter movimento extra.";
 	
 	public Nadar() {
-		super(new Agilidade());
+		super(nome, desc, new Agilidade());
 	}
 	
 	public Nadar(int nivelDado) {
-		super(new Agilidade(), nivelDado);
+		super(nome, desc, new Agilidade(), nivelDado);
 	}
 }

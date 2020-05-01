@@ -27,13 +27,13 @@ public class Divida extends Complicacao {
 			+ "única compra de até 30,000 créditos e tem que acrescentar "
 			+ "1,000 créditos ao seu custo de vida. Também é provável que o "
 			+ "credor fique mais... infeliz com a falta de pagamentos.";
+	public static final String[] tipoPossivel = {"Maior", "Menor"};
 	
 	public Divida() {
-		super();
-		// TODO Auto-generated constructor stub
+		super(nome, desc, tipoPossivel);
 	}
 	
 	public Divida(String tipo) {
-		super(tipo);
+		super(nome, desc, tipoPossivel, tipo);
 	}
 }

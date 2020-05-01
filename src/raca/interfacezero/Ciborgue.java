@@ -49,10 +49,6 @@ public class Ciborgue extends Raca {
 	public Ciborgue() {
 		super(nome, desc);
 	}
-	@Override
-	protected void setModificadores() {
-		// TODO Auto-generated method stub
-
-	}
+	
 
 }

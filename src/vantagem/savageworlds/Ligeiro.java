@@ -12,6 +12,6 @@ public class Ligeiro extends VantagemAntecedente {
 			"correr.";
 	
 	public Ligeiro() {
-		super(new RequisitoProgresso(new Progresso(0)), new RequisitoAtributo(new Agilidade(6)));
+		super(nome, desc, new RequisitoProgresso(new Progresso(0)), new RequisitoAtributo(new Agilidade(6)));
 	}
 }

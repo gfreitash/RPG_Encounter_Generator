@@ -30,11 +30,10 @@ public class Giri extends Complicacao {
 	public static final String tipoPossivel[] = {"Menor", "Maior"};
 	
 	public Giri() {
-		super();
-		// TODO Auto-generated constructor stub
+		super(nome, desc, tipoPossivel);
 	}
 
 	public Giri(String tipo) {
-		super(tipo);
+		super(nome, desc, tipoPossivel, tipo);
 	}
 }

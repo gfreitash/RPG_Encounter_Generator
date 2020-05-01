@@ -32,10 +32,4 @@ public class SimulacroLuxo extends Raca implements Simulacro {
 	public SimulacroLuxo() {
 		super(nome, desc);
 	}
-	@Override
-	protected void setModificadores() {
-		// TODO Auto-generated method stub
-
-	}
-
 }

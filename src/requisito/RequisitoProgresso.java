@@ -32,4 +32,9 @@ public class RequisitoProgresso extends Requisito {
 		return true;
 	}
 
+	@Override
+	public Object getRequisito() {
+		return progresso;
+	}
+
 }

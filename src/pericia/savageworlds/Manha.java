@@ -13,10 +13,10 @@ public class Manha extends Pericia {
 			"é sempre modificada pelo Carisma do personagem.";
 	
 	public Manha() {
-		super(new Astucia());
+		super(nome, desc, new Astucia());
 	}
 	
 	public Manha(int nivelDado) {
-		super(new Astucia(), nivelDado);
+		super(nome, desc, new Astucia(), nivelDado);
 	}
 }

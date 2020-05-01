@@ -17,6 +17,6 @@ public class ResistenciaArcanaAprimorada extends VantagemAntecedente {
 			"afetar o herói resistente.";
 	
 	public ResistenciaArcanaAprimorada() {
-		super(new RequisitoProgresso(new Progresso(0)), new RequisitoVantagem(new ResistenciaArcana()));
+		super(nome, desc, new RequisitoProgresso(new Progresso(0)), new RequisitoVantagem(new ResistenciaArcana()));
 	}
 }

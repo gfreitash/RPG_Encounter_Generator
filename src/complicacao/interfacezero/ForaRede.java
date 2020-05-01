@@ -29,11 +29,10 @@ public class ForaRede extends Complicacao {
 	public static final String tipoPossivel[] = {"Maior"};
 	
 	public ForaRede() {
-		super();
-		// TODO Auto-generated constructor stub
+		super(nome, desc, tipoPossivel);
 	}
 
 	public ForaRede(String tipo) {
-		super(tipo);
+		super(nome, desc, tipoPossivel, tipo);
 	}
 }

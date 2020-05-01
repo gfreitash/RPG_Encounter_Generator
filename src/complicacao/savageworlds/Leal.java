@@ -11,10 +11,10 @@ public class Leal extends Complicacao {
 	public static final String tipoPossivel[] = {"Menor"};
 	
 	public Leal() {
-		
+		super(nome, desc, tipoPossivel);
 	}
 	
 	public Leal(String tipo) {
-		super(tipo);
+		super(nome, desc, tipoPossivel, tipo);
 	}
 }

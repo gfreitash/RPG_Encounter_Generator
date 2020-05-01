@@ -13,11 +13,10 @@ public class Racista extends Complicacao {
 	public static final String tipoPossivel[] = {"Menor", "Maior"};
 	
 	public Racista() {
-		super();
-		// TODO Auto-generated constructor stub
+		super(nome, desc, tipoPossivel);
 	}
 
 	public Racista(String tipo) {
-		super(tipo);
+		super(nome ,desc, tipoPossivel, tipo);
 	}
 }

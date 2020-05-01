@@ -14,10 +14,10 @@ public class Hacking extends Pericia {
 			"o fazem com suas perícias de Investigar e Manha";
 	
 	public Hacking() {
-		super(new Astucia());
+		super(nome, desc, new Astucia());
 	}
 	
 	public Hacking(int nivelDado) {
-		super(new Astucia(nivelDado));
+		super(nome, desc, new Astucia(nivelDado));
 	}
 }

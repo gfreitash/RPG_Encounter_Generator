@@ -21,11 +21,12 @@ public abstract class VantagemAntecedente extends Vantagem{
 			"proibido ou treinando sob a tutela de outro " + 
 			"indivíduo arcano no seu grupo.";
 	
-	protected VantagemAntecedente() {
+	protected VantagemAntecedente(String nome, String desc) {
+		super(nome, desc, tipo, desc_tipo);
 	}
 	
-	protected VantagemAntecedente(Requisito ... requisitos) {
-		super(requisitos);
+	protected VantagemAntecedente(String nome, String desc, Requisito ... requisitos) {
+		super(nome, desc, tipo, desc_tipo, requisitos);
 	}
 
 }

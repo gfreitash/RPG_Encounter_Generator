@@ -5,7 +5,8 @@ public abstract class Atributo extends Core {
 	private int modDado;
 	private int nivelDado;
 	
-	public Atributo() {
+	public Atributo(String nome, String desc) {
+		super(nome, desc);
 		setNivelDado(4);
 	}
 

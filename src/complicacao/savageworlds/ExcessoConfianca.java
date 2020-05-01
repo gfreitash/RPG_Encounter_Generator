@@ -12,10 +12,10 @@ public class ExcessoConfianca extends Complicacao {
 	public static final String tipoPossivel[] = {"Maior"};
 	
 	public ExcessoConfianca() {
-		super();
+		super(nome, desc, tipoPossivel);
 	}
 	
 	public ExcessoConfianca(String tipo) {
-		super(tipo);
+		super(nome, desc, tipoPossivel, tipo);
 	}
 }

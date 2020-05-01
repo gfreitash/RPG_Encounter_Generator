@@ -25,10 +25,10 @@ public class Cego extends Complicacao {
 	public static final String tipoPossivel[] = {"Maior"};
 	
 	public Cego() {
-		
+		super(nome, desc, tipoPossivel);
 	}
 	
 	public Cego(String tipo) {
-		super(tipo);
+		super(nome, desc, tipoPossivel, tipo);
 	}
 }

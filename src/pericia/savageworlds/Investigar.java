@@ -13,10 +13,10 @@ public class Investigar extends Pericia {
 			"Manha.";
 	
 	public Investigar() {
-		super(new Astucia());
+		super(nome, desc, new Astucia());
 	}
 	
 	public Investigar(int nivelDado) {
-		super(new Astucia(), nivelDado);
+		super(nome, desc, new Astucia(), nivelDado);
 	}
 }

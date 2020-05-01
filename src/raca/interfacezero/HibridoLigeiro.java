@@ -12,10 +12,5 @@ public class HibridoLigeiro extends Raca implements Hibrido {
 	public HibridoLigeiro()	{
 		super(nome, desc);
 	}
-	@Override
-	protected void setModificadores() {
-		// TODO Auto-generated method stub
-
-	}
-
+	
 }

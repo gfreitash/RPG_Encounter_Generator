@@ -13,10 +13,5 @@ public class HibridoDurao extends Raca implements Hibrido{
 	public HibridoDurao() {
 		super(nome, desc);
 	}
-	@Override
-	protected void setModificadores() {
-		// TODO Auto-generated method stub
-
-	}
 
 }

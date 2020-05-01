@@ -33,10 +33,10 @@ public class Jogar extends Pericia {
 			"normalmente são bastante severas.";
 	
 	public Jogar() {
-		super(new Astucia());
+		super(nome, desc, new Astucia());
 	}
 	
 	public Jogar(int nivelDado) {
-		super(new Astucia(), nivelDado);
+		super(nome, desc, new Astucia(), nivelDado);
 	}
 }

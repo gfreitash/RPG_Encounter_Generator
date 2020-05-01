@@ -17,7 +17,7 @@ public class Musculoso extends VantagemAntecedente {
 			"ao invés do normal de 2,5 vezes a sua Força.";
 	
 	public Musculoso() {
-		super(new RequisitoProgresso(new Progresso(0)), new RequisitoAtributo(new Forca(6)), 
+		super(nome, desc, new RequisitoProgresso(new Progresso(0)), new RequisitoAtributo(new Forca(6)), 
 				new RequisitoAtributo(new Vigor(6)));
 	}
 }

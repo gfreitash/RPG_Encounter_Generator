@@ -12,10 +12,10 @@ public class Curioso extends Complicacao {
 	public static final String tipoPossivel[] = {"Maior"};
 	
 	public Curioso() {
-		super();
+		super(nome, desc, tipoPossivel);
 	}
 	
 	public Curioso(String tipo) {
-		super(tipo);
+		super(nome, desc, tipoPossivel, tipo);
 	}
 }

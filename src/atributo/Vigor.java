@@ -9,10 +9,11 @@ public class Vigor extends Atributo {
 			"dano físico um herói pode suportar.";
 	
 	public Vigor() {
-		
+		super(nome, desc);
 	}
 	
 	public Vigor(int nivelDado) {
+		super(nome, desc);
 		setNivelDado(nivelDado);
 	}
 }

@@ -16,6 +16,6 @@ public class ConhecimentoProgramacao extends Conhecimento {
 			"um TAP que ficou offline.";
 	
 	public ConhecimentoProgramacao() {
-		super(especializacao);
+		super(nome, desc, especializacao);
 	}
 }

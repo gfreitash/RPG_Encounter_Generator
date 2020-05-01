@@ -3,7 +3,7 @@ package vantagem.savageworlds;
 import core.Progresso;
 import requisito.RequisitoProgresso;
 
-public abstract class Ambidestro extends VantagemAntecedente {
+public class Ambidestro extends VantagemAntecedente {
 	public static final String nome = "Ambidestro";
 	public static final String desc = "Seu herói é hábil tanto com a sua mão " + 
 			"esquerda quanto com a sua direita. Personagens " + 
@@ -14,6 +14,6 @@ public abstract class Ambidestro extends VantagemAntecedente {
 			"por usar sua mão inábil";
 	
 	public Ambidestro() {
-		super(new RequisitoProgresso(new Progresso(0)));
+		super(nome, desc, new RequisitoProgresso(new Progresso(0)));
 	}
 }

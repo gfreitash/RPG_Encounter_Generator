@@ -20,7 +20,7 @@ public class ConhecimentoDemolicao extends Conhecimento {
 			"falha simples resultará em detonação prematura ou em " + 
 			"nenhuma detonação.";
 	
-	ConhecimentoDemolicao() {
-		super(especializacao);
+	public ConhecimentoDemolicao() {
+		super(nome, desc, especializacao);
 	}
 }

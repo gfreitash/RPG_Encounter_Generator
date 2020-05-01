@@ -18,6 +18,6 @@ public class Corajoso extends VantagemAntecedente {
 			"também.";
 	
 	public Corajoso() {
-		super(new RequisitoProgresso(new Progresso(0)), new RequisitoAtributo(new Espirito(6)));
+		super(nome, desc, new RequisitoProgresso(new Progresso(0)), new RequisitoAtributo(new Espirito(6)));
 	}
 }

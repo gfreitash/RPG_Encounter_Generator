@@ -32,6 +32,11 @@ public class RequisitoAtributo extends Requisito {
 		return true;
 	}
 
+	@Override
+	public Atributo getRequisito() {
+		return atributo;
+	}
+
 	/*@Override
 	public boolean equals(Object o) {
 		if (o == this) {

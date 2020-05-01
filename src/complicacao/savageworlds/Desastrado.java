@@ -18,11 +18,11 @@ public class Desastrado extends Complicacao {
 	public static final String tipoPossivel[] = {"Menor"};
 	
 	public Desastrado() {
-		super();
+		super(nome, desc, tipoPossivel);
 	}
 	
 	public Desastrado(String tipo, Membro m) {
-		super(tipo);
+		super(nome, desc, tipoPossivel, tipo);
 	}
 
 }

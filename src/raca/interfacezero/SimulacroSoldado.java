@@ -26,10 +26,5 @@ public class SimulacroSoldado extends Raca implements Simulacro {
 	public SimulacroSoldado() {
 		super(nome, desc);
 	}
-	@Override
-	protected void setModificadores() {
-		// TODO Auto-generated method stub
-
-	}
 
 }

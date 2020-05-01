@@ -12,15 +12,21 @@ public class Progresso extends Core {
 	
 	
 	public Progresso() {
+		super("", "");
 		setEstagio();
+		this.setNome(estagio);
+		this.setDesc(Integer.valueOf(experienciaAtual).toString());
 	}
 	
 	public Progresso(int experiencia) throws IllegalArgumentException {
+		super("", "");
 		if(experiencia >= 0)
 			experienciaAtual +=  experiencia;
 		else throw new IllegalArgumentException("Valor de \"experiencia\" não pode ser negativo!");
 		setEstagio();
 		setProgresso();
+		this.setNome(estagio);
+		this.setDesc(Integer.valueOf(experienciaAtual).toString());
 	}
 	
 	public void addExperiencia(int experiencia) {

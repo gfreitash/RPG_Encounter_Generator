@@ -22,11 +22,10 @@ public class MonitorIndicado extends Complicacao {
 	public static final String tipoPossivel[] = {"Menor"};
 	
 	public MonitorIndicado() {
-		super();
-		// TODO Auto-generated constructor stub
+		super(nome, desc, tipoPossivel);
 	}
 
 	public MonitorIndicado(String tipo) {
-		super(tipo);
+		super(nome, desc, tipoPossivel, tipo);
 	}
 }

@@ -17,9 +17,4 @@ public class Humano extends Raca {
 		super(nome, desc);
 	}
 
-	@Override
-	protected void setModificadores() {
-		// TODO Auto-generated method stub
-		
-	}
 }

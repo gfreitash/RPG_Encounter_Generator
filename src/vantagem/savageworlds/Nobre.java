@@ -31,6 +31,6 @@ public class Nobre extends VantagemAntecedente {
 			"ele na corte.";
 	
 	public Nobre() {
-		super(new RequisitoProgresso(new Progresso(0)));
+		super(nome, desc, new RequisitoProgresso(new Progresso(0)));
 	}
 }

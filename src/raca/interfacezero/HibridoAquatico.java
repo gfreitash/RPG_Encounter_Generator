@@ -18,10 +18,5 @@ public class HibridoAquatico extends Raca implements Hibrido {
 	public HibridoAquatico() {
 		super(nome, desc);
 	}
-	@Override
-	protected void setModificadores() {
-		// TODO Auto-generated method stub
-
-	}
-
+	
 }

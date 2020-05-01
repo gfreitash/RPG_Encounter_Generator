@@ -11,7 +11,7 @@ public class Prontidao extends VantagemAntecedente {
 			"mundo a seu redor de qualquer outra maneira.";
 	
 	public Prontidao() {
-		super(new RequisitoProgresso(new Progresso(0)));
+		super(nome, desc, new RequisitoProgresso(new Progresso(0)));
 	}
 	
 	

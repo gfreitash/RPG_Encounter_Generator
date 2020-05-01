@@ -18,10 +18,10 @@ public class Sobrevivencia extends Pericia {
 			"água ou abrigo por esse dia.";
 	
 	public Sobrevivencia() {
-		super(new Astucia());
+		super(nome, desc, new Astucia());
 	}
 	
 	public Sobrevivencia(int nivelDado) {
-		super(new Astucia(), nivelDado);
+		super(nome, desc, new Astucia(), nivelDado);
 	}
 }

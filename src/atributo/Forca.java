@@ -9,10 +9,11 @@ public class Forca extends Atributo {
 			"do seu guerreiro em combate corpo a corpo.";
 	
 	public Forca() {
-		
+		super(nome, desc);
 	}
 	
 	public Forca(int nivelDado) {
+		super(nome, desc);
 		setNivelDado(nivelDado);
 	}
 }

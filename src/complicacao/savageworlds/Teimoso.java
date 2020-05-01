@@ -12,10 +12,10 @@ public class Teimoso extends Complicacao {
 	public static final String tipoPossivel[] = {"Maior"};
 	
 	public Teimoso() {
-		
+		super(nome, desc, tipoPossivel);
 	}
 	
 	public Teimoso(String tipo) {
-		super(tipo);
+		super(nome, desc, tipoPossivel, tipo);
 	}
 }

@@ -31,11 +31,10 @@ public class VisaoRuim extends Complicacao {
 	public static final String tipoPossivel[] = {"Menor", "Maior"};
 	
 	public VisaoRuim() {
-		super();
-		// TODO Auto-generated constructor stub
+		super(nome, desc, tipoPossivel);
 	}
 
 	public VisaoRuim(String tipo) {
-		super(tipo);
+		super(nome, desc, tipoPossivel, tipo);
 	}
 }

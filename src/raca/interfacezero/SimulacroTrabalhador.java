@@ -26,10 +26,4 @@ public class SimulacroTrabalhador extends Raca implements Simulacro {
 	public SimulacroTrabalhador() {
 		super(nome, desc);
 	}
-	@Override
-	protected void setModificadores() {
-		// TODO Auto-generated method stub
-
-	}
-
 }

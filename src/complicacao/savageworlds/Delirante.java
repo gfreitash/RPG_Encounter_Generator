@@ -19,10 +19,10 @@ public class Delirante extends Complicacao {
 	public static final String tipoPossivel[] = {"Menor", "Maior"};
 	
 	public Delirante() {
-		super();
+		super(nome, desc, tipoPossivel);
 	}
 	
 	public Delirante(String tipo) {
-		super(tipo);
+		super(nome, desc, tipoPossivel, tipo);
 	}
 }

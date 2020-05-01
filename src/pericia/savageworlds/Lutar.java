@@ -12,10 +12,10 @@ public class Lutar extends Pericia {
 			"Lutar).";
 	
 	public Lutar() {
-		super(new Agilidade());
+		super(nome, desc, new Agilidade());
 	}
 	
 	public Lutar(int nivelDado) {
-		super(new Agilidade(), nivelDado);
+		super(nome, desc, new Agilidade(), nivelDado);
 	}
 }

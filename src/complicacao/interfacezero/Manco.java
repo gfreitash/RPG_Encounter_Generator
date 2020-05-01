@@ -21,11 +21,10 @@ public class Manco extends Complicacao {
 	public static final String tipoPossivel[] = {"Maior"};
 	
 	public Manco() {
-		super();
-		// TODO Auto-generated constructor stub
+		super(nome, desc, tipoPossivel);
 	}
 
 	public Manco(String tipo) {
-		super(tipo);
+		super(nome, desc, tipoPossivel, tipo);
 	}
 }

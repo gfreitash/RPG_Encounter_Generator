@@ -10,10 +10,10 @@ public class SemNocao extends Complicacao {
 	public static final String tipoPossivel[] = {"Maior"};
 	
 	public SemNocao() {
-		
+		super(nome, desc, tipoPossivel);
 	}
 	
 	public SemNocao(String tipo) {
-		super(tipo);
+		super(nome, desc, tipoPossivel, tipo);
 	}
 }

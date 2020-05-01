@@ -13,10 +13,10 @@ public class Atletismo extends Pericia {
 			+ " Escalar e Nadar.";
 	
 	public Atletismo() {
-		super(new Vigor());
+		super(nome, desc, new Vigor());
 	}
 	
 	public Atletismo(int nivelDado) {
-		super(new Vigor(), nivelDado);
+		super(nome, desc, new Vigor(), nivelDado);
 	}
 }

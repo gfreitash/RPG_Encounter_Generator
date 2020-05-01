@@ -12,10 +12,10 @@ public class Dirigir extends Pericia {
 			"Perseguição";
 	
 	public Dirigir() {
-		super(new Agilidade());
+		super(nome, desc, new Agilidade());
 	}
 	
 	public Dirigir(int nivelDado) {
-		super(new Agilidade(), nivelDado);
+		super(nome, desc, new Agilidade(), nivelDado);
 	}
 }

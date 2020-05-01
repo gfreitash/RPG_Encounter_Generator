@@ -14,4 +14,15 @@ public class RequisitoRaca extends Requisito {
 		return false;
 	}
 
+	@Override
+	public Object getRequisito() {
+		return null;
+	}
+
+	@Override
+	public int hashCode() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

@@ -29,10 +29,10 @@ public class Jovem extends Complicacao {
 	public static final String tipoPossivel[] = {"Maior"};
 	
 	public Jovem() {
-		
+		super(nome, desc, tipoPossivel);
 	}
 	
 	public Jovem(String tipo) {
-		super(tipo);
+		super(nome, desc, tipoPossivel, tipo);
 	}
 }

@@ -22,10 +22,10 @@ public class Pacifista extends Complicacao {
 	public static final String tipoPossivel[] = {"Menor", "Maior"};
 	
 	public Pacifista() {
-		
+		super(nome, desc, tipoPossivel);
 	}
 	
 	public Pacifista(String tipo) {
-		super(tipo);
+		super(nome, desc, tipoPossivel, tipo);
 	}
 }

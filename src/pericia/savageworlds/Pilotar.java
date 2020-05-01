@@ -11,10 +11,10 @@ public class Pilotar extends Pericia {
 			"histórico";
 	
 	public Pilotar() {
-		super(new Agilidade());
+		super(nome, desc, new Agilidade());
 	}
 	
 	public Pilotar(int nivelDado) {
-		super(new Agilidade(), nivelDado);
+		super(nome, desc, new Agilidade(), nivelDado);
 	}
 }
