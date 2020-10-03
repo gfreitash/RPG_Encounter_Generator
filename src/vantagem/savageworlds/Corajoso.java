@@ -1,6 +1,7 @@
 package vantagem.savageworlds;
 
-import atributo.Espirito;
+
+import core.Atributo;
 import core.Progresso;
 import requisito.RequisitoAtributo;
 import requisito.RequisitoProgresso;
@@ -18,6 +19,6 @@ public class Corajoso extends VantagemAntecedente {
 			"também.";
 	
 	public Corajoso() {
-		super(nome, desc, new RequisitoProgresso(new Progresso(0)), new RequisitoAtributo(new Espirito(6)));
+		super(nome, desc, new RequisitoProgresso(new Progresso(0)), new RequisitoAtributo(Atributo.ESPIRITO,6));
 	}
 }

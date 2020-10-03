@@ -1,6 +1,6 @@
 package core;
 
-public abstract class Complicacao extends Core{
+public abstract class Complicacao extends Identidade {
 	private String tipoPossivel[];
 	private String tipo;
 	

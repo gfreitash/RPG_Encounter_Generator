@@ -1,6 +1,6 @@
 package vantagem.savageworlds;
 
-import atributo.Agilidade;
+import core.Atributo;
 import core.Progresso;
 import requisito.RequisitoAtributo;
 import requisito.RequisitoProgresso;
@@ -19,6 +19,6 @@ public class Rapido extends VantagemAntecedente {
 			"sacar uma substituta até sair um Seis ou maior.";
 	
 	public Rapido() {
-		super(nome, desc, new RequisitoProgresso(new Progresso(0)), new RequisitoAtributo(new Agilidade(8)));
+		super(nome, desc, new RequisitoProgresso(new Progresso(0)), new RequisitoAtributo(Atributo.AGILIDADE, 8));
 	}
 }

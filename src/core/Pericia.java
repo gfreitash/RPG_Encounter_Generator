@@ -1,6 +1,6 @@
 package core;
 
-public abstract class Pericia extends Core{
+public abstract class Pericia extends Identidade {
 	
 	private Atributo tipoAtributo;
 	private int nivelPericia;

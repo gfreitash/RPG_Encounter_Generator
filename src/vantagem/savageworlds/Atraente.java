@@ -1,6 +1,6 @@
 package vantagem.savageworlds;
 
-import atributo.Vigor;
+import core.Atributo;
 import core.Progresso;
 import requisito.RequisitoAtributo;
 import requisito.RequisitoProgresso;
@@ -13,6 +13,9 @@ public class Atraente extends VantagemAntecedente {
 			"personagem belo ou atraente.";
 	
 	public Atraente() {
-		super(nome, desc, new RequisitoProgresso(new Progresso(0)), new RequisitoAtributo(new Vigor(6)));
+		super(nome,
+				desc,
+				new RequisitoProgresso(new Progresso(0)),
+				new RequisitoAtributo(Atributo.VIGOR, 6));
 	}
 }

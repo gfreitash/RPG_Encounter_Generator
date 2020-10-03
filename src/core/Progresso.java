@@ -2,7 +2,7 @@ package core;
 
 import exception.NotAvailablePointsLeftException;
 
-public class Progresso extends Core {
+public class Progresso extends Identidade {
 	private int experienciaAtual;
 	private int ultimaExp;
 	private double porcentProgresso; //Percentage for the next progress

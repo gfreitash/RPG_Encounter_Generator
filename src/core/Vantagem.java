@@ -5,7 +5,7 @@ import java.util.List;
 
 import requisito.Requisito;
 
-public abstract class Vantagem extends Core{
+public abstract class Vantagem extends Identidade {
 	
 	private String tipo;
 	private String desc_tipo;

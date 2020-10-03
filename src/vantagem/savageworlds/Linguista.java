@@ -1,6 +1,7 @@
 package vantagem.savageworlds;
 
-import atributo.Astucia;
+
+import core.Atributo;
 import core.Progresso;
 import requisito.RequisitoAtributo;
 import requisito.RequisitoProgresso;
@@ -18,6 +19,6 @@ public class Linguista extends VantagemAntecedente {
 			"falado por pelo menos uma semana.";
 	
 	public Linguista() {
-		super(nome, desc, new RequisitoProgresso(new Progresso(0)), new RequisitoAtributo(new Astucia(6)));
+		super(nome, desc, new RequisitoProgresso(new Progresso(0)), new RequisitoAtributo(Atributo.ASTUCIA, 6));
 	}
 }

@@ -1,6 +1,6 @@
 package core;
 
-public abstract class Status extends Core {
+public abstract class Status extends Identidade {
 	private byte modificador;
 	
 	protected Status(String nome, String desc) {

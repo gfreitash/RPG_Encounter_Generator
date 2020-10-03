@@ -1,6 +1,6 @@
 package vantagem.savageworlds;
 
-import atributo.Espirito;
+import core.Atributo;
 import core.Progresso;
 import requisito.RequisitoAtributo;
 import requisito.RequisitoProgresso;
@@ -18,6 +18,6 @@ public class ResistenciaArcana extends VantagemAntecedente {
 			"afetar o herói resistente.";
 	
 	public ResistenciaArcana() {
-		super(nome, desc, new RequisitoProgresso(new Progresso(0)), new RequisitoAtributo(new Espirito(8)));
+		super(nome, desc, new RequisitoProgresso(new Progresso(0)), new RequisitoAtributo(Atributo.ESPIRITO, 8));
 	}
 }

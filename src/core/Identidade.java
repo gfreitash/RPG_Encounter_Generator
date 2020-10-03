@@ -1,11 +1,11 @@
 package core;
 
-public abstract class Core implements Comparable<Core>{
+public class Identidade implements Comparable<Identidade>{
 
 	private String nome;
 	private String desc;
 	
-	protected Core(String nome, String desc) {
+	public Identidade(String nome, String desc) {
 		this.nome = nome;
 		this.desc = desc;
 	}
@@ -26,7 +26,7 @@ public abstract class Core implements Comparable<Core>{
 		this.desc = desc;
 	}
 	
-	public int compareTo(Core c) {
+	public int compareTo(Identidade c) {
 		return this.getNome().compareTo(c.getNome());
 	}
 	
@@ -43,9 +43,9 @@ public abstract class Core implements Comparable<Core>{
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		if (!(obj instanceof Core))
+		if (!(obj instanceof Identidade))
 			return false;
-		Core other = (Core) obj;
+		Identidade other = (Identidade) obj;
 		if (desc == null) {
 			if (other.desc != null)
 				return false;

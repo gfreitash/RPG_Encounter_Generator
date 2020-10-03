@@ -5,8 +5,9 @@ import core.Atributo;
 public class RequisitoAtributo extends Requisito {
 	private Atributo atributo;
 
-	public RequisitoAtributo(Atributo atributo) {
+	public RequisitoAtributo(Atributo atributo, int nivelDado) {
 		this.atributo = atributo;
+		this.atributo.setNivelDado(nivelDado);
 	}
 
 	@Override

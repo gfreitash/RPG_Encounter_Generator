@@ -1,21 +1,32 @@
 package core;
 
-public abstract class Atributo extends Core {
+public enum Atributo {
+	AGILIDADE("Agilidade", "AGILIDADE é a rapidez, velocidade e " + "destreza do seu herói."),
 
-	private int modDado;
+	ASTUCIA("Astúcia", "ASTÚCIA é uma medida de quão bem seu "
+			+ "personagem conhece seu mundo e sua cultura, " + "quão bem planeja os seus passos e a sua agilidade "
+			+ "mental."),
+
+	ESPIRITO("Espírito", "ESPÍRITO reflete sabedoria interior e força " +
+			"de vontade. Espírito é muito importante, pois " + "ajuda seu personagem a " +
+			"se recuperar do estado " + "Abalado"),
+
+	FORCA("Força", "FORÇA representa força bruta e aptidão física " +
+			"no geral. Força também é usada para gerar o dano " +
+			"do seu guerreiro em combate corpo a corpo."),
+
+	VIGOR("Vigor", "VIGOR representa a tolerância, resistência " +
+			"a doenças, venenos ou toxinas e quanta dor e " +
+			"dano físico um herói pode suportar.");
+
+
+	private final Identidade id;
+	private int modificadorDado;
 	private int nivelDado;
 	
-	public Atributo(String nome, String desc) {
-		super(nome, desc);
+	Atributo(String nome, String descricao) {
+		id = new Identidade(nome, descricao);
 		setNivelDado(4);
-	}
-
-	public int getNivelDado() {
-		return nivelDado;
-	}
-
-	public int getModDado() {
-		return modDado;
 	}
 
 	public void setNivelDado(int nivel) throws IllegalArgumentException {
@@ -24,35 +35,45 @@ public abstract class Atributo extends Core {
 				nivelDado = nivel;
 			else {
 				nivelDado = 12;
-				modDado = (nivel - nivelDado) / 2;
+				modificadorDado = (nivel - nivelDado) / 2;
 			}
 		else
 			throw new IllegalArgumentException("\"nivel\" deve ser par e maior ou igual a 4");
 	}
-	
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = super.hashCode();
-		result = prime * result + modDado;
-		result = prime * result + nivelDado;
-		return result;
+
+	public void setModificadorDado(int modificador) {
+		modificadorDado = modificador;
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (!super.equals(obj))
-			return false;
-		if (!(obj instanceof Atributo))
-			return false;
-		Atributo other = (Atributo) obj;
-		if (modDado != other.modDado)
-			return false;
-		if (nivelDado != other.nivelDado)
-			return false;
-		return true;
+	public static Atributo[] getAtributosAleatorios() {
+		Atributo[] atributos = Atributo.values();
+		for(Atributo x: atributos) {
+			x.setNivelDado(arredondarParaProximoPar(Math.random() * 8) + 4);
+		}
+
+		return atributos;
 	}
 
+	public static Atributo getAleatorio(Atributo a) {
+		a.setNivelDado(arredondarParaProximoPar(Math.random() * 8) + 4);
+		return a;
+	}
+
+	public Identidade getId() {
+		return id;
+	}
+
+	public int getNivelDado() {
+		return nivelDado;
+	}
+
+	public int getModificadorDado() {
+		return modificadorDado;
+	}
+	private static int arredondarParaProximoPar(double valor) {
+	    int temp = (int)Math.ceil(valor);
+	    if (temp%2 == 0)
+	        return temp;
+	    return temp-1;
+	}
 }

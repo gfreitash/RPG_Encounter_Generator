@@ -1,7 +1,6 @@
 package vantagem.savageworlds;
 
-import atributo.Forca;
-import atributo.Vigor;
+import core.Atributo;
 import core.Progresso;
 import requisito.RequisitoAtributo;
 import requisito.RequisitoProgresso;
@@ -17,7 +16,7 @@ public class Musculoso extends VantagemAntecedente {
 			"ao invés do normal de 2,5 vezes a sua Força.";
 	
 	public Musculoso() {
-		super(nome, desc, new RequisitoProgresso(new Progresso(0)), new RequisitoAtributo(new Forca(6)), 
-				new RequisitoAtributo(new Vigor(6)));
+		super(nome, desc, new RequisitoProgresso(new Progresso(0)), new RequisitoAtributo(Atributo.FORCA, 6),
+				new RequisitoAtributo(Atributo.VIGOR, 6));
 	}
 }
