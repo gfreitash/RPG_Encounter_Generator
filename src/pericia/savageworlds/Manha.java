@@ -1,6 +1,6 @@
 package pericia.savageworlds;
 
-import atributo.Astucia;
+import core.Atributo;
 import core.Pericia;
 
 public class Manha extends Pericia {
@@ -13,10 +13,10 @@ public class Manha extends Pericia {
 			"é sempre modificada pelo Carisma do personagem.";
 	
 	public Manha() {
-		super(nome, desc, new Astucia());
+		super(nome, desc, Atributo.AGILIDADE);
 	}
 	
 	public Manha(int nivelDado) {
-		super(nome, desc, new Astucia(), nivelDado);
+		super(nome, desc, Atributo.AGILIDADE, nivelDado);
 	}
 }

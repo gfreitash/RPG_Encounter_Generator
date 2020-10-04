@@ -1,6 +1,6 @@
 package pericia.savageworlds;
 
-import atributo.Agilidade;
+import core.Atributo;
 import core.Pericia;
 
 public class Navegar extends Pericia {
@@ -13,10 +13,10 @@ public class Navegar extends Pericia {
 			"encordar velas, etc.).";
 	
 	public Navegar() {
-		super(nome, desc, new Agilidade());
+		super(nome, desc, Atributo.AGILIDADE);
 	}
 	
 	public Navegar(int nivelDado) {
-		super(nome, desc, new Agilidade(), nivelDado);
+		super(nome, desc, Atributo.AGILIDADE, nivelDado);
 	}
 }

@@ -1,6 +1,6 @@
 package pericia.savageworlds;
 
-import atributo.Agilidade;
+import core.Atributo;
 import core.Pericia;
 
 public class Atirar extends Pericia {
@@ -14,10 +14,10 @@ public class Atirar extends Pericia {
 			"no jogo.";
 	
 	 public Atirar() {
-		super(nome, desc, new Agilidade());
+		super(nome, desc, Atributo.AGILIDADE);
 	}
 	 
 	 public Atirar(int nivelDado) {
-			super(nome, desc, new Agilidade(), nivelDado);
+			super(nome, desc, Atributo.AGILIDADE, nivelDado);
 		}
 }

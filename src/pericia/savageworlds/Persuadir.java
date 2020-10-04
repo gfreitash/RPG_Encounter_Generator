@@ -1,6 +1,6 @@
 package pericia.savageworlds;
 
-import atributo.Espirito;
+import core.Atributo;
 import core.Pericia;
 
 public class Persuadir extends Pericia {
@@ -21,10 +21,10 @@ public class Persuadir extends Pericia {
 			"Mestre e da situação.";
 	
 	public Persuadir() {
-		super(nome, desc, new Espirito());
+		super(nome, desc, Atributo.ESPIRITO);
 	}
 	
 	public Persuadir(int nivelDado) {
-		super(nome, desc, new Espirito(), nivelDado);
+		super(nome, desc, Atributo.ESPIRITO, nivelDado);
 	}
 }

@@ -1,6 +1,6 @@
 package pericia.savageworlds;
 
-import atributo.Agilidade;
+import core.Atributo;
 import core.Pericia;
 
 public class Nadar extends Pericia {
@@ -16,10 +16,10 @@ public class Nadar extends Pericia {
 			"para ter movimento extra.";
 	
 	public Nadar() {
-		super(nome, desc, new Agilidade());
+		super(nome, desc, Atributo.AGILIDADE);
 	}
 	
 	public Nadar(int nivelDado) {
-		super(nome, desc, new Agilidade(), nivelDado);
+		super(nome, desc, Atributo.AGILIDADE, nivelDado);
 	}
 }

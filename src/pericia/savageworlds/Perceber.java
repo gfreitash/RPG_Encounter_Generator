@@ -1,6 +1,6 @@
 package pericia.savageworlds;
 
-import atributo.Astucia;
+import core.Atributo;
 import core.Pericia;
 
 public class Perceber extends Pericia {
@@ -16,10 +16,10 @@ public class Perceber extends Pericia {
 			"deve revelar.";
 	
 	public Perceber() {
-		super(nome, desc, new Astucia()); 
+		super(nome, desc, Atributo.AGILIDADE);
 	}
 	
 	public Perceber(int nivelDado) {
-		super(nome, desc, new Astucia(), nivelDado); 
+		super(nome, desc, Atributo.AGILIDADE, nivelDado);
 	}
 }

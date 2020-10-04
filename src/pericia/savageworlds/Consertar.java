@@ -1,6 +1,6 @@
 package pericia.savageworlds;
 
-import atributo.Astucia;
+import core.Atributo;
 import core.Pericia;
 
 public class Consertar extends Pericia {
@@ -14,10 +14,10 @@ public class Consertar extends Pericia {
 			"particular.";
 	
 	public Consertar() {
-		super(nome, desc, new Astucia());
+		super(nome, desc, Atributo.ASTUCIA);
 	}
 	
 	public Consertar(int nivelDado) {
-		super(nome, desc, new Astucia(), nivelDado);
+		super(nome, desc, Atributo.ASTUCIA, nivelDado);
 	}
 }

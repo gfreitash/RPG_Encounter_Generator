@@ -1,6 +1,6 @@
 package pericia.savageworlds;
 
-import atributo.Agilidade;
+import core.Atributo;
 import core.Pericia;
 
 public class Pilotar extends Pericia {
@@ -11,10 +11,10 @@ public class Pilotar extends Pericia {
 			"histórico";
 	
 	public Pilotar() {
-		super(nome, desc, new Agilidade());
+		super(nome, desc, Atributo.AGILIDADE);
 	}
 	
 	public Pilotar(int nivelDado) {
-		super(nome, desc, new Agilidade(), nivelDado);
+		super(nome, desc, Atributo.AGILIDADE, nivelDado);
 	}
 }

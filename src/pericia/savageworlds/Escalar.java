@@ -1,6 +1,6 @@
 package pericia.savageworlds;
 
-import atributo.Forca;
+import core.Atributo;
 import core.Pericia;
 
 public class Escalar extends Pericia {
@@ -52,10 +52,10 @@ public class Escalar extends Pericia {
 			"caso de uma escalada livre.";
 	
 	public Escalar() {
-		super(nome, desc, new Forca());
+		super(nome, desc, Atributo.FORCA);
 	}
 	
 	public Escalar(int nivelDado) {
-		super(nome, desc, new Forca(), nivelDado);
+		super(nome, desc, Atributo.FORCA, nivelDado);
 	}
 }

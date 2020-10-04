@@ -1,6 +1,6 @@
 package pericia.savageworlds;
 
-import atributo.Astucia;
+import core.Atributo;
 import core.Pericia;
 
 public class Rastrear extends Pericia {
@@ -13,10 +13,10 @@ public class Rastrear extends Pericia {
 			"escalas de busca mais específicas ou menores.";
 	
 	public Rastrear() {
-		super(nome, desc, new Astucia());
+		super(nome, desc, Atributo.ASTUCIA);
 	}
 	
 	public Rastrear(int nivelDado) {
-		super(nome, desc, new Astucia(), nivelDado);
+		super(nome, desc, Atributo.ASTUCIA, nivelDado);
 	}
 }

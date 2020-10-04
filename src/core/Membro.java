@@ -232,7 +232,7 @@ public class Membro extends Identidade {
 		String toString = "";
 		int i = 0;
 
-		toString += "Atributos: \n";
+		toString += "\nAtributos: \n";
 		for(Atributo x: this.atributos) {
 			toString += x.getId().getNome() + ": " + x.getNivelDado() + "\n";
 		}

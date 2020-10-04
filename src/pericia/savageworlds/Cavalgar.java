@@ -1,6 +1,6 @@
 package pericia.savageworlds;
 
-import atributo.Agilidade;
+import core.Atributo;
 import core.Pericia;
 
 public class Cavalgar extends Pericia {
@@ -12,10 +12,10 @@ public class Cavalgar extends Pericia {
 			"Lutar quando estiverem em combate montado";
 	
 	public Cavalgar() {
-		super(nome, desc, new Agilidade());
+		super(nome, desc, Atributo.AGILIDADE);
 	}
 	
 	public Cavalgar(int nivelDado) {
-		super(nome, desc, new Agilidade(), nivelDado);
+		super(nome, desc, Atributo.AGILIDADE, nivelDado);
 	}
 }

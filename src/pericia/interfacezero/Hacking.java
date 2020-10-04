@@ -1,6 +1,6 @@
 package pericia.interfacezero;
 
-import atributo.Astucia;
+import core.Atributo;
 import core.Pericia;
 
 public class Hacking extends Pericia {
@@ -14,10 +14,10 @@ public class Hacking extends Pericia {
 			"o fazem com suas perícias de Investigar e Manha";
 	
 	public Hacking() {
-		super(nome, desc, new Astucia());
+		super(nome, desc, Atributo.ASTUCIA);
 	}
 	
 	public Hacking(int nivelDado) {
-		super(nome, desc, new Astucia(nivelDado));
+		super(nome, desc, Atributo.ASTUCIA, nivelDado);
 	}
 }

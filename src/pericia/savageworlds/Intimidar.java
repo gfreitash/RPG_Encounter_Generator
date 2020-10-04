@@ -1,6 +1,7 @@
 package pericia.savageworlds;
 
-import atributo.Espirito;
+
+import core.Atributo;
 import core.Pericia;
 
 public class Intimidar extends Pericia {
@@ -13,10 +14,10 @@ public class Intimidar extends Pericia {
 			"oponente.";
 	
 	public Intimidar() {
-		super(nome, desc, new Espirito());
+		super(nome, desc, Atributo.ESPIRITO);
 	}
 	
 	public Intimidar(int nivelDado) {
-		super(nome, desc, new Espirito(), nivelDado);
+		super(nome, desc, Atributo.ESPIRITO, nivelDado);
 	}
 }

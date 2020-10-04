@@ -1,6 +1,7 @@
 package pericia.savageworlds;
 
-import atributo.Vigor;
+
+import core.Atributo;
 import core.Pericia;
 
 public class Atletismo extends Pericia {
@@ -13,10 +14,10 @@ public class Atletismo extends Pericia {
 			+ " Escalar e Nadar.";
 	
 	public Atletismo() {
-		super(nome, desc, new Vigor());
+		super(nome, desc, Atributo.VIGOR);
 	}
 	
 	public Atletismo(int nivelDado) {
-		super(nome, desc, new Vigor(), nivelDado);
+		super(nome, desc, Atributo.VIGOR, nivelDado);
 	}
 }

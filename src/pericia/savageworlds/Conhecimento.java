@@ -1,6 +1,6 @@
 package pericia.savageworlds;
 
-import atributo.Astucia;
+import core.Atributo;
 import core.Pericia;
 
 public class Conhecimento extends Pericia {
@@ -27,12 +27,12 @@ public class Conhecimento extends Pericia {
 			"cuidar de alguém exija a perícia Curar) ou Ciência.";
 	
 	public Conhecimento(String nome, String desc, String especializacao) {
-		super(nome, desc, new Astucia(), especializacao);
+		super(nome, desc, Atributo.ASTUCIA, especializacao);
 		this.nome = getNome();
 	}
 	
 	public Conhecimento(String nome, String desc, String especializacao, int nivelDado) {
-		super("Conhecimento (" + especializacao + ")", desc, new Astucia(), nivelDado, especializacao);
+		super("Conhecimento (" + especializacao + ")", desc, Atributo.ASTUCIA, nivelDado, especializacao);
 		this.nome = getNome();
 	}
 	
