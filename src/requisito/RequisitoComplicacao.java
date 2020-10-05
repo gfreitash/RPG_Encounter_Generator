@@ -1,14 +1,25 @@
 package requisito;
 
 import core.Complicacao;
+import core.TipoComplicacao;
 
 public class RequisitoComplicacao extends Requisito {
-	Complicacao complicacao;
+	private Complicacao complicacao;
 	
 	public RequisitoComplicacao(Complicacao complicacao) {
 		this.complicacao = complicacao;
 	}
-	
+
+	public RequisitoComplicacao(Complicacao complicacao, TipoComplicacao tipo) {
+		this.complicacao = complicacao;
+		this.complicacao.setTipo(tipo);
+	}
+
+	@Override
+	public Complicacao getRequisito() {
+		return complicacao;
+	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -24,11 +35,6 @@ public class RequisitoComplicacao extends Requisito {
 		} else if (!complicacao.equals(other.complicacao))
 			return false;
 		return true;
-	}
-
-	@Override
-	public Object getRequisito() {
-		return complicacao;
 	}
 
 	@Override

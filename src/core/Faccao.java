@@ -1,7 +1,7 @@
 package core;
 
 class Faccao {
-	Faccao(Membro m) {
+	Faccao(NPC m) {
 		
 	}
 }

@@ -29,6 +29,11 @@ public class Identidade implements Comparable<Identidade>{
 	public int compareTo(Identidade c) {
 		return this.getNome().compareTo(c.getNome());
 	}
+
+	@Override
+	public String toString() {
+		return nome + " -> " + desc;
+	}
 	
 	@Override
 	public int hashCode() {

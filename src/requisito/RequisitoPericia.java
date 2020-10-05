@@ -3,10 +3,15 @@ package requisito;
 import core.Pericia;
 
 public class RequisitoPericia extends Requisito{
-	private Pericia pericia;
+	private final Pericia pericia;
 	
 	public RequisitoPericia(Pericia pericia) {
 		this.pericia = pericia;
+	}
+
+	public RequisitoPericia(Pericia pericia, int nivelPericia) {
+		this.pericia = pericia;
+		this.pericia.setNivelPericia(nivelPericia);
 	}
 	
 	@Override

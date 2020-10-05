@@ -48,14 +48,14 @@ public enum Atributo {
 	public static Atributo[] getAtributosAleatorios() {
 		Atributo[] atributos = Atributo.values();
 		for(Atributo x: atributos) {
-			x.setNivelDado(arredondarParaProximoPar(Math.random() * 8) + 4);
+			x.setNivelDado(Util.arredondarParaProximoPar(Math.random() * 8) + 4);
 		}
 
 		return atributos;
 	}
 
 	public static Atributo getAleatorio(Atributo a) {
-		a.setNivelDado(arredondarParaProximoPar(Math.random() * 8) + 4);
+		a.setNivelDado(Util.arredondarParaProximoPar(Math.random() * 8) + 4);
 		return a;
 	}
 
@@ -70,10 +70,8 @@ public enum Atributo {
 	public int getModificadorDado() {
 		return modificadorDado;
 	}
-	private static int arredondarParaProximoPar(double valor) {
-	    int temp = (int)Math.ceil(valor);
-	    if (temp%2 == 0)
-	        return temp;
-	    return temp-1;
+
+	public String toString() {
+		return id.toString();
 	}
 }
