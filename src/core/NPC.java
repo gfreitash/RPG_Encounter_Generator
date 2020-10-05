@@ -16,16 +16,16 @@ public class NPC {
 	private Identidade id;
 	private int idade, altura, peso;
 	private int creditos, salario, estiloVida;
-	private int aparar, resistencia, carisma, movimentação, tensão;
+	private int aparar, resistencia, carisma, movimentacao, tensao;
 
 	private final Progresso progresso;
 
 	private int pontosDispAtrib;
 	private Atributo[] atributos;
 	private int pontosDispPericia;
-	private final List<Pericia> pericias;
-	private final List<Complicacao> complicacoes;
-	private final List<Vantagem> vantagens;
+	private List<Pericia> pericias;
+	private List<Complicacao> complicacoes;
+	private List<Vantagem> vantagens;
 
 	public NPC() throws InterruptedException {
 		//Progresso
@@ -103,11 +103,12 @@ public class NPC {
 				Vantagem vant = Vantagem.getAleatoria();
 				System.out.println("Vantagem escolhida: " + vant);
 				addVantagem(vant);
+				erro = false;
 			} catch(Exception e) {
 				System.out.println(e);
-				Thread.sleep(5000);
 				erro = true;
 				contErro++;
+				Thread.sleep(5000);
 			}
 		} while(erro);
 	}
@@ -122,13 +123,6 @@ public class NPC {
 
 	private void setComplicacoes(Complicacao maior, Complicacao menor1, Complicacao menor2)
 			throws IllegalArgumentException {
-
-		for(TipoComplicacao x: maior.getTipoPossível())
-			System.out.println(x);
-		for(TipoComplicacao x: menor1.getTipoPossível())
-			System.out.println(x);
-		for(TipoComplicacao x: menor2.getTipoPossível())
-			System.out.println(x);
 
 		if (!(maior.checkSeTipoValido(TipoComplicacao.MAIOR) && menor1.checkSeTipoValido(TipoComplicacao.MENOR)
 				&& menor2.checkSeTipoValido(TipoComplicacao.MENOR)))
@@ -175,7 +169,7 @@ public class NPC {
 		for (Requisito requisito : lista) {
 
 			if (requisito instanceof RequisitoProgresso) {
-				if (checkProgresso((Progresso) requisito.getRequisito()))
+				if (((Progresso) requisito.getRequisito()).check(this))
 					check = true;
 				else return false;
 
@@ -183,7 +177,7 @@ public class NPC {
 				System.out.println("Requisito de atributo: " + ((Atributo) requisito.getRequisito()).getId().getNome()
 						+ " - d" + ((Atributo) requisito.getRequisito()).getNivelDado());
 
-				if (checkAtributo((Atributo) requisito.getRequisito()))
+				if (((Atributo) requisito.getRequisito()).check(this))
 					check = true;
 				else return false;
 
@@ -191,21 +185,19 @@ public class NPC {
 				System.out.println("Requisito de Pericia: " + ((Pericia) requisito.getRequisito()).getId().getNome()
 						+ " - d" + ((Pericia) requisito.getRequisito()).getNivelPericia());
 
-				if (checkPericia((Pericia) requisito.getRequisito()))
+				if (((Pericia) requisito.getRequisito()).check(this))
 					check = true;
 				else return false;
 
 			} else if (requisito instanceof RequisitoVantagem) {
 				System.out.println("Requisito de Vantagem: " + (((Vantagem) requisito.getRequisito()).getId().getNome()));
-				System.out.println("Membro tem esse requisito? " + checkVantagem((Vantagem) requisito.getRequisito()));
-				if (checkVantagem((Vantagem) requisito.getRequisito()))
+				if (((Vantagem) requisito.getRequisito()).check(this))
 					check = true;
 				else return false;
 
 			} else if (requisito instanceof RequisitoComplicacao) {
 				System.out.println("Requisito de Complicacao: " + ((Complicacao) requisito.getRequisito()).getId().getNome());
-				System.out.println("Membro tem esse requisito? " + checkComplicacao((Complicacao) requisito.getRequisito()));
-				if (checkComplicacao((Complicacao) requisito.getRequisito()))
+				if (((Complicacao) requisito.getRequisito()).check(this))
 					check = true;
 				else return false;
 
@@ -215,65 +207,47 @@ public class NPC {
 
 	}
 
-	private boolean checkComplicacao(Complicacao comp) {
-		return complicacoes.contains(comp);
+	public Atributo[] getAtributos() {
+		return atributos;
 	}
 
-	public boolean checkVantagem(Vantagem vant) {
-		return vantagens.contains(vant);
+	public List<Pericia> getPericias() {
+		return pericias;
 	}
 
-	public boolean checkPericia(Pericia pericia) {
-		System.out.println("Checando se NPC tem pericia: " + pericia.getId().getNome() + " - d" + pericia.getNivelPericia());
-		if(pericias.contains(pericia)) {
-			Pericia x = pericias.get(pericias.indexOf(pericia));
-			System.out.println("NPC possui pericia " + x.getId().getNome() + " - d" + x.getNivelPericia());
-			return x.getNivelPericia() >= pericia.getNivelPericia();
-		}
-		return false;
+	public List<Complicacao> getComplicacoes() {
+		return complicacoes;
 	}
 
-	public boolean checkProgresso(Progresso prog) {
-		return progresso.getExperiencia() >= prog.getExperiencia();
+	public List<Vantagem> getVantagens() {
+		return vantagens;
 	}
 
-	public boolean checkAtributo(Atributo atributo){
-		boolean possuiAtributo = false;
-		System.out.println("Checando se NPC tem atributo: " + atributo.getId().getNome() + " - d" + atributo.getNivelDado());
-
-		for(Atributo x: this.atributos) {
-			System.out.println("\tAtributo encontrado: " + x.getId().getNome());
-			if(x.getId() == atributo.getId()) {
-				System.out.println("NPC possui atributo " + x.getId().getNome() + " - d" + x.getNivelDado());
-				System.out.println(x.getNivelDado() >= atributo.getNivelDado());
-				if(x.getNivelDado() >= atributo.getNivelDado())
-					return true;
-			}
-		}
-		return false;
+	public Progresso getProgresso() {
+		return progresso;
 	}
 
 	public String toString()  {
-		String toString = "";
+		StringBuilder toString = new StringBuilder();
 		int i = 0;
 
-		toString += "\nAtributos: \n";
+		toString.append("\nAtributos: \n");
 		for(Atributo x: this.atributos) {
-			toString += x.getId().getNome() + ": " + x.getNivelDado() + "\n";
+			toString.append(x.getId().getNome()).append(": ").append(x.getNivelDado()).append("\n");
 		}
 
-		toString += "\nPericias: \n";
+		toString.append("\nPericias: \n");
 		for(;i < pericias.size(); i++)
-			toString += pericias.get(i).getId().getNome() + ": " + pericias.get(i).getNivelPericia() + "\n";
+			toString.append(pericias.get(i).getId().getNome()).append(": ").append(pericias.get(i).getNivelPericia()).append("\n");
 
-		toString += "\nComplicações: \n";
+		toString.append("\nComplicações: \n");
 		for(i = 0; i < complicacoes.size(); i++)
-			toString += complicacoes.get(i).getId().getNome() + "\n";
+			toString.append(complicacoes.get(i).getId().getNome()).append("\n");
 
-		toString += "\nVantagens: \n";
+		toString.append("\nVantagens: \n");
 		for(i = 0; i < vantagens.size(); i++)
-			toString += vantagens.get(i).getId().getNome() + "\n";
+			toString.append(vantagens.get(i).getId().getNome()).append("\n");
 
-		return toString;
+		return toString.toString();
 	}
 }

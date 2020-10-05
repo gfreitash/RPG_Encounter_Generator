@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public enum Vantagem {
+public enum Vantagem implements Checavel{
 	RICO("Rico", "Personagens Ricos triplicam seus fundos iniciais e ganham "
 			+ "um bônus de 12,500 créditos em cada Progresso. Contudo, o dinheiro sempre vêm "
 			+ "com uma obrigação. Eles podem ganhar dinheiro de um patrocínio corporativo, "
@@ -237,5 +237,10 @@ public enum Vantagem {
 
 	public String toString() {
 		return id.toString();
+	}
+
+	@Override
+	public boolean check(NPC npc) {
+		return npc.getVantagens().contains(this);
 	}
 }

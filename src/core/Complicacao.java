@@ -1,6 +1,6 @@
 package core;
 
-public enum Complicacao {
+public enum Complicacao implements Checavel{
 	ANALFABETO("Analfabeto","Seu herói não consegue ler. Ele provavelmente " +
 			"pode assinar seu nome e sabe o significado de um " +
 			"sinal de PARE, mas não pode fazer muito mais que " +
@@ -854,5 +854,10 @@ public enum Complicacao {
 
 	public String toString() {
 		return id.toString();
+	}
+
+	@Override
+	public boolean check(NPC npc) {
+		return npc.getComplicacoes().contains(this);
 	}
 }

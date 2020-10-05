@@ -2,7 +2,8 @@ package core;
 
 import exception.NotAvailablePointsLeftException;
 
-public class Progresso extends Identidade {
+public class Progresso implements Checavel {
+	private final Identidade id;
 	private int experienciaAtual;
 	private int ultimaExp;
 	private double porcentProgresso; //Percentage for the next progress
@@ -12,21 +13,17 @@ public class Progresso extends Identidade {
 	
 	
 	public Progresso() {
-		super("", "");
 		setEstagio();
-		this.setNome(estagio);
-		this.setDesc(Integer.valueOf(experienciaAtual).toString());
+		id = new Identidade(estagio, Integer.valueOf(experienciaAtual).toString());
 	}
 	
 	public Progresso(int experiencia) throws IllegalArgumentException {
-		super("", "");
 		if(experiencia >= 0)
 			experienciaAtual +=  experiencia;
 		else throw new IllegalArgumentException("Valor de \"experiencia\" não pode ser negativo!");
 		setEstagio();
 		setProgresso();
-		this.setNome(estagio);
-		this.setDesc(Integer.valueOf(experienciaAtual).toString());
+		id = new Identidade(estagio, Integer.valueOf(experienciaAtual).toString());
 	}
 	
 	public void addExperiencia(int experiencia) {
@@ -43,7 +40,7 @@ public class Progresso extends Identidade {
 		return experienciaAtual;
 	}
 	
-	private final void setEstagio() {
+	private void setEstagio() {
 		if(experienciaAtual >= 0 && experienciaAtual < 20)
 			estagio = "Novato";
 		
@@ -131,5 +128,9 @@ public class Progresso extends Identidade {
 			return false;
 		return true;
 	}
-	
+
+	@Override
+	public boolean check(NPC npc) {
+		return npc.getProgresso().getExperiencia() >= this.getExperiencia();
+	}
 }

@@ -1,7 +1,9 @@
 package core;
 
 
-public enum Pericia {
+import java.util.List;
+
+public enum Pericia implements Checavel {
 	CONHECIMENTO_DEMOLICAO("Conhecimento (Demolição)", "Uso bem sucedido de " +
 			"demolições pode significar a diferença entre destruição " +
 			"do alvo como planejado e perda indesejada de vidas e " +
@@ -394,6 +396,19 @@ public enum Pericia {
 
 	public String toString() {
 		return id.toString();
+	}
+
+	@Override
+	public boolean check(NPC npc) {
+		List<Pericia> lista = npc.getPericias();
+
+		System.out.println("Checando se NPC tem pericia: " + this.getId().getNome() + " - d" + this.getNivelPericia());
+		if(lista.contains(this)) {
+			Pericia x = lista.get(lista.indexOf(this));
+			System.out.println("NPC possui pericia " + x.getId().getNome() + " - d" + x.getNivelPericia());
+			return x.getNivelPericia() >= this.getNivelPericia();
+		}
+		return false;
 	}
 	
 }

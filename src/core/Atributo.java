@@ -1,6 +1,6 @@
 package core;
 
-public enum Atributo {
+public enum Atributo implements Checavel {
 	AGILIDADE("Agilidade", "AGILIDADE é a rapidez, velocidade e " + "destreza do seu herói."),
 
 	ASTUCIA("Astúcia", "ASTÚCIA é uma medida de quão bem seu "
@@ -69,6 +69,19 @@ public enum Atributo {
 
 	public int getModificadorDado() {
 		return modificadorDado;
+	}
+
+	@Override
+	public boolean check(NPC npc) {
+		boolean possuiAtributo = false;
+
+		for(Atributo x: npc.getAtributos()) {
+			if(x.getId() == this.getId()) {
+				if(x.getNivelDado() >= this.getNivelDado())
+					return true;
+			}
+		}
+		return false;
 	}
 
 	public String toString() {
