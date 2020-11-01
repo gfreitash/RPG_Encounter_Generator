@@ -4,11 +4,6 @@ import java.util.*;
 
 import exception.NotAvailablePointsLeftException;
 import exception.RequirementNotMetException;
-import requisito.RequisitoAtributo;
-import requisito.RequisitoComplicacao;
-import requisito.RequisitoPericia;
-import requisito.RequisitoProgresso;
-import requisito.RequisitoVantagem;
 
 public class NPC {
 	private Map propriedadesPrimarias;
@@ -19,109 +14,84 @@ public class NPC {
 	private int idade, altura, peso;
 	private int creditos, salario, estiloVida;
 
+	private Classe classe;
 	private final Progresso progresso;
 	private int pontosDispAtrib;
 	private Atributo[] atributos;
 	private int pontosDispPericia;
-	private final List<Pericia> pericias;
-	private final List<Complicacao> complicacoes;
-	private final List<Vantagem> vantagens;
+	private List<Pericia> pericias;
+	private List<Complicacao> complicacoes;
+	private List<Vantagem> vantagens;
 	private int aparar, resistencia, carisma, movimentacao, tensao;
 
-	public NPC() throws InterruptedException {
+	public NPC() {
 		//Progresso
 		progresso = new Progresso(0);
-		// Personalidade
+		pontosDispAtrib = 8;
+		pontosDispPericia = 15;
 
-		// Profiss�o
+		//Classe
+		classe = Classe.FRANCO_ATIRADOR;
 
-		// Classe
+		//Raça
+		raca = classe.getRacaPreferencia().obter().getRaca();
 
-		// Tier
+		//Atributos
+		atributos = Atributo.values();
+		while(pontosDispAtrib > 0)
+			adicionarDado(classe.getAtributoPreferencia().obter(), 1);
 
-		// Atributos
-		System.out.println("Definindo atributos");
-		setAtributos(Atributo.getAtributosAleatorios());
-		System.out.println("Atributos escolhidos: \n");
-		for(Atributo x: atributos)
-			System.out.println(x.getId().getNome() + " - d" + x.getNivelDado());
 
-		// Pericias
-		System.out.println("Definindo perícias");
-		this.pericias = new ArrayList<>();
-		setPericias(Pericia.getPericiasAleatorias(6));
-		System.out.println("Perícias escolhidas: \n");
-		for(Pericia x: pericias)
-			System.out.println(x.getId().getNome() + " - d" + x.getNivelDado());
+		//Pericias
+		pericias = new ArrayList<>();
+		while(pontosDispPericia > 0) {
+			adicionarPericia(classe.getPericiaPreferencia().obter(), 1);
+		}
 
-		// Complica��es
+		//Complicação
 		complicacoes = new ArrayList<>();
-		boolean erro;
-		int contErro = 0;
-		do {
-			try {
-				Complicacao[] c = new Complicacao[3];
-				Complicacao temp;
-				boolean jaEscolhida = false;
-
-				System.out.println("Tentando encontrar complicações");
-				System.out.println("Tentativa " + contErro);
-				for(int i = 0; i < 3; i++){
-					temp = Complicacao.getAleatoria();
-
-					for(Complicacao x: c)
-						if (x != null)
-							if(x.getId() == temp.getId()) {
-								jaEscolhida = true;
-								break;
-							}
-
-					if(!jaEscolhida)
-						c[i] = temp;
-				}
-
-				setComplicacoes(c[0], c[1], c[2]);
+		var erro = true;
+		while(erro) {
+			try{
+				setComplicacoes(classe.getComplicacaoPreferencia().obter(),
+						classe.getComplicacaoPreferencia().obter(), classe.getComplicacaoPreferencia().obter());
 				erro = false;
-				System.out.println("Complicação encontrada");
-				for(Complicacao x: complicacoes)
-					System.out.println(x.getId().getNome() + " - " + x.getTipo());
-			} catch(Exception e) {
-				erro = true;
-				contErro++;
+			} catch (Exception e) {
+				System.out.println(e);
 			}
-		} while(erro);
+		}
 
-		// Vantagens
-		contErro = 0;
+		//Vantagens
 		vantagens = new ArrayList<>();
-		do {
-			try {
-				System.out.println("Tentando encontrar vantagens");
-				System.out.println("Tentativa " + contErro);
-				Vantagem vant = Vantagem.getAleatoria();
-				System.out.println("Vantagem escolhida: " + vant);
-				addVantagem(vant);
+		erro = true;
+		while(erro){
+			try{
+				addVantagem(classe.getVantagemPreferencia().obter());
 				erro = false;
 			} catch(Exception e) {
 				System.out.println(e);
-				erro = true;
-				contErro++;
-				Thread.sleep(5000);
+				try {
+					Thread.sleep(5000);
+				} catch (Exception f) {
+
+				}
 			}
-		} while(erro);
+		}
+
+
 	}
 
 	public Raca getRaca() {
 		return raca;
 	}
 
-	private Identificavel search(Identificavel objeto, List<Identificavel> lista) {
+	private Identificavel procurar(Identificavel objeto, List<Identificavel> lista) {
 		if(lista.contains(objeto))
 			return(lista.get(lista.indexOf(objeto)));
 		else throw new IllegalArgumentException("Objeto não encontrado");
 	}
 
-	private Identificavel search(Identificavel objeto, Identificavel[] objetos) {
+	private Identificavel procurar(Identificavel objeto, Identificavel[] objetos) {
 		for(Identificavel o: objetos)
 			if(o.equals(objeto))
 				return o;
@@ -150,8 +120,9 @@ public class NPC {
 		if((pontos > 0 && pontosDispAtrib > 0)) {
 			if (pontos <= pontosDispAtrib) {
 				pontos *= 2;
-				Atributo x = (Atributo) search(atributo, atributos);
+				Atributo x = (Atributo) procurar(atributo, atributos);
 				x.setNivelDado(x.getNivelDado() + pontos);
+				pontosDispAtrib--;
 			} else throw new NotAvailablePointsLeftException("Não há pontos disponíveis");
 		} else throw new IllegalArgumentException("Argumentos não são válidos");
 	}
@@ -173,61 +144,26 @@ public class NPC {
 
 	public void addVantagem(Vantagem... vants) {
 		for(Vantagem l: vants) {
-			if(checkRequisitos(l.getRequisitos()))
+			var possui = true;
+
+			for(Requisito req: l.getRequisitos()){
+				if (!req.check(this)) {
+					possui = false;
+					break;
+				}
+			}
+
+			if(possui)
 				vantagens.add(l);
-			else throw new RequirementNotMetException("O membro não tem os requisitos necessários.");
 		}
 	}
 
 	public void addVantagem(List<Vantagem> vants) throws RequirementNotMetException {
 		for(Vantagem l: vants) {
-			if(checkRequisitos(l.getRequisitos()))
+			if(l.check(this))
 				vantagens.add(l);
 			else throw new RequirementNotMetException("O membro não tem os requisitos necessários.");
 		}
-	}
-
-	public boolean checkRequisitos(List<Requisito> lista) {
-		boolean check = false;
-		for (Requisito requisito : lista) {
-
-			if (requisito instanceof RequisitoProgresso) {
-				if (((Progresso) requisito.getRequisito()).check(this))
-					check = true;
-				else return false;
-
-			} else if (requisito instanceof RequisitoAtributo) {
-				System.out.println("Requisito de atributo: " + ((Atributo) requisito.getRequisito()).getId().getNome()
-						+ " - d" + ((Atributo) requisito.getRequisito()).getNivelDado());
-
-				if (((Atributo) requisito.getRequisito()).check(this))
-					check = true;
-				else return false;
-
-			} else if (requisito instanceof RequisitoPericia) {
-				System.out.println("Requisito de Pericia: " + ((Pericia) requisito.getRequisito()).getId().getNome()
-						+ " - d" + ((Pericia) requisito.getRequisito()).getNivelDado());
-
-				if (((Pericia) requisito.getRequisito()).check(this))
-					check = true;
-				else return false;
-
-			} else if (requisito instanceof RequisitoVantagem) {
-				System.out.println("Requisito de Vantagem: " + (((Vantagem) requisito.getRequisito()).getId().getNome()));
-				if (((Vantagem) requisito.getRequisito()).check(this))
-					check = true;
-				else return false;
-
-			} else if (requisito instanceof RequisitoComplicacao) {
-				System.out.println("Requisito de Complicacao: " + ((Complicacao) requisito.getRequisito()).getId().getNome());
-				if (((Complicacao) requisito.getRequisito()).check(this))
-					check = true;
-				else return false;
-
-			}
-		}
-		return check;
-
 	}
 
 	public Atributo[] getAtributos() {
@@ -248,6 +184,15 @@ public class NPC {
 
 	public List<Pericia> getPericias() {
 		return pericias;
+	}
+
+	public void adicionarPericia(Pericia p, int pontos) {
+		if(pericias.contains(p))
+			pericias.get(pericias.indexOf(p)).addNivelDado(pontos);
+		else
+			pericias.add(p);
+
+		pontosDispPericia--;
 	}
 
 	private void setPericias(Pericia[] pericias) {

@@ -268,7 +268,7 @@ public enum Pericia implements Checavel, Identificavel, PossuiDado {
 			"fazerem o que você deseja. " +
 			"Extras iniciam em uma destas cinco atitudes " +
 			"diferentes: Hostil, Não Cooperativo, Neutro, " +
-			"Amigável ou Prestativo. Uma rolagem bemsucedida " +
+			"Amigável ou Prestativo. Uma rolagem bem sucedida " +
 			"de Persuadir melhora a atitude do Extra " +
 			"em um passo ou dois com uma ampliação. Falhar, " +
 			"pelo contrário, piora a atitude do personagem em " +
@@ -320,12 +320,14 @@ public enum Pericia implements Checavel, Identificavel, PossuiDado {
 		id = new Identidade(nome, descricao);
 		this.tipoAtributo = tipoAtributo;
 		this.jogo = jogo;
+		nivelPericia = 4;
 	}
 	Pericia(String nome, String descricao, Atributo tipoAtributo, Jogo jogo, String especializacao) {
 		id = new Identidade(nome, descricao);
 		this.tipoAtributo = tipoAtributo;
 		this.especializacao = especializacao;
 		this.jogo = jogo;
+		nivelPericia = 4;
 	}
 
 	public Identidade getId() {
@@ -392,6 +394,17 @@ public enum Pericia implements Checavel, Identificavel, PossuiDado {
 			}
 		else
 			throw new IllegalArgumentException("\"nivel\" deve ser par e maior ou igual a 4");
+	}
+
+	public void addNivelDado(int pontos) throws IllegalArgumentException {
+		if (pontos > 0)
+			if (nivelPericia + (pontos * 2) <= 12)
+				nivelPericia += (pontos * 2);
+			else {
+				var temp = nivelPericia + (pontos * 2);
+				nivelPericia = 12;
+				modNivelPericia += (temp - nivelPericia) / 2;
+			}
 	}
 
 	public String toString() {

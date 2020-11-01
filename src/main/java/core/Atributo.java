@@ -1,5 +1,7 @@
 package core;
 
+import java.util.Enumeration;
+
 public enum Atributo implements Checavel, Identificavel, PossuiDado {
 	AGILIDADE("Agilidade", "AGILIDADE é a rapidez, velocidade e " + "destreza do seu herói."),
 
