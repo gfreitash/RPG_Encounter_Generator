@@ -1,7 +1,16 @@
 package utils;
 
+
+import com.rits.cloning.Cloner;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
- * This is a very niche that class works almost like an enum,
+ * This is a very niche class that works almost like an enum,
  * however it gives copies of the items instead of references
  * and are way less powerful.
  *
@@ -11,34 +20,134 @@ package utils;
 public abstract class NonStaticEnum implements Cloneable{
     private final String nome;
     private final int ordinal;
-    private static int size = 0;
-    private static NonStaticEnum[] values;
+    private static int[] size;
+    private static NonStaticEnum[][] values;
+    private static final List<Class<NonStaticEnum>> classes = new ArrayList<>();
+    private static final Logger logger = LogManager.getLogger(NonStaticEnum.class);
 
     /**
-     * Only the name is important as a parameter here,
-     * since the constructor handles the rest
-     * @param nome
+     * Add the subclass static variable to the 'values' array
+     * @param nome the name of static variable
+     * @param classe the class of the static variable(must extend NonStaticEnum)
      */
-    protected NonStaticEnum(String nome) {
-        this.nome = Utils.normalizar(nome).toUpperCase();
-        this.ordinal = size;
+    protected <E extends NonStaticEnum> NonStaticEnum(String nome, Class<E> classe) {
+        logger.debug("Constructing a new NonStaticEnum");
+        logger.trace("Constructor parameters - String nome: " + nome + ", " +
+                "Class<E> classe: " + classe);
+        int index;
 
-        if(size > 0) {
-            NonStaticEnum[] temp = values;
-            values = new NonStaticEnum[++size];
-            System.arraycopy(temp, 0, values, 0, temp.length);
+        logger.trace("classes.size(): " + classes.size());
+        logger.debug("Checking if 'classes' already has elements");
+
+        if(classes.size() > 0) {
+            logger.debug("'classes' has elements");
+            logger.debug("Checking if 'classe' already is in the 'classes' list");
+
+            if(classes.contains(classe)) {
+                logger.debug("'classe' is already in the list");
+
+                index = classes.indexOf(classe);
+                logger.trace("The class index of where the new static " +
+                        "variable will be stored is: " + index);
+            } else {
+                logger.debug("'classes' doesn't contais  'classe'");
+                logger.trace("Adding 'classe' to the end of the list");
+
+                classes.add((Class<NonStaticEnum>) classe);
+                logger.warn("Unchecked cast '(Class<NonStaticEnum>) classe'");
+                logger.trace("'classe' added to the end of the list");
+
+                index = classes.size()-1;
+                logger.trace("The class index of where the new static " +
+                        "variable will be stored is: " + index);
+
+                logger.trace("Creating a bigger array of 'values' and copying the old one, " +
+                        "to make room for the new type of class added");
+                NonStaticEnum[][] nse = values;
+                values = new NonStaticEnum[nse.length+1][];
+
+                for(int i = 0; i <= nse.length; i++) {
+                    logger.trace("i: " + i + ", 'nse.length': " + nse.length);
+                    logger.trace("Recreating an array to store old values of 'values["+i+"]' or " +
+                            "creating a new one if none existed before");
+
+                    try {
+                        values[i] = new NonStaticEnum[nse[i].length];
+                        logger.trace("Values existed");
+
+                        logger.trace("Copying the array of index " + i +
+                                " to the new one");
+                        logger.trace("'nse["+i+"].length': " + nse[i].length +
+                                ", 'values["+i+"].length': " + values[i].length);
+                        System.arraycopy(nse[i], 0, values[i], 0, nse[i].length);
+                    } catch (ArrayIndexOutOfBoundsException e){
+                        logger.trace("None values existed");
+                        values[i] = new NonStaticEnum[1];
+                    }
+                }
+                logger.trace("expanding 'size' array to match the new " +
+                        "class type added");
+
+                int[] temp = size;
+                size = new int[index+1];
+                System.arraycopy(temp, 0, size, 0, temp.length);
+            }
+
         } else {
-            values = new NonStaticEnum[++size];
+            logger.debug("'classes' does not have elements");
+            logger.trace("Adding 'classe' to the end of the list");
+            classes.add((Class<NonStaticEnum>) classe);
+            logger.warn("Unchecked cast '(Class<NonStaticEnum>) classe'");
+
+            logger.trace("Creating a basic implementation of 'classe'");
+            index = 0;
+            logger.trace("The class index of where the new static " +
+                    "variable will be stored is: " + index);
+            values = new NonStaticEnum[1][1];
+            size = new int[1];
         }
-        values[size - 1] = this;
+
+        logger.debug("Checking if the array 'values[]' of 'values[index]' has elements");
+        if(values[index][0] != null) {
+            logger.debug("'values[index][]' has elements");
+
+            logger.trace("Expanding the old array to make space for the new static variable");
+            NonStaticEnum[] temp = values[index];
+            values[index] = new NonStaticEnum[++size[index]];
+            System.arraycopy(temp, 0, values[index], 0, temp.length);
+        } else {
+            logger.debug("'values[index][]' does not has elements");
+
+            logger.trace("Initializing the array 'values[index][]'");
+            size[index]++;
+        }
+
+        logger.debug("Adding the static variable to the array");
+        logger.trace("Static variable will be added in values["+ index+"]["+(size[index]-1)+"]");
+        values[index][size[index]-1] = this;
+
+        logger.trace("Normalizing argument 'nome'");
+        this.nome = Utils.normalizar(nome).toUpperCase();
+        logger.trace("Setting static variable ordinal value");
+        this.ordinal = size[index]-1;
     }
 
     /**
      * This is expect to work just like enum ordinal()
-     * @return
+     * @return ordinal
      */
     public int ordinal() {
         return ordinal;
+    }
+
+    private static <E extends NonStaticEnum> int findClass(Class<E> classe) {
+        logger.trace("classes contém "+ classe +"?");
+        if(classes.contains(classe)) {
+            System.out.println("sim");
+            return classes.indexOf(classe);
+        }
+        System.out.println("não");
+        return -1;
     }
 
     /**
@@ -49,13 +158,17 @@ public abstract class NonStaticEnum implements Cloneable{
      *
      * This method should be overwritten by the subclass
      * to return the appropriate type.
-     * @param str
-     * @return
+     * @param str the name of static variable
+     * @return n.clone()
      */
-    public static NonStaticEnum valueOf(String str) {
-        for(NonStaticEnum n: values) {
-            if (n.nome.equals(str))
-                return n.clone();
+    public static <E extends NonStaticEnum> NonStaticEnum valueOf(String str, Class<E> classe) {
+        int index = findClass(classe);
+
+        if(index != -1) {
+            for (NonStaticEnum n : values[index]) {
+                if (n.nome.equals(Utils.normalizar(str).toUpperCase()))
+                    return n.clone();
+            }
         }
         return null;
     }
@@ -65,37 +178,64 @@ public abstract class NonStaticEnum implements Cloneable{
      *
      * This method should be overwritten by the subclass
      * to return the appropriate type.
-     * @return
+     * @return values[] clone
      */
-    public static NonStaticEnum[] values() {
-        NonStaticEnum[] nonStaticEnums = new NonStaticEnum[values.length];
-        for(int i = 0; i < nonStaticEnums.length;i++)
+    public static NonStaticEnum[][] values() {
+        NonStaticEnum[][] nonStaticEnums = new NonStaticEnum[values.length][];
+        for(int i = 0; i < nonStaticEnums.length;i++) {
             nonStaticEnums[i] = values[i].clone();
-
+        }
         return nonStaticEnums;
     }
 
+    public static <E extends NonStaticEnum> E[] values(Class<E> classe) {
+        E[] es = (E[]) Array.newInstance(classe, getSize(classe));
+        int index = findClass(classe);
+        System.out.println("Array type: " + es.getClass() + "Array size: " + es.length);
+
+        if(index != -1) {
+            for (NonStaticEnum n : values()[index])
+                es[n.ordinal] = (E) n;
+            return es;
+        }
+
+        return null;
+    }
+
     /**
-     * This just returns how many static variables
-     * this class have.
-     * @return
+     * This method returns how many class types
+     * this enum have stored and how many static variables they have.
+     * @return size
      */
-    public static int size() {
+    public static int[] getSize() {
         return size;
     }
 
     /**
+     * This just method how many static variables
+     * this class type have.
+     * @return size
+     */
+    public static <E extends NonStaticEnum> int getSize(Class<E> classe) {
+        int index = findClass(classe);
+        if(index != -1)
+            return size[index];
+
+        return -1;
+    }
+
+    /**
      * This method clone an static variable.
-     * This method is a shallow copy and should be
-     * overwritten by the subclass to return the appropriate type
-     * and a deep copy, if needed.
-     * @return
+     * This method is a deep clone copy and should be
+     * overwritten by the subclass to return the appropriate type.
+     * @return a new copy of a static variable
      */
     public NonStaticEnum clone() {
-        try {
-            return (NonStaticEnum) super.clone();
-        } catch(CloneNotSupportedException e) {
-            throw new AssertionError();
-        }
+        Cloner cloner = new Cloner();
+        return cloner.deepClone(this);
+    }
+
+    public String nome() {
+        return nome;
     }
 }

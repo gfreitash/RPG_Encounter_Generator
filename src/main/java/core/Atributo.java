@@ -1,6 +1,7 @@
 package core;
 
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import utils.NonStaticEnum;
 import utils.Utils;
 
@@ -32,15 +33,12 @@ public class Atributo extends NonStaticEnum implements Requisitavel, Identificav
 	private final Identidade id;
 	private int modificadorDado;
 	private int nivelDado;
+	private static Logger logger = LogManager.getLogger(Atributo.class);
 	
 	private Atributo(String nome, String descricao) {
-		super(nome);
+		super(nome, Atributo.class);
 		id = new Identidade(nome, descricao);
 		setNivelDado(4);
-	}
-
-	public static Atributo[] values() {
-		return (Atributo[]) NonStaticEnum.values();
 	}
 
 	public Atributo setNivelDado(int nivel) throws IllegalArgumentException {
@@ -62,7 +60,7 @@ public class Atributo extends NonStaticEnum implements Requisitavel, Identificav
 	}
 
 	public static Atributo[] getAtributosAleatorios() {
-		Atributo[] atributos = Atributo.values();
+		Atributo[] atributos = Atributo.values(Atributo.class);
 		for(Atributo x: atributos) {
 			x.setNivelDado(Utils.arredondarParaProximoPar(Math.random() * 8) + 4);
 		}

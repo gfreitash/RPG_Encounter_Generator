@@ -4,17 +4,21 @@ import utils.Utils;
 
 public enum Classe {
 	FRANCO_ATIRADOR(
-			new Preferencia<Atributo>()	.adicionar(Atributo.AGILIDADE, Atributo.size())
-										.adicionar(Atributo.ASTUCIA, Atributo.size() - 2)
-										.adicionar(Atributo.FORCA, Atributo.size() - 3)
-										.adicionar(Atributo.values(), Atributo.size() - 4),
+			new Preferencia<Atributo>()	.adicionar(Atributo.AGILIDADE, Atributo.getSize(Atributo.class))
+										.adicionar(Atributo.ASTUCIA,
+												Atributo.getSize(Atributo.class) - 2)
+										.adicionar(Atributo.FORCA,
+												Atributo.getSize(Atributo.class)- 3)
+										.adicionar(Atributo.values(Atributo.class),
+												Atributo.getSize(Atributo.class) - 4),
 
-			new Preferencia<Pericia>()	.adicionar(Pericia.ATIRAR, Pericia.size() - 1)
-										.adicionar(Pericia.FURTIVIDADE, Pericia.size() - 2)
-										.adicionar(Pericia.PERCEBER, Pericia.size() - 3)
-										.adicionar(Pericia.RASTREAR, Pericia.size() - 4)
-										.adicionar(Pericia.LUTAR, Pericia.size() - 5)
-										.adicionar( Pericia.values(), Pericia.size() - 6),
+			new Preferencia<Pericia>()	.adicionar(Pericia.ATIRAR, Pericia.getSize(Pericia.class) - 1)
+										.adicionar(Pericia.FURTIVIDADE, Pericia.getSize(Pericia.class) - 2)
+										.adicionar(Pericia.PERCEBER, Pericia.getSize(Pericia.class) - 3)
+										.adicionar(Pericia.RASTREAR, Pericia.getSize(Pericia.class) - 4)
+										.adicionar(Pericia.LUTAR, Pericia.getSize(Pericia.class) - 5)
+										//.adicionar(NonStaticEnum.values(Pericia.class), Pericia.size() - 6)
+			,
 
 			new Preferencia<Vantagem>() .adicionar(Vantagem.values(), Utils.enumLength(Vantagem.class)),
 

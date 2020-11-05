@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn" name="Encounter Generator" packages="">
+
+    <Appenders>
+        <Console name="Console-Appender" target="SYSTEM_OUT">
+            <PatternLayout>
+                <Pattern>
+                    %d{[yyyy-MM-dd]} %d{[HH:mm:ss]} | [%-5level] [%t] [CLASS:] |%c{1}| $ %msg%n
+                </Pattern>>
+            </PatternLayout>
+        </Console>
+
+        <RollingFile name="RollingFile" fileName="logs/app-log.log"
+                     filePattern="app-log-%d{yyyy.MM.dd-HH:mm}.log"
+                     append="false">
+            <PatternLayout>
+                <Pattern>
+                    %d{[yyyy-MM-dd]} %d{[HH:mm:ss]} | [%-5level] [%t] [CLASS:] |%c{1}| $ %msg%n
+                </Pattern>
+            </PatternLayout>
+            <TimeBasedTriggeringPolicy/>
+            <DefaultRolloverStrategy min="1" max="30"/>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Logger name="com.riosodu.log4j2" additivity="trace">
+            <AppenderRef ref="Console-Appender" level="all"/>
+            <AppenderRef ref="RollingFile" level="trace"/>
+        </Logger>
+
+        <Root level="trace">
+            <AppenderRef ref="Console-Appender" level="all"/>
+            <AppenderRef ref="RollingFile" level="trace"/>
+        </Root>
+    </Loggers>
+</Configuration>

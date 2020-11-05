@@ -348,14 +348,14 @@ public class Pericia extends NonStaticEnum implements Requisitavel, Identificave
 
 	
 	Pericia(String nome, String descricao, Atributo tipoAtributo, Jogo jogo) {
-		super(nome);
+		super(nome, Pericia.class);
 		id = new Identidade(nome, descricao);
 		this.tipoAtributo = tipoAtributo;
 		this.jogo = jogo;
 		nivelPericia = 4;
 	}
 	Pericia(String nome, String descricao, Atributo tipoAtributo, Jogo jogo, String especializacao) {
-		super(nome);
+		super(nome, Pericia.class);
 		id = new Identidade(nome, descricao);
 		this.tipoAtributo = tipoAtributo;
 		this.especializacao = especializacao;
@@ -391,7 +391,7 @@ public class Pericia extends NonStaticEnum implements Requisitavel, Identificave
 
 		for(int i = 0; i < quantidade; i++) {
 			jaEscolhida = false;
-			p = Pericia.values()[(int) (Math.random() * Pericia.values().length)];
+			p = Pericia.values(Pericia.class)[(int) (Math.random() * Pericia.values().length)];
 
 			for(Pericia x: pericias)
 				if(x != null)
@@ -464,11 +464,4 @@ public class Pericia extends NonStaticEnum implements Requisitavel, Identificave
 		return (Pericia) super.clone();
 	}
 
-	public static Pericia valueOf(String str) {
-		return (Pericia) NonStaticEnum.valueOf(str);
-	}
-
-	public static Pericia[] values() {
-		return (Pericia[]) NonStaticEnum.values();
-	}
 }

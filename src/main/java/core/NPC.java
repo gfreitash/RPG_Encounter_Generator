@@ -15,7 +15,7 @@ public class NPC {
 	private int creditos, salario, estiloVida;
 
 	private Classe classe;
-	//private final Progresso progresso;
+	private final Progresso progresso;
 	private int pontosDispAtrib;
 	private Atributo[] atributos;
 	private int pontosDispPericia;
@@ -26,7 +26,7 @@ public class NPC {
 
 	public NPC() {
 		//Progresso
-		//progresso = new Progresso(0);
+		progresso = Progresso.getNovoProgresso(0);
 		pontosDispAtrib = 8;
 		pontosDispPericia = 15;
 
@@ -37,7 +37,7 @@ public class NPC {
 		raca = classe.getRacaPreferencia().obter().getRaca();
 
 		//Atributos
-		atributos = Atributo.values();
+		atributos = Atributo.values(Atributo.class);
 		while(pontosDispAtrib > 0)
 			adicionarDado(classe.getAtributoPreferencia().obter(), 1);
 
@@ -107,11 +107,6 @@ public class NPC {
 		complicacoes.add(maior);
 		complicacoes.add(menor1);
 		complicacoes.add(menor2);
-	}
-
-	public <PossuiDado> void setDado(PossuiDado dado) {
-		;
-		//x = dado;
 	}
 
 	public void adicionarDado(Atributo atributo, int pontos) {
@@ -205,9 +200,9 @@ public class NPC {
 		return vantagens;
 	}
 
-	/*public Progresso getProgresso() {
+	public Progresso getProgresso() {
 		return progresso;
-	}*/
+	}
 
 	public String toString()  {
 		StringBuilder toString = new StringBuilder();

@@ -21,13 +21,13 @@ public class Progresso extends NonStaticEnum implements Requisitavel, Identifica
 	
 	
 	private Progresso() {
-		super(Progresso.NOVATO.estagio);
+		super(Progresso.NOVATO.estagio, Progresso.class);
 		setEstagio();
 		id = new Identidade(estagio, Integer.valueOf(experienciaAtual).toString());
 	}
 
 	private Progresso(int experiencia) {
-		super(Progresso.getEstagio(experiencia));
+		super(Progresso.getNomeEstagio(experiencia), Progresso.class);
 		this.setExperienciaAtual(experiencia);
 		id = new Identidade(estagio, Integer.toString(experienciaAtual));
 	}
@@ -46,7 +46,7 @@ public class Progresso extends NonStaticEnum implements Requisitavel, Identifica
 		return experienciaAtual;
 	}
 
-	private static String getEstagio(int experiencia) {
+	private static String getNomeEstagio(int experiencia) {
 		if(experiencia >= 0 && experiencia < 20)
 			return "Novato";
 
@@ -66,10 +66,10 @@ public class Progresso extends NonStaticEnum implements Requisitavel, Identifica
 	}
 	
 	private void setEstagio() {
-		estagio = getEstagio(experienciaAtual);
+		estagio = getNomeEstagio(experienciaAtual);
 	}
 	
-	public String getEstagio() {
+	public String getNomeEstagio() {
 		return estagio;
 	}
 	
@@ -120,16 +120,5 @@ public class Progresso extends NonStaticEnum implements Requisitavel, Identifica
 	@Override
 	public Identidade getId() {
 		return id;
-	}
-
-	public static Progresso[] values() {
-		return (Progresso[]) NonStaticEnum.values();
-	}
-	public static Progresso valueOf(String str) {
-		return (Progresso) NonStaticEnum.valueOf(str);
-	}
-
-	public Progresso clone() {
-		return (Progresso) super.clone();
 	}
 }
