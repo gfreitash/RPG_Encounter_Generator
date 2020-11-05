@@ -1,6 +1,6 @@
 package core;
 
-public enum Complicacao implements Checavel, Identificavel{
+public enum Complicacao implements Requisitavel, Identificavel{
 
 	ANALFABETO("Analfabeto","Seu herói não consegue ler. Ele provavelmente " +
 			"pode assinar seu nome e sabe o significado de um " +

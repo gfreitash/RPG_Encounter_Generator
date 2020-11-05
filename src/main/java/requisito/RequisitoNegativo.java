@@ -1,21 +1,24 @@
 package requisito;
 
 import core.NPC;
+import core.Requisitavel;
 import core.Requisito;
 
-public class RequisitoNegativo implements Requisito {
-    private final Requisito requisito;
+public class RequisitoNegativo extends Requisito {
 
-    public RequisitoNegativo(Requisito requisito) {
-        this.requisito = requisito;
+    public RequisitoNegativo(Requisitavel... requisitos) {
+        super(requisitos);
     }
 
     @Override
     public boolean check(NPC npc) {
-        return !(requisito.check(npc));
-    }
+        boolean possui;
+        for(Requisitavel r: this.getRequisitos()) {
+            possui = r.check(npc);
 
-    public Requisito getRequisito() {
-        return requisito;
+            if(possui)
+                return false;
+        }
+        return true;
     }
 }

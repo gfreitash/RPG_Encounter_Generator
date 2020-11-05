@@ -2,7 +2,7 @@ package core;
 
 import java.util.Objects;
 
-public abstract class Raca implements PossuiEfeito{
+public abstract class Raca implements Requisitavel, PossuiEfeito{
 	private final Identidade id;
 
 	public Raca(String nome, String descricao) {

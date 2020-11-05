@@ -15,7 +15,7 @@ public class NPC {
 	private int creditos, salario, estiloVida;
 
 	private Classe classe;
-	private final Progresso progresso;
+	//private final Progresso progresso;
 	private int pontosDispAtrib;
 	private Atributo[] atributos;
 	private int pontosDispPericia;
@@ -26,7 +26,7 @@ public class NPC {
 
 	public NPC() {
 		//Progresso
-		progresso = new Progresso(0);
+		//progresso = new Progresso(0);
 		pontosDispAtrib = 8;
 		pontosDispPericia = 15;
 
@@ -77,8 +77,6 @@ public class NPC {
 				}
 			}
 		}
-
-
 	}
 
 	public Raca getRaca() {
@@ -207,9 +205,9 @@ public class NPC {
 		return vantagens;
 	}
 
-	public Progresso getProgresso() {
+	/*public Progresso getProgresso() {
 		return progresso;
-	}
+	}*/
 
 	public String toString()  {
 		StringBuilder toString = new StringBuilder();

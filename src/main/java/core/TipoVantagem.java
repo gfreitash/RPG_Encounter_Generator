@@ -15,7 +15,13 @@ public enum TipoVantagem {
             "ser capazes de ganhar a Vantagem Antecedente " +
             "Arcano, caso encontrem um livro de conhecimento " +
             "proibido ou treinando sob a tutela de outro " +
-            "indivíduo arcano no seu grupo.");
+            "indivíduo arcano no seu grupo."),
+
+    VANTAGEM_COMBATE("Vantagem de Combate", "Estas Vantagens são projetadas para ajudar o seu " +
+            "herói a causar danos terríveis – ou sobreviver a eles " +
+            "– nas batalhas sangrentas de Savage Worlds.")
+
+    ;
 
     private final String tipo;
     private final String descricao_tipo;

@@ -1,28 +1,22 @@
 package requisito;
 
 import core.NPC;
+import core.Requisitavel;
 import core.Requisito;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class RequisitoDisjuntivo implements Requisito {
-    private final List<Requisito> requisitos;
+public class RequisitoDisjuntivo extends Requisito {
 
-    public RequisitoDisjuntivo(Requisito ... requisitos) {
-        this.requisitos = new ArrayList<>();
-        Collections.addAll(this.requisitos, requisitos);
-    }
-
-    @Override
-    public List<Requisito> getRequisito() {
-        return requisitos;
+    public RequisitoDisjuntivo(Requisitavel... requisitos) {
+        super(requisitos);
     }
 
     @Override
     public boolean check(NPC npc) {
-        for(Requisito req: requisitos) {
+        for(Requisitavel req: this.getRequisitos()) {
             if(req.check(npc))
                 return true;
         }

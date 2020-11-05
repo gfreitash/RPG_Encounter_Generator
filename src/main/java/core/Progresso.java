@@ -1,8 +1,16 @@
 package core;
 
 import exception.NotAvailablePointsLeftException;
+import utils.NonStaticEnum;
 
-public class Progresso implements Checavel, Identificavel {
+public class Progresso extends NonStaticEnum implements Requisitavel, Identificavel, Cloneable {
+
+	public static final Progresso NOVATO = new Progresso(0);
+	public static final Progresso EXPERIENTE= new Progresso(20);
+	public static final Progresso VETERANO = new Progresso(40);
+	public static final Progresso HEROICO = new Progresso(60);
+	public static final Progresso LENDARIO = new Progresso(80);
+
 	private final Identidade id;
 	private int experienciaAtual;
 	private int ultimaExp;
@@ -12,18 +20,16 @@ public class Progresso implements Checavel, Identificavel {
 	private byte progressoDisp;
 	
 	
-	public Progresso() {
+	private Progresso() {
+		super(Progresso.NOVATO.estagio);
 		setEstagio();
 		id = new Identidade(estagio, Integer.valueOf(experienciaAtual).toString());
 	}
-	
-	public Progresso(int experiencia) throws IllegalArgumentException {
-		if(experiencia >= 0)
-			experienciaAtual +=  experiencia;
-		else throw new IllegalArgumentException("Valor de \"experiencia\" não pode ser negativo!");
-		setEstagio();
-		setProgresso();
-		id = new Identidade(estagio, Integer.valueOf(experienciaAtual).toString());
+
+	private Progresso(int experiencia) {
+		super(Progresso.getEstagio(experiencia));
+		this.setExperienciaAtual(experiencia);
+		id = new Identidade(estagio, Integer.toString(experienciaAtual));
 	}
 	
 	public void addExperiencia(int experiencia) {
@@ -39,22 +45,28 @@ public class Progresso implements Checavel, Identificavel {
 	public int getExperiencia() {
 		return experienciaAtual;
 	}
+
+	private static String getEstagio(int experiencia) {
+		if(experiencia >= 0 && experiencia < 20)
+			return "Novato";
+
+		else if (experiencia >= 20 && experiencia < 40)
+			return "Experiente";
+
+		else if (experiencia >= 40 && experiencia < 60)
+			return "Veterano";
+
+		else if (experiencia >= 60 && experiencia < 80)
+			return "Heróico";
+
+		else if (experiencia >= 80)
+			return "Lendário";
+
+		else return "Experiência Negativa";
+	}
 	
 	private void setEstagio() {
-		if(experienciaAtual >= 0 && experienciaAtual < 20)
-			estagio = "Novato";
-		
-		else if (experienciaAtual >= 20 && experienciaAtual < 40)
-			estagio = "Experiente";
-		
-		else if (experienciaAtual >= 20 && experienciaAtual < 60)
-			estagio = "Veterano";
-		
-		else if (experienciaAtual >= 60 && experienciaAtual < 80)
-			estagio = "Her�ico";
-		
-		else if (experienciaAtual >= 80)
-			estagio = "Lend�rio";
+		estagio = getEstagio(experienciaAtual);
 	}
 	
 	public String getEstagio() {
@@ -62,13 +74,23 @@ public class Progresso implements Checavel, Identificavel {
 	}
 	
 	private void setProgresso()	 {
-		double progNovaExp = (experienciaAtual - ultimaExp) / 5;
+		double progNovaExp = ((double) experienciaAtual - ultimaExp) / 5;
 		porcentProgresso += progNovaExp;
 		progressoDisp += (byte) porcentProgresso;
 		progressoTotal = (byte) (experienciaAtual / 5);
 	}
+
+	private Progresso setExperienciaAtual(int experiencia){
+		experienciaAtual = 0;
+		if(experiencia >= 0)
+			experienciaAtual +=  experiencia;
+		else throw new IllegalArgumentException("Valor de \"experiencia\" não pode ser negativo!");
+		setEstagio();
+		setProgresso();
+		return this;
+	}
 	
-	public int useProgress(int pontos) {
+	public int useProgresso(int pontos) {
 		if(pontos >= 0)
 			if(pontos <= progressoDisp)
 				progressoDisp -= pontos;
@@ -77,8 +99,11 @@ public class Progresso implements Checavel, Identificavel {
 		
 		return progressoDisp;
 	}
-	
-	
+
+	public static Progresso getNovoProgresso(int experiencia) {
+		return Progresso.NOVATO.setExperienciaAtual(experiencia);
+	}
+
 	public int getProgressoTotal() {
 		return progressoTotal;
 	}
@@ -88,52 +113,23 @@ public class Progresso implements Checavel, Identificavel {
 	}
 
 	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = super.hashCode();
-		result = prime * result + ((estagio == null) ? 0 : estagio.hashCode());
-		result = prime * result + experienciaAtual;
-		long temp;
-		temp = Double.doubleToLongBits(porcentProgresso);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
-		result = prime * result + progressoDisp;
-		result = prime * result + progressoTotal;
-		result = prime * result + ultimaExp;
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (!super.equals(obj))
-			return false;
-		if (!(obj instanceof Progresso))
-			return false;
-		Progresso other = (Progresso) obj;
-		if (estagio == null) {
-			if (other.estagio != null)
-				return false;
-		} else if (!estagio.equals(other.estagio))
-			return false;
-		if (experienciaAtual != other.experienciaAtual)
-			return false;
-		if (Double.doubleToLongBits(porcentProgresso) != Double.doubleToLongBits(other.porcentProgresso))
-			return false;
-		if (progressoDisp != other.progressoDisp)
-			return false;
-		if (progressoTotal != other.progressoTotal)
-			return false;
-		return ultimaExp == other.ultimaExp;
-	}
-
-	@Override
 	public boolean check(NPC npc) {
-		return npc.getProgresso().getExperiencia() >= this.getExperiencia();
+		return false;//npc.getProgresso().getExperiencia() >= this.getExperiencia();
 	}
 
 	@Override
 	public Identidade getId() {
 		return id;
+	}
+
+	public static Progresso[] values() {
+		return (Progresso[]) NonStaticEnum.values();
+	}
+	public static Progresso valueOf(String str) {
+		return (Progresso) NonStaticEnum.valueOf(str);
+	}
+
+	public Progresso clone() {
+		return (Progresso) super.clone();
 	}
 }

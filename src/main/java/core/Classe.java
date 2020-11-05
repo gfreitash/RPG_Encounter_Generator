@@ -1,29 +1,31 @@
 package core;
 
+import utils.Utils;
+
 public enum Classe {
 	FRANCO_ATIRADOR(
-			new Preferencia<Atributo>()	.adicionar(Atributo.AGILIDADE, Util.lengthOf(Atributo.class) - 1)
-										.adicionar(Atributo.ASTUCIA, Util.lengthOf(Atributo.class) - 2)
-										.adicionar(Atributo.FORCA, Util.lengthOf(Atributo.class) - 3)
-										.adicionar(Atributo.values(), Util.lengthOf(Atributo.class) - 4),
+			new Preferencia<Atributo>()	.adicionar(Atributo.AGILIDADE, Atributo.size())
+										.adicionar(Atributo.ASTUCIA, Atributo.size() - 2)
+										.adicionar(Atributo.FORCA, Atributo.size() - 3)
+										.adicionar(Atributo.values(), Atributo.size() - 4),
 
-			new Preferencia<Pericia>()	.adicionar(Pericia.ATIRAR, Util.lengthOf(Pericia.class) - 1)
-										.adicionar(Pericia.FURTIVIDADE, Util.lengthOf(Pericia.class) - 2)
-										.adicionar(Pericia.PERCEBER, Util.lengthOf(Pericia.class) - 3)
-										.adicionar(Pericia.RASTREAR, Util.lengthOf(Pericia.class) - 4)
-										.adicionar(Pericia.LUTAR, Util.lengthOf(Pericia.class) - 5)
-										.adicionar(Pericia.values(), Util.lengthOf(Pericia.class) - 6),
+			new Preferencia<Pericia>()	.adicionar(Pericia.ATIRAR, Pericia.size() - 1)
+										.adicionar(Pericia.FURTIVIDADE, Pericia.size() - 2)
+										.adicionar(Pericia.PERCEBER, Pericia.size() - 3)
+										.adicionar(Pericia.RASTREAR, Pericia.size() - 4)
+										.adicionar(Pericia.LUTAR, Pericia.size() - 5)
+										.adicionar( Pericia.values(), Pericia.size() - 6),
 
-			new Preferencia<Vantagem>() .adicionar(Vantagem.values(), Util.lengthOf(Vantagem.class)),
+			new Preferencia<Vantagem>() .adicionar(Vantagem.values(), Utils.enumLength(Vantagem.class)),
 
 			new Preferencia<TipoRaca>()	.adicionar(TipoRaca.HIBRIDO_DURAO, 1)
 										.adicionar(TipoRaca.HIBRIDO_AQUATICO, 1)
 										.adicionar(TipoRaca.HIBRIDO_FEROZ, 1)
 										.adicionar(TipoRaca.SIMULACRO_LUXO, 1)
 										.adicionar(TipoRaca.SIMULACRO_TRABALHADOR, 1)
-										.adicionar(TipoRaca.values(), Util.lengthOf(TipoRaca.class) * 5),
+										.adicionar(TipoRaca.values(), Utils.enumLength(TipoRaca.class) * 5),
 
-			new Preferencia<Complicacao>()	.adicionar(Complicacao.values(), Util.lengthOf(Complicacao.class))
+			new Preferencia<Complicacao>()	.adicionar(Complicacao.values(), Utils.enumLength(Complicacao.class))
 	);
 
 	private Preferencia<Atributo> atributoPreferencia;
