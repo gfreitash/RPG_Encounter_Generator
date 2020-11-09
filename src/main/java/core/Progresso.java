@@ -1,9 +1,9 @@
 package core;
 
 import exception.NotAvailablePointsLeftException;
-import utils.NonStaticEnum;
+import utils.CopiableEnum;
 
-public class Progresso extends NonStaticEnum implements Requisitavel, Identificavel, Cloneable {
+public class Progresso extends CopiableEnum implements Requisitavel, Identificavel, Cloneable {
 
 	public static final Progresso NOVATO = new Progresso(0);
 	public static final Progresso EXPERIENTE= new Progresso(20);
@@ -120,5 +120,15 @@ public class Progresso extends NonStaticEnum implements Requisitavel, Identifica
 	@Override
 	public Identidade getId() {
 		return id;
+	}
+
+	@Override
+	public Progresso clone() {
+		return (Progresso) super.clone();
+	}
+
+	@Override
+	public Progresso get() {
+		return this.clone();
 	}
 }

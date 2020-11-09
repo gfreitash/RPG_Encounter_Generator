@@ -4,8 +4,12 @@ import java.util.*;
 
 import exception.NotAvailablePointsLeftException;
 import exception.RequirementNotMetException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class NPC {
+	private static final Logger logger = LogManager.getLogger();
+
 	private Map propriedadesPrimarias;
 	private Map propriedadesGenericas;
 
@@ -32,11 +36,17 @@ public class NPC {
 
 		//Classe
 		classe = Classe.FRANCO_ATIRADOR;
+		List<Preferencia<?>> preferencias = classe.getPreferencias();
 
 		//Raça
-		raca = classe.getRacaPreferencia().obter().getRaca();
+		Preferencia<TipoRaca> pr = new Preferencia<>();
+		if(preferencias.contains(pr)) {
+			logger.debug("tinha");
+			raca = ((TipoRaca) preferencias.get(preferencias.indexOf(pr)).obter()).getRaca();
+		} else
+			logger.debug("não tinha");
 
-		//Atributos
+		/*//Atributos
 		atributos = Atributo.values(Atributo.class);
 		while(pontosDispAtrib > 0)
 			adicionarDado(classe.getAtributoPreferencia().obter(), 1);
@@ -76,7 +86,7 @@ public class NPC {
 
 				}
 			}
-		}
+		}*/
 	}
 
 	public Raca getRaca() {
@@ -204,7 +214,7 @@ public class NPC {
 		return progresso;
 	}
 
-	public String toString()  {
+	/*public String toString()  {
 		StringBuilder toString = new StringBuilder();
 		int i = 0;
 
@@ -226,7 +236,7 @@ public class NPC {
 			toString.append(vantagens.get(i).getId().getNome()).append("\n");
 
 		return toString.toString();
-	}
+	}*/
 
 	public Map getPropriedadesPrimarias() {
 		return propriedadesPrimarias;

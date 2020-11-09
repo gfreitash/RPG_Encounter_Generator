@@ -9,6 +9,7 @@ public class Preferencia<T> {
     private final Random random;
     private double total = 0;
 
+
     public Preferencia() {
         this(new Random());
     }
@@ -21,10 +22,8 @@ public class Preferencia<T> {
         if (peso > 0) {
             total += peso;
             mapa.put(total, item);
-            return this;
-        } else {
-            return this;
         }
+        return this;
     }
 
     public Preferencia<T> adicionar(List<T> item, double peso) {
@@ -72,4 +71,5 @@ public class Preferencia<T> {
         double value = random.nextDouble() * total;
         return mapa.higherEntry(value).getValue();
     }
+
 }

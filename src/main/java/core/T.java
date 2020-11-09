@@ -9,8 +9,10 @@ public class T {
 
     public static void main(String[] args) throws InterruptedException {
         logger.info("Program started.");
-
         logger.info("Creating a new NPCs");
+
+
+
         NPC npc1 = new NPC();
 
         NPC npc2 = new NPC();

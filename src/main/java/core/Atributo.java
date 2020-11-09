@@ -2,10 +2,10 @@ package core;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import utils.NonStaticEnum;
+import utils.CopiableEnum;
 import utils.Utils;
 
-public class Atributo extends NonStaticEnum implements Requisitavel, Identificavel, PossuiDado {
+public class Atributo extends CopiableEnum implements Requisitavel, Identificavel, PossuiDado {
 
 	public static final Atributo AGILIDADE = new Atributo("Agilidade",
 			"AGILIDADE é a rapidez, velocidade e " + "destreza do seu herói.");
@@ -41,6 +41,7 @@ public class Atributo extends NonStaticEnum implements Requisitavel, Identificav
 		setNivelDado(4);
 	}
 
+	@Override
 	public Atributo setNivelDado(int nivel) throws IllegalArgumentException {
 		if ((nivel % 2) == 0 && nivel >= 4)
 			if (nivel <= 12)
@@ -53,6 +54,20 @@ public class Atributo extends NonStaticEnum implements Requisitavel, Identificav
 			throw new IllegalArgumentException("\"nivel\" deve ser par e maior ou igual a 4");
 
 		return this;
+	}
+
+	@Override
+	public Atributo addNivelDado(int pontos) {
+		if (pontos > 0)
+			if (nivelDado + (pontos * 2) <= 12)
+				nivelDado += (pontos * 2);
+			else {
+				var temp = nivelDado + (pontos * 2);
+				nivelDado = 12;
+				nivelDado += (temp - nivelDado) / 2;
+			}
+
+			return this;
 	}
 
 	public void setModificadorDado(int modificador) {
@@ -98,7 +113,18 @@ public class Atributo extends NonStaticEnum implements Requisitavel, Identificav
 		return false;
 	}
 
+	@Override
 	public String toString() {
 		return id.toString();
+	}
+
+	@Override
+	public Atributo clone() {
+		return (Atributo) super.clone();
+	}
+
+	@Override
+	public Atributo get() {
+		return this.clone();
 	}
 }

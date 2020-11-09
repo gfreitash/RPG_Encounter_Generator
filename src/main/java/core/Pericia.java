@@ -1,12 +1,12 @@
 package core;
 
 
-import utils.NonStaticEnum;
+import utils.CopiableEnum;
 import utils.Utils;
 
 import java.util.List;
 
-public class Pericia extends NonStaticEnum implements Requisitavel, Identificavel, PossuiDado {
+public class Pericia extends CopiableEnum implements Requisitavel, Identificavel, PossuiDado {
 
 	public static Pericia CONHECIMENTO_DEMOLICAO = new Pericia("Conhecimento (Demolição)",
 			"Uso bem sucedido de " +
@@ -342,7 +342,7 @@ public class Pericia extends NonStaticEnum implements Requisitavel, Identificave
 	private final Identidade id;
 	private final Atributo tipoAtributo;
 	private final Jogo jogo;
-	private int nivelPericia;
+	private int nivelDado;
 	private int modNivelPericia;
 	private String especializacao = "";
 
@@ -352,7 +352,7 @@ public class Pericia extends NonStaticEnum implements Requisitavel, Identificave
 		id = new Identidade(nome, descricao);
 		this.tipoAtributo = tipoAtributo;
 		this.jogo = jogo;
-		nivelPericia = 4;
+		nivelDado = 4;
 	}
 	Pericia(String nome, String descricao, Atributo tipoAtributo, Jogo jogo, String especializacao) {
 		super(nome, Pericia.class);
@@ -360,7 +360,7 @@ public class Pericia extends NonStaticEnum implements Requisitavel, Identificave
 		this.tipoAtributo = tipoAtributo;
 		this.especializacao = especializacao;
 		this.jogo = jogo;
-		nivelPericia = 4;
+		nivelDado = 4;
 	}
 
 	public Identidade getId() {
@@ -376,7 +376,7 @@ public class Pericia extends NonStaticEnum implements Requisitavel, Identificave
 	}
 
 	public int getNivelDado() {
-		return nivelPericia;
+		return nivelDado;
 	}
 
 	public int getModNivelPericia() {
@@ -418,12 +418,13 @@ public class Pericia extends NonStaticEnum implements Requisitavel, Identificave
 	}
 
 	public Pericia setNivelDado(int nivel) throws IllegalArgumentException {
+		Pericia pericia = this.clone();
 		if ((nivel % 2) == 0 && nivel >= 4)
 			if (nivel <= 12)
-				nivelPericia = nivel;
+				nivelDado = nivel;
 			else {
-				nivelPericia = 12;
-				modNivelPericia = (nivel - nivelPericia) / 2;
+				nivelDado = 12;
+				modNivelPericia = (nivel - nivelDado) / 2;
 			}
 		else
 			throw new IllegalArgumentException("\"nivel\" deve ser par e maior ou igual a 4");
@@ -431,17 +432,19 @@ public class Pericia extends NonStaticEnum implements Requisitavel, Identificave
 		return this;
 	}
 
-	public void addNivelDado(int pontos) throws IllegalArgumentException {
+	@Override
+	public Pericia addNivelDado(int pontos) throws IllegalArgumentException {
 		if (pontos > 0)
-			if (nivelPericia + (pontos * 2) <= 12)
-				nivelPericia += (pontos * 2);
+			if (nivelDado + (pontos * 2) <= 12)
+				nivelDado += (pontos * 2);
 			else {
-				var temp = nivelPericia + (pontos * 2);
-				nivelPericia = 12;
-				modNivelPericia += (temp - nivelPericia) / 2;
+				var temp = nivelDado + (pontos * 2);
+				nivelDado = 12;
+				modNivelPericia += (temp - nivelDado) / 2;
 			}
+			return this;
 	}
-
+	@Override
 	public String toString() {
 		return id.toString();
 	}
@@ -462,6 +465,11 @@ public class Pericia extends NonStaticEnum implements Requisitavel, Identificave
 	@Override
 	public Pericia clone() {
 		return (Pericia) super.clone();
+	}
+
+	@Override
+	public Pericia get() {
+		return this.clone();
 	}
 
 }

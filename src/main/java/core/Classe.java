@@ -2,6 +2,10 @@ package core;
 
 import utils.Utils;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public enum Classe {
 	FRANCO_ATIRADOR(
 			new Preferencia<Atributo>()	.adicionar(Atributo.AGILIDADE, Atributo.getSize(Atributo.class))
@@ -17,7 +21,8 @@ public enum Classe {
 										.adicionar(Pericia.PERCEBER, Pericia.getSize(Pericia.class) - 3)
 										.adicionar(Pericia.RASTREAR, Pericia.getSize(Pericia.class) - 4)
 										.adicionar(Pericia.LUTAR, Pericia.getSize(Pericia.class) - 5)
-										//.adicionar(NonStaticEnum.values(Pericia.class), Pericia.size() - 6)
+										.adicionar(Pericia.values(Pericia.class),
+												Pericia.getSize(Pericia.class) - 6)
 			,
 
 			new Preferencia<Vantagem>() .adicionar(Vantagem.values(), Utils.enumLength(Vantagem.class)),
@@ -32,38 +37,15 @@ public enum Classe {
 			new Preferencia<Complicacao>()	.adicionar(Complicacao.values(), Utils.enumLength(Complicacao.class))
 	);
 
-	private Preferencia<Atributo> atributoPreferencia;
-	private Preferencia<Pericia> periciaPreferencia;
-	private Preferencia<Vantagem> vantagemPreferencia;
-	private Preferencia<TipoRaca> racaPreferencia;
-	private Preferencia<Complicacao> complicacaoPreferencia;
+	private final ArrayList<Preferencia<?>> preferencias;
 
-	Classe(Preferencia<Atributo> atributo, Preferencia<Pericia> pericia, Preferencia<Vantagem> vantagem,
-		   Preferencia<TipoRaca> raca, Preferencia<Complicacao> complicacao) {
-		atributoPreferencia = atributo;
-		periciaPreferencia = pericia;
-		vantagemPreferencia = vantagem;
-		racaPreferencia = raca;
-		complicacaoPreferencia = complicacao;
+	Classe(Preferencia<?> ... preferencias){
+		this.preferencias = new ArrayList<>();
+		Collections.addAll(this.preferencias, preferencias);
 	}
 
-	public Preferencia<Atributo> getAtributoPreferencia() {
-		return atributoPreferencia;
+	public List<Preferencia<?>> getPreferencias() {
+		return preferencias;
 	}
 
-	public Preferencia<Pericia> getPericiaPreferencia() {
-		return periciaPreferencia;
-	}
-
-	public Preferencia<Vantagem> getVantagemPreferencia() {
-		return vantagemPreferencia;
-	}
-
-	public Preferencia<TipoRaca> getRacaPreferencia() {
-		return racaPreferencia;
-	}
-
-	public Preferencia<Complicacao> getComplicacaoPreferencia() {
-		return complicacaoPreferencia;
-	}
 }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Requisito implements Checavel {
+public class Requisito implements Requisitavel {
 	private final List<Requisitavel> requisitos;
 
 	public Requisito(Requisitavel ... requisitos) {

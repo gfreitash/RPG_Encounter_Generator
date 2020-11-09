@@ -14,23 +14,21 @@ import java.util.List;
  * however it gives copies of the items instead of references
  * and are way less powerful.
  *
- * It's recommended that all of subclasses overwrite the methods
- * to have the subclass class return type.
  */
-public abstract class NonStaticEnum implements Cloneable{
+public abstract class CopiableEnum implements Cloneable{
     private final String nome;
     private final int ordinal;
     private static int[] size;
-    private static NonStaticEnum[][] values;
-    private static final List<Class<NonStaticEnum>> classes = new ArrayList<>();
-    private static final Logger logger = LogManager.getLogger(NonStaticEnum.class);
+    private static CopiableEnum[][] values;
+    private static final List<Class<CopiableEnum>> classes = new ArrayList<>();
+    private static final Logger logger = LogManager.getLogger(CopiableEnum.class);
 
     /**
      * Add the subclass static variable to the 'values' array
      * @param nome the name of static variable
      * @param classe the class of the static variable(must extend NonStaticEnum)
      */
-    protected <E extends NonStaticEnum> NonStaticEnum(String nome, Class<E> classe) {
+    protected <E extends CopiableEnum> CopiableEnum(String nome, Class<E> classe) {
         logger.debug("Constructing a new NonStaticEnum");
         logger.trace("Constructor parameters - String nome: " + nome + ", " +
                 "Class<E> classe: " + classe);
@@ -53,7 +51,7 @@ public abstract class NonStaticEnum implements Cloneable{
                 logger.debug("'classes' doesn't contais  'classe'");
                 logger.trace("Adding 'classe' to the end of the list");
 
-                classes.add((Class<NonStaticEnum>) classe);
+                classes.add((Class<CopiableEnum>) classe);
                 logger.warn("Unchecked cast '(Class<NonStaticEnum>) classe'");
                 logger.trace("'classe' added to the end of the list");
 
@@ -63,8 +61,8 @@ public abstract class NonStaticEnum implements Cloneable{
 
                 logger.trace("Creating a bigger array of 'values' and copying the old one, " +
                         "to make room for the new type of class added");
-                NonStaticEnum[][] nse = values;
-                values = new NonStaticEnum[nse.length+1][];
+                CopiableEnum[][] nse = values;
+                values = new CopiableEnum[nse.length+1][];
 
                 for(int i = 0; i <= nse.length; i++) {
                     logger.trace("i: " + i + ", 'nse.length': " + nse.length);
@@ -72,7 +70,7 @@ public abstract class NonStaticEnum implements Cloneable{
                             "creating a new one if none existed before");
 
                     try {
-                        values[i] = new NonStaticEnum[nse[i].length];
+                        values[i] = new CopiableEnum[nse[i].length];
                         logger.trace("Values existed");
 
                         logger.trace("Copying the array of index " + i +
@@ -82,7 +80,7 @@ public abstract class NonStaticEnum implements Cloneable{
                         System.arraycopy(nse[i], 0, values[i], 0, nse[i].length);
                     } catch (ArrayIndexOutOfBoundsException e){
                         logger.trace("None values existed");
-                        values[i] = new NonStaticEnum[1];
+                        values[i] = new CopiableEnum[1];
                     }
                 }
                 logger.trace("expanding 'size' array to match the new " +
@@ -96,14 +94,14 @@ public abstract class NonStaticEnum implements Cloneable{
         } else {
             logger.debug("'classes' does not have elements");
             logger.trace("Adding 'classe' to the end of the list");
-            classes.add((Class<NonStaticEnum>) classe);
+            classes.add((Class<CopiableEnum>) classe);
             logger.warn("Unchecked cast '(Class<NonStaticEnum>) classe'");
 
             logger.trace("Creating a basic implementation of 'classe'");
             index = 0;
             logger.trace("The class index of where the new static " +
                     "variable will be stored is: " + index);
-            values = new NonStaticEnum[1][1];
+            values = new CopiableEnum[1][1];
             size = new int[1];
         }
 
@@ -112,8 +110,8 @@ public abstract class NonStaticEnum implements Cloneable{
             logger.debug("'values[index][]' has elements");
 
             logger.trace("Expanding the old array to make space for the new static variable");
-            NonStaticEnum[] temp = values[index];
-            values[index] = new NonStaticEnum[++size[index]];
+            CopiableEnum[] temp = values[index];
+            values[index] = new CopiableEnum[++size[index]];
             System.arraycopy(temp, 0, values[index], 0, temp.length);
         } else {
             logger.debug("'values[index][]' does not has elements");
@@ -140,7 +138,7 @@ public abstract class NonStaticEnum implements Cloneable{
         return ordinal;
     }
 
-    private static <E extends NonStaticEnum> int findClass(Class<E> classe) {
+    private static <E extends CopiableEnum> int findClass(Class<E> classe) {
         logger.trace("classes contém "+ classe +"?");
         if(classes.contains(classe)) {
             System.out.println("sim");
@@ -161,11 +159,11 @@ public abstract class NonStaticEnum implements Cloneable{
      * @param str the name of static variable
      * @return n.clone()
      */
-    public static <E extends NonStaticEnum> NonStaticEnum valueOf(String str, Class<E> classe) {
+    public static <E extends CopiableEnum> CopiableEnum valueOf(String str, Class<E> classe) {
         int index = findClass(classe);
 
         if(index != -1) {
-            for (NonStaticEnum n : values[index]) {
+            for (CopiableEnum n : values[index]) {
                 if (n.nome.equals(Utils.normalizar(str).toUpperCase()))
                     return n.clone();
             }
@@ -180,21 +178,21 @@ public abstract class NonStaticEnum implements Cloneable{
      * to return the appropriate type.
      * @return values[] clone
      */
-    public static NonStaticEnum[][] values() {
-        NonStaticEnum[][] nonStaticEnums = new NonStaticEnum[values.length][];
-        for(int i = 0; i < nonStaticEnums.length;i++) {
-            nonStaticEnums[i] = values[i].clone();
+    public static CopiableEnum[][] values() {
+        CopiableEnum[][] copiableEnums = new CopiableEnum[values.length][];
+        for(int i = 0; i < copiableEnums.length; i++) {
+            copiableEnums[i] = values[i].clone();
         }
-        return nonStaticEnums;
+        return copiableEnums;
     }
 
-    public static <E extends NonStaticEnum> E[] values(Class<E> classe) {
+    public static <E extends CopiableEnum> E[] values(Class<E> classe) {
         E[] es = (E[]) Array.newInstance(classe, getSize(classe));
         int index = findClass(classe);
         System.out.println("Array type: " + es.getClass() + "Array size: " + es.length);
 
         if(index != -1) {
-            for (NonStaticEnum n : values()[index])
+            for (CopiableEnum n : values()[index])
                 es[n.ordinal] = (E) n;
             return es;
         }
@@ -212,11 +210,11 @@ public abstract class NonStaticEnum implements Cloneable{
     }
 
     /**
-     * This just method how many static variables
+     * This method returns how many static variables
      * this class type have.
      * @return size
      */
-    public static <E extends NonStaticEnum> int getSize(Class<E> classe) {
+    public static <E extends CopiableEnum> int getSize(Class<E> classe) {
         int index = findClass(classe);
         if(index != -1)
             return size[index];
@@ -230,7 +228,7 @@ public abstract class NonStaticEnum implements Cloneable{
      * overwritten by the subclass to return the appropriate type.
      * @return a new copy of a static variable
      */
-    public NonStaticEnum clone() {
+    public CopiableEnum clone() {
         Cloner cloner = new Cloner();
         return cloner.deepClone(this);
     }
@@ -238,4 +236,11 @@ public abstract class NonStaticEnum implements Cloneable{
     public String nome() {
         return nome;
     }
+
+    /**
+     * This method should return a copy of the
+     * object that it was called
+     * @return
+     */
+    public abstract CopiableEnum get();
 }
